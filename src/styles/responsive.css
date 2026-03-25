@@ -62,6 +62,39 @@
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 
+  /* Content section */
+  .content-section {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  /* Card grid to 2 columns */
+  .card-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Dashboard grids */
+  .dashboard__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard__progress-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard__actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Topic grid */
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Expression grid */
+  .expression-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* Reduce section padding */
   .curriculum-section {
     padding: var(--space-16) var(--space-6);
@@ -209,6 +242,78 @@
   /* Dashboard grid single column */
   .dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Dashboard stats */
+  .dashboard__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard__progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .dashboard__welcome {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  /* Card grid responsive */
+  .card-grid--2,
+  .card-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Topic grid single column */
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Expression grid single column */
+  .expression-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Settings responsive */
+  .settings {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .settings__options {
+    flex-direction: column;
+  }
+
+  .settings__input-group {
+    flex-direction: column;
+  }
+
+  .settings__actions {
+    flex-direction: column;
+  }
+
+  .settings__actions .btn,
+  .settings__actions .btn--danger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Lesson nav responsive */
+  .lesson-nav {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .lesson-nav .btn-primary,
+  .lesson-nav .btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Section nav horizontal scroll */
@@ -469,9 +574,63 @@
     padding: var(--space-5);
   }
 
+  /* Dashboard stats 2 col on mobile */
+  .dashboard__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .stat-card {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .stat-card__value {
+    font-size: var(--font-size-2xl);
+  }
+
+  .progress-card {
+    padding: var(--space-4);
+  }
+
+  .action-card {
+    padding: var(--space-4) var(--space-3);
+  }
+
   /* Settings section */
   .settings-section {
     padding: var(--space-5);
+  }
+
+  .settings__section {
+    padding: var(--space-4);
+  }
+
+  /* Expression table scroll */
+  .example-box {
+    padding: var(--space-3);
+  }
+
+  .expression-table {
+    font-size: var(--font-size-xs);
+  }
+
+  .expression-table th,
+  .expression-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Topic card */
+  .topic-card {
+    padding: var(--space-4);
+  }
+
+  /* Content section */
+  .content-section {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .content-section__title {
+    font-size: var(--font-size-xl);
   }
 
   /* Not found page */

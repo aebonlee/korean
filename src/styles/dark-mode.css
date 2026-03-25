@@ -668,22 +668,46 @@
 }
 
 /* --- Dark Mode: Dashboard --- */
-[data-theme="dark"] .dashboard-section {
+[data-theme="dark"] .dashboard-section,
+[data-theme="dark"] .dashboard__activity,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .progress-card,
+[data-theme="dark"] .action-card {
   background: #1F2937;
   border-color: #374151;
 }
 
-[data-theme="dark"] .dashboard-card {
+[data-theme="dark"] .dashboard-card,
+[data-theme="dark"] .stat-card:hover,
+[data-theme="dark"] .progress-card:hover,
+[data-theme="dark"] .action-card:hover {
   background: #111827;
-  border-color: #374151;
+  border-color: var(--primary-light);
 }
 
 [data-theme="dark"] .dashboard-card:hover {
   border-color: var(--primary-light);
 }
 
+[data-theme="dark"] .dashboard__welcome {
+  background: var(--gradient-primary);
+}
+
+[data-theme="dark"] .activity-list__item {
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .activity-list__item:hover {
+  background: #111827;
+}
+
+[data-theme="dark"] .progress-card__bar-container {
+  background: #374151;
+}
+
 /* --- Dark Mode: Settings --- */
-[data-theme="dark"] .settings-section {
+[data-theme="dark"] .settings-section,
+[data-theme="dark"] .settings__section {
   background: #1F2937;
   border-color: #374151;
 }
@@ -691,6 +715,120 @@
 [data-theme="dark"] .settings-card {
   background: #111827;
   border-color: #374151;
+}
+
+[data-theme="dark"] .settings__status {
+  background: #111827;
+}
+
+[data-theme="dark"] .settings__input {
+  background: #111827;
+  border-color: #374151;
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .settings__input:focus {
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .settings__toggle-btn {
+  background: #374151;
+  border-color: #4B5563;
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .settings__toggle-btn:hover {
+  color: #F9FAFB;
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .settings__option {
+  background: #111827;
+  border-color: #374151;
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .settings__option:hover {
+  border-color: #4B5563;
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .settings__option--active {
+  border-color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary-light);
+}
+
+/* --- Dark Mode: Topic Card --- */
+[data-theme="dark"] .topic-card {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .topic-card:hover {
+  border-color: var(--primary-light);
+  background: #111827;
+}
+
+/* --- Dark Mode: Expression/Dialogue Cards --- */
+[data-theme="dark"] .expression-card,
+[data-theme="dark"] .dialogue-card {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .expression-card:hover,
+[data-theme="dark"] .dialogue-card:hover {
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .example-box {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .expression-table thead th {
+  background: #374151;
+  color: #F9FAFB;
+  border-color: #4B5563;
+}
+
+[data-theme="dark"] .expression-table tbody td {
+  border-color: #374151;
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .expression-table tbody tr:hover td {
+  background: rgba(var(--primary-rgb), 0.08);
+}
+
+/* --- Dark Mode: Practice/Lesson Nav --- */
+[data-theme="dark"] .practice-answer {
+  background: rgba(var(--primary-rgb), 0.12);
+  border-left-color: var(--primary-light);
+}
+
+[data-theme="dark"] .lesson-nav .btn-secondary {
+  background: #374151;
+  border-color: #4B5563;
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .lesson-nav .btn-secondary:hover {
+  background: #4B5563;
+  color: #F9FAFB;
+}
+
+/* --- Dark Mode: TTS Button --- */
+[data-theme="dark"] .tts-btn {
+  background: #1F2937;
+  border-color: #374151;
+  color: var(--primary-light);
+}
+
+[data-theme="dark"] .tts-btn:hover {
+  background: #374151;
+  border-color: var(--primary-light);
 }
 
 /* --- Dark Mode: User Menu --- */
