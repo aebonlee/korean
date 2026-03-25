@@ -507,6 +507,24 @@
   background: #374151;
 }
 
+[data-theme="dark"] .vocab-pagination__btn {
+  background: #1F2937;
+  border-color: #374151;
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .vocab-pagination__btn:hover {
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+}
+
+[data-theme="dark"] .vocab-pagination__btn--active {
+  background: var(--primary);
+  color: #F9FAFB;
+  border-color: var(--primary);
+}
+
 [data-theme="dark"] .flashcard-controls button {
   background: #374151;
   color: #D1D5DB;
@@ -829,6 +847,20 @@
 [data-theme="dark"] .tts-btn:hover {
   background: #374151;
   border-color: var(--primary-light);
+}
+
+/* --- Dark Mode: TTS Play Button (auto-injected) --- */
+[data-theme="dark"] .tts-play-btn {
+  background: #1F2937;
+  border-color: #374151;
+  color: #93C5FD;
+}
+
+[data-theme="dark"] .tts-play-btn:hover,
+[data-theme="dark"] .tts-play-btn--active {
+  background: var(--primary);
+  color: #F9FAFB;
+  border-color: var(--primary);
 }
 
 /* --- Dark Mode: User Menu --- */

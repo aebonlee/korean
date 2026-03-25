@@ -4,10 +4,10 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 const categories = [
-  { title: '기초 필수 500', titleEn: 'Basic 500', desc: '한국어 학습의 기본이 되는 필수 단어 500개.', descEn: '500 essential words for Korean basics.', path: '/vocabulary/basic', icon: 'fa-solid fa-seedling', color: '#4A90D9' },
-  { title: '일상 필수 500', titleEn: 'Daily 500', desc: '일상생활에서 매일 사용하는 실용적인 단어 500개.', descEn: '500 practical words for daily life.', path: '/vocabulary/daily', icon: 'fa-solid fa-house', color: '#27AE60' },
-  { title: '비즈니스 500', titleEn: 'Business 500', desc: '직장 생활과 비즈니스 환경의 전문 어휘 500개.', descEn: '500 professional words for the workplace.', path: '/vocabulary/business', icon: 'fa-solid fa-briefcase', color: '#E67E22' },
-  { title: 'TOPIK 800', titleEn: 'TOPIK 800', desc: 'TOPIK 시험에 자주 출제되는 핵심 어휘 800개.', descEn: '800 key words frequently tested on TOPIK.', path: '/vocabulary/topik', icon: 'fa-solid fa-graduation-cap', color: '#8E44AD' },
+  { title: '기초 필수 200', titleEn: 'Basic 200', desc: '한국어 학습의 기본이 되는 필수 단어 200개.', descEn: '200 essential words for Korean basics.', path: '/vocabulary/basic', icon: 'fa-solid fa-seedling', color: '#4A90D9' },
+  { title: '일상 필수 200', titleEn: 'Daily 200', desc: '일상생활에서 매일 사용하는 실용적인 단어 200개.', descEn: '200 practical words for daily life.', path: '/vocabulary/daily', icon: 'fa-solid fa-house', color: '#27AE60' },
+  { title: '비즈니스 200', titleEn: 'Business 200', desc: '직장 생활과 비즈니스 환경의 전문 어휘 200개.', descEn: '200 professional words for the workplace.', path: '/vocabulary/business', icon: 'fa-solid fa-briefcase', color: '#E67E22' },
+  { title: 'TOPIK 200', titleEn: 'TOPIK 200', desc: 'TOPIK 시험에 자주 출제되는 핵심 어휘 200개.', descEn: '200 key words frequently tested on TOPIK.', path: '/vocabulary/topik', icon: 'fa-solid fa-graduation-cap', color: '#8E44AD' },
 ];
 
 export default function VocabHome() {
@@ -16,7 +16,7 @@ export default function VocabHome() {
 
   return (
     <>
-      <SEOHead title={t('필수 한국어 어휘 - Korean Pro', 'Essential Korean Vocabulary - Korean Pro')} description={t('기초, 일상, 비즈니스, TOPIK 필수 한국어 어휘 2,300+개를 학습하세요.', 'Study 2,300+ essential Korean vocabulary across basic, daily, business, and TOPIK categories.')} />
+      <SEOHead title={t('필수 한국어 어휘 - Korean Pro', 'Essential Korean Vocabulary - Korean Pro')} description={t('기초, 일상, 비즈니스, TOPIK 필수 한국어 어휘 800개를 학습하세요.', 'Study 800 essential Korean vocabulary across basic, daily, business, and TOPIK categories.')} />
 
       <section className="page-header" data-aos="fade-up">
         <div className="container">
@@ -25,7 +25,7 @@ export default function VocabHome() {
             <span>{t('어휘', 'Vocabulary')}</span>
           </div>
           <h1 className="page-header__title">{t('필수 한국어 어휘', 'Essential Korean Vocabulary')}</h1>
-          <p className="page-header__description">{t('총 2,300+개의 필수 한국어 어휘를 카테고리별로 학습하세요.', 'Study 2,300+ essential Korean words organized by category.')}</p>
+          <p className="page-header__description">{t('총 800개의 필수 한국어 어휘를 카테고리별로 학습하세요.', 'Study 800 essential Korean words organized by category.')}</p>
         </div>
       </section>
 
@@ -51,7 +51,7 @@ export default function VocabHome() {
             <ul>
               <li>{t('하루에 10-20개씩 꾸준히 외우세요.', 'Memorize 10-20 words consistently every day.')}</li>
               <li>{t('단어만 외우지 말고 예문과 함께 학습하세요.', 'Study words with example sentences, not just isolated words.')}</li>
-              <li>{t('카드를 클릭하면 뜻을 확인할 수 있습니다.', 'Click cards to reveal meanings.')}</li>
+              <li>{t('스피커 버튼을 클릭하면 한국어 발음을 들을 수 있습니다.', 'Click the speaker button to hear Korean pronunciation.')}</li>
             </ul>
           </div>
         </div>

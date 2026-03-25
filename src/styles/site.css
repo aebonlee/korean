@@ -1499,49 +1499,78 @@
 }
 
 /* ============================================
-   Global TTS Click Indicator
+   Global TTS Speaker Button (auto-injected)
    ============================================ */
 
-/* Korean text that can be clicked for TTS */
-.expression-table td,
-.expression-card__korean,
-.dialogue-line__korean,
-.dialogue p,
-.hangul-card__character,
-.grammar-example__korean,
-.speech-target__text,
-[data-tts] {
+/* Speaker button injected next to Korean text */
+.tts-play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-bg);
+  border: 1px solid var(--border-primary);
   cursor: pointer;
-  position: relative;
-}
-
-.expression-table td:first-child::after,
-.expression-card__korean::after,
-.dialogue-line__korean::after,
-.vocab-card__word::after {
-  content: ' 🔊';
-  font-size: 0.5em;
-  opacity: 0;
-  transition: opacity var(--transition);
+  color: var(--primary);
+  font-size: 0.75rem;
+  width: 26px;
+  height: 26px;
+  margin-left: 6px;
+  border-radius: var(--radius, 8px);
+  transition: all 0.2s;
   vertical-align: middle;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
 }
 
-.expression-table td:first-child:hover::after,
-.expression-card__korean:hover::after,
-.dialogue-line__korean:hover::after,
-.vocab-card__word:hover::after {
-  opacity: 0.5;
+.tts-play-btn:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  transform: scale(1.1);
 }
 
-/* Speaking animation */
-.tts-speaking {
-  color: var(--primary) !important;
-  transition: color 0.2s;
-}
-
-.tts-speaking::after {
-  opacity: 1 !important;
+.tts-play-btn--active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
   animation: pulse 0.8s ease-in-out infinite;
+}
+
+/* Smaller button inside expression tables */
+.expression-table .tts-play-btn {
+  width: 22px;
+  height: 22px;
+  font-size: 0.65rem;
+  margin-left: 4px;
+}
+
+/* Smaller button in dialogue lines */
+.dialogue p .tts-play-btn {
+  width: 22px;
+  height: 22px;
+  font-size: 0.65rem;
+  margin-left: 6px;
+  opacity: 0.6;
+}
+
+.dialogue p .tts-play-btn:hover {
+  opacity: 1;
+}
+
+/* Vocab card speaker button */
+.vocab-card__word .tts-play-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 0.8rem;
+}
+
+/* data-tts inline speaker */
+[data-tts] .tts-play-btn {
+  width: 20px;
+  height: 20px;
+  font-size: 0.6rem;
+  margin-left: 4px;
 }
 
 /* ============================================
@@ -1603,6 +1632,72 @@
   color: var(--text-tertiary);
   font-style: italic;
   margin-top: var(--space-1);
+}
+
+/* --- Vocabulary Pagination --- */
+.vocab-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: var(--space-8) 0 var(--space-4);
+  flex-wrap: wrap;
+}
+
+.vocab-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.vocab-pagination__btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.vocab-pagination__btn--active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  font-weight: 700;
+}
+
+.vocab-pagination__btn--active:hover {
+  background: var(--primary-dark);
+  color: #FFFFFF;
+}
+
+.vocab-pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.vocab-pagination__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.vocab-pagination__info strong {
+  color: var(--primary);
+  font-weight: 700;
 }
 
 /* ============================================

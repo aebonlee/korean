@@ -1,54 +1,55 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import BUSINESS_WORDS from '../../data/vocabBusinessData';
 
-const WORDS = [
-  { ko: '회의', en: 'meeting', rom: 'hoeui', ex: '오후에 회의가 있어요.', exEn: 'There is a meeting in the afternoon.' },
-  { ko: '보고서', en: 'report', rom: 'bogoseo', ex: '보고서를 작성해 주세요.', exEn: 'Please write the report.' },
-  { ko: '출장', en: 'business trip', rom: 'chuljang', ex: '다음 주에 출장을 가요.', exEn: "I'm going on a business trip next week." },
-  { ko: '계약', en: 'contract', rom: 'gyeyak', ex: '계약서에 서명해 주세요.', exEn: 'Please sign the contract.' },
-  { ko: '마감', en: 'deadline', rom: 'magam', ex: '마감이 내일이에요.', exEn: 'The deadline is tomorrow.' },
-  { ko: '급여', en: 'salary', rom: 'geupyeo', ex: '급여가 올랐어요.', exEn: 'My salary increased.' },
-  { ko: '면접', en: 'interview', rom: 'myeonjeop', ex: '면접을 잘 봤어요.', exEn: 'The interview went well.' },
-  { ko: '프로젝트', en: 'project', rom: 'peurojekteu', ex: '새 프로젝트를 시작했어요.', exEn: 'We started a new project.' },
-  { ko: '거래처', en: 'client/partner', rom: 'georaecheo', ex: '거래처와 미팅이 있어요.', exEn: 'I have a meeting with a client.' },
-  { ko: '이메일', en: 'email', rom: 'imeil', ex: '이메일을 확인해 주세요.', exEn: 'Please check the email.' },
-  { ko: '발표', en: 'presentation', rom: 'balpyo', ex: '발표 준비를 해야 해요.', exEn: 'I need to prepare for the presentation.' },
-  { ko: '부서', en: 'department', rom: 'buseo', ex: '어느 부서에서 일해요?', exEn: 'Which department do you work in?' },
-  { ko: '승진', en: 'promotion', rom: 'seungjin', ex: '승진을 축하합니다!', exEn: 'Congratulations on your promotion!' },
-  { ko: '야근', en: 'overtime', rom: 'yageun', ex: '오늘 야근해야 해요.', exEn: 'I have to work overtime today.' },
-  { ko: '퇴근', en: 'leaving work', rom: 'toegeun', ex: '몇 시에 퇴근해요?', exEn: 'What time do you leave work?' },
-];
+const PER_PAGE = 30;
 
 export default function VocabBusiness() {
   const { t } = useLanguage();
   useAOS();
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(BUSINESS_WORDS.length / PER_PAGE);
+  const start = (page - 1) * PER_PAGE;
+  const currentWords = BUSINESS_WORDS.slice(start, start + PER_PAGE);
+
+  const goTo = (p) => {
+    setPage(p);
+    window.scrollTo({ top: 320, behavior: 'smooth' });
+  };
 
   return (
     <>
-      <SEOHead title={t('비즈니스 500 - Korean Pro', 'Business 500 - Korean Pro')} description={t('비즈니스 한국어 어휘 500개를 학습하세요.', 'Study 500 business Korean vocabulary words.')} />
+      <SEOHead title={t('비즈니스 어휘 - Korean Pro', 'Business Vocabulary - Korean Pro')} description={t(`비즈니스 한국어 어휘 ${BUSINESS_WORDS.length}개를 학습하세요.`, `Study ${BUSINESS_WORDS.length} business Korean vocabulary words.`)} />
       <section className="page-header" data-aos="fade-up">
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('홈', 'Home')}</Link><i className="fas fa-chevron-right"></i>
             <Link to="/vocabulary">{t('어휘', 'Vocabulary')}</Link><i className="fas fa-chevron-right"></i>
-            <span>{t('비즈니스 500', 'Business 500')}</span>
+            <span>{t('비즈니스', 'Business')}</span>
           </div>
-          <h1 className="page-header__title">{t('비즈니스 필수 단어 500', 'Business Essential 500')}</h1>
+          <h1 className="page-header__title">{t(`비즈니스 필수 단어 ${BUSINESS_WORDS.length}`, `Business Essential ${BUSINESS_WORDS.length}`)}</h1>
           <p className="page-header__description">
             {t('직장 생활과 비즈니스 환경에서 필요한 전문 어휘를 학습하세요.', 'Study professional vocabulary for the workplace and business environment.')}
             <br />
-            {t('한국어를 클릭하면 발음을 들을 수 있습니다.', 'Click Korean text to hear pronunciation.')}
+            {t('스피커 버튼을 클릭하면 한국어 발음을 들을 수 있습니다.', 'Click the speaker button to hear Korean pronunciation.')}
           </p>
         </div>
       </section>
 
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
+          <div className="vocab-pagination__info">
+            <span>{t(`총 ${BUSINESS_WORDS.length}개`, `Total ${BUSINESS_WORDS.length} words`)} &middot; {t(`페이지 ${page} / ${totalPages}`, `Page ${page} / ${totalPages}`)}</span>
+            <span>{t(`${start + 1} - ${Math.min(start + PER_PAGE, BUSINESS_WORDS.length)}번`, `#${start + 1} - ${Math.min(start + PER_PAGE, BUSINESS_WORDS.length)}`)}</span>
+          </div>
+
           <div className="vocab-grid">
-            {WORDS.map((w, i) => (
-              <div key={i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 50, 300)}>
+            {currentWords.map((w, i) => (
+              <div key={start + i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 30, 200)}>
                 <div className="vocab-card__word" data-tts={w.ko}>{w.ko}</div>
                 <div className="vocab-card__romanization">{w.rom}</div>
                 <div className="vocab-card__meaning">{w.en}</div>
@@ -59,14 +60,32 @@ export default function VocabBusiness() {
               </div>
             ))}
           </div>
+
+          <div className="vocab-pagination">
+            <button className="vocab-pagination__btn" onClick={() => goTo(page - 1)} disabled={page === 1}>
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+              <button
+                key={p}
+                className={`vocab-pagination__btn${p === page ? ' vocab-pagination__btn--active' : ''}`}
+                onClick={() => goTo(p)}
+              >
+                {p}
+              </button>
+            ))}
+            <button className="vocab-pagination__btn" onClick={() => goTo(page + 1)} disabled={page === totalPages}>
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </section>
 
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="lesson-nav">
-            <Link to="/vocabulary/daily" className="btn btn-secondary">{t('← 이전: 일상 500', '← Previous: Daily 500')}</Link>
-            <Link to="/vocabulary/topik" className="btn btn-primary">{t('다음: TOPIK 800 →', 'Next: TOPIK 800 →')}</Link>
+            <Link to="/vocabulary/daily" className="btn btn-secondary">{t('← 이전: 일상 필수', '← Previous: Daily Essential')}</Link>
+            <Link to="/vocabulary/topik" className="btn btn-primary">{t('다음: TOPIK 어휘 →', 'Next: TOPIK Vocabulary →')}</Link>
           </div>
         </div>
       </section>

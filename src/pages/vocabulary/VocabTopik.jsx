@@ -1,54 +1,55 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import TOPIK_WORDS from '../../data/vocabTopikData';
 
-const WORDS = [
-  { ko: '경험', en: 'experience', rom: 'gyeongheom', ex: '좋은 경험이었어요.', exEn: 'It was a good experience.' },
-  { ko: '환경', en: 'environment', rom: 'hwangyeong', ex: '환경을 보호해야 해요.', exEn: 'We must protect the environment.' },
-  { ko: '전통', en: 'tradition', rom: 'jeontong', ex: '한국의 전통 문화가 좋아요.', exEn: 'I like Korean traditional culture.' },
-  { ko: '발전', en: 'development', rom: 'baljeon', ex: '기술이 빠르게 발전하고 있어요.', exEn: 'Technology is developing rapidly.' },
-  { ko: '사회', en: 'society', rom: 'sahoe', ex: '사회 문제에 관심이 있어요.', exEn: "I'm interested in social issues." },
-  { ko: '경제', en: 'economy', rom: 'gyeongje', ex: '경제가 좋아지고 있어요.', exEn: 'The economy is improving.' },
-  { ko: '문화', en: 'culture', rom: 'munhwa', ex: '한국 문화를 배우고 싶어요.', exEn: 'I want to learn Korean culture.' },
-  { ko: '교육', en: 'education', rom: 'gyoyuk', ex: '교육이 중요해요.', exEn: 'Education is important.' },
-  { ko: '관계', en: 'relationship', rom: 'gwangye', ex: '좋은 관계를 유지하고 싶어요.', exEn: 'I want to maintain good relationships.' },
-  { ko: '의견', en: 'opinion', rom: 'uigyeon', ex: '당신의 의견을 말해 주세요.', exEn: 'Please share your opinion.' },
-  { ko: '결과', en: 'result', rom: 'gyeolgwa', ex: '시험 결과가 나왔어요.', exEn: 'The exam results are out.' },
-  { ko: '원인', en: 'cause', rom: 'wonin', ex: '사고의 원인을 조사하고 있어요.', exEn: 'They are investigating the cause of the accident.' },
-  { ko: '해결', en: 'solution', rom: 'haegyeol', ex: '문제를 해결해야 해요.', exEn: 'We need to solve the problem.' },
-  { ko: '참여', en: 'participation', rom: 'chamyeo', ex: '행사에 참여하고 싶어요.', exEn: 'I want to participate in the event.' },
-  { ko: '성공', en: 'success', rom: 'seonggong', ex: '성공을 축하합니다.', exEn: 'Congratulations on your success.' },
-];
+const PER_PAGE = 30;
 
 export default function VocabTopik() {
   const { t } = useLanguage();
   useAOS();
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(TOPIK_WORDS.length / PER_PAGE);
+  const start = (page - 1) * PER_PAGE;
+  const currentWords = TOPIK_WORDS.slice(start, start + PER_PAGE);
+
+  const goTo = (p) => {
+    setPage(p);
+    window.scrollTo({ top: 320, behavior: 'smooth' });
+  };
 
   return (
     <>
-      <SEOHead title={t('TOPIK 800 - Korean Pro', 'TOPIK 800 - Korean Pro')} description={t('TOPIK 시험 필수 어휘 800개를 학습하세요.', 'Study 800 essential TOPIK vocabulary words.')} />
+      <SEOHead title={t('TOPIK 어휘 - Korean Pro', 'TOPIK Vocabulary - Korean Pro')} description={t(`TOPIK 시험 필수 어휘 ${TOPIK_WORDS.length}개를 학습하세요.`, `Study ${TOPIK_WORDS.length} essential TOPIK vocabulary words.`)} />
       <section className="page-header" data-aos="fade-up">
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('홈', 'Home')}</Link><i className="fas fa-chevron-right"></i>
             <Link to="/vocabulary">{t('어휘', 'Vocabulary')}</Link><i className="fas fa-chevron-right"></i>
-            <span>TOPIK 800</span>
+            <span>TOPIK</span>
           </div>
-          <h1 className="page-header__title">{t('TOPIK 필수 어휘 800', 'TOPIK Essential 800')}</h1>
+          <h1 className="page-header__title">{t(`TOPIK 필수 어휘 ${TOPIK_WORDS.length}`, `TOPIK Essential ${TOPIK_WORDS.length}`)}</h1>
           <p className="page-header__description">
             {t('TOPIK 시험에 자주 출제되는 핵심 어휘를 학습하세요.', 'Study key vocabulary words frequently tested on TOPIK.')}
             <br />
-            {t('한국어를 클릭하면 발음을 들을 수 있습니다.', 'Click Korean text to hear pronunciation.')}
+            {t('스피커 버튼을 클릭하면 한국어 발음을 들을 수 있습니다.', 'Click the speaker button to hear Korean pronunciation.')}
           </p>
         </div>
       </section>
 
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
+          <div className="vocab-pagination__info">
+            <span>{t(`총 ${TOPIK_WORDS.length}개`, `Total ${TOPIK_WORDS.length} words`)} &middot; {t(`페이지 ${page} / ${totalPages}`, `Page ${page} / ${totalPages}`)}</span>
+            <span>{t(`${start + 1} - ${Math.min(start + PER_PAGE, TOPIK_WORDS.length)}번`, `#${start + 1} - ${Math.min(start + PER_PAGE, TOPIK_WORDS.length)}`)}</span>
+          </div>
+
           <div className="vocab-grid">
-            {WORDS.map((w, i) => (
-              <div key={i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 50, 300)}>
+            {currentWords.map((w, i) => (
+              <div key={start + i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 30, 200)}>
                 <div className="vocab-card__word" data-tts={w.ko}>{w.ko}</div>
                 <div className="vocab-card__romanization">{w.rom}</div>
                 <div className="vocab-card__meaning">{w.en}</div>
@@ -59,13 +60,31 @@ export default function VocabTopik() {
               </div>
             ))}
           </div>
+
+          <div className="vocab-pagination">
+            <button className="vocab-pagination__btn" onClick={() => goTo(page - 1)} disabled={page === 1}>
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+              <button
+                key={p}
+                className={`vocab-pagination__btn${p === page ? ' vocab-pagination__btn--active' : ''}`}
+                onClick={() => goTo(p)}
+              >
+                {p}
+              </button>
+            ))}
+            <button className="vocab-pagination__btn" onClick={() => goTo(page + 1)} disabled={page === totalPages}>
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </section>
 
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="lesson-nav">
-            <Link to="/vocabulary/business" className="btn btn-secondary">{t('← 이전: 비즈니스 500', '← Previous: Business 500')}</Link>
+            <Link to="/vocabulary/business" className="btn btn-secondary">{t('← 이전: 비즈니스', '← Previous: Business')}</Link>
             <Link to="/writing" className="btn btn-primary">{t('다음: 작문 →', 'Next: Writing →')}</Link>
           </div>
         </div>
