@@ -2,7 +2,7 @@
 
 > **사이트**: https://korean.dreamitbiz.com
 > **저장소**: https://github.com/aebonlee/korean
-> **버전**: 1.5.0
+> **버전**: 1.6.0
 > **최종 업데이트**: 2026-03-26
 
 ---
@@ -150,9 +150,16 @@ const sections = [
 </>
 ```
 
+### 발음 연습 페이지 (SpeechPage)
+
+커스텀 사이드바 레이아웃 (PageLayout 미사용, 동일 CSS 클래스 재사용):
+- 좌측 사이드바: 카테고리별 문장 트리 메뉴 (5개 카테고리, 30문장)
+- 우측 콘텐츠: SpeechPractice 위젯 + 발음 팁 + 발음 규칙표
+- 모바일: `.speech-mobile-nav` 카테고리 칩 + 문장 칩 (가로 스크롤)
+
 ### 단독 페이지
 
-2개: AiChatPage, SpeechPage — PageLayout 미사용 (사이드바 불필요)
+1개: AiChatPage — PageLayout 미사용
 
 ---
 
@@ -253,6 +260,27 @@ const { language, t } = useLanguage();
 ---
 
 ## 변경 이력
+
+### v1.6.0 (2026-03-26) — 발음 연습 페이지 사이드바 + 가독성 개선
+
+**레이아웃:**
+- 데스크톱: 좌측 사이드바에 카테고리별 문장 트리 메뉴 (아코디언 펼침/접힘)
+- 모바일: 상단 고정 카테고리 칩 + 문장 가로 스크롤 네비게이션
+- 기존 content-layout 그리드 재사용 (사이드바 260px | 콘텐츠 1fr)
+
+**콘텐츠 확장:**
+- 5개 카테고리 (기존 4개 + 여행 회화 신규)
+- 총 30문장 (기존 16문장 → 카테고리당 6문장)
+- 각 카테고리에 FA 아이콘 + 문장 수 배지 표시
+
+**CSS:**
+- site.css: `.speech-sidebar__*`, `.speech-mobile-nav__*` 스타일 추가
+- dark-mode.css: 발음 페이지 사이드바/모바일 네비 다크모드 추가
+- responsive.css: 1024px에서 `.speech-mobile-nav` 표시 전환
+
+**변경 파일 수: 4개**
+- SpeechPage.jsx (전면 재작성)
+- site.css, dark-mode.css, responsive.css
 
 ### v1.5.0 (2026-03-26) — UI 대폭 개선
 
