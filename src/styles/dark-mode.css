@@ -1061,3 +1061,112 @@
   --primary-bg: rgba(180, 83, 9, 0.15);
   --primary-bg-strong: rgba(180, 83, 9, 0.25);
 }
+
+/* --- Dark Mode: Sidebar Navigation --- */
+[data-theme="dark"] .sidebar-nav {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .sidebar-nav__toggle {
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .sidebar-nav__toggle:hover {
+  background: #374151;
+}
+
+[data-theme="dark"] .sidebar-nav__link {
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .sidebar-nav__link:hover {
+  color: #F9FAFB;
+  background: #374151;
+}
+
+[data-theme="dark"] .sidebar-nav__link--active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+}
+
+[data-theme="dark"] .sidebar-nav__sections {
+  border-left-color: #374151;
+}
+
+[data-theme="dark"] .sidebar-nav__section-link {
+  color: #6B7280;
+}
+
+[data-theme="dark"] .sidebar-nav__section-link:hover {
+  color: #F9FAFB;
+  background: #374151;
+}
+
+[data-theme="dark"] .sidebar-nav__section-link.active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+  border-left-color: var(--primary-light);
+}
+
+[data-theme="dark"] .sidebar-nav__toc-title {
+  color: #F9FAFB;
+}
+
+/* --- Dark Mode: Content Layout --- */
+[data-theme="dark"] .page-layout {
+  background: #0D1117;
+}
+
+[data-theme="dark"] .content-main {
+  background: #111827;
+  border-color: #374151;
+}
+
+/* --- Dark Mode: Level Badges --- */
+[data-theme="dark"] .topic-card--beginner .topic-card__level {
+  background: rgba(5, 150, 105, 0.15);
+  color: #34D399;
+}
+
+[data-theme="dark"] .topic-card--intermediate .topic-card__level {
+  background: rgba(217, 119, 6, 0.15);
+  color: #FBBF24;
+}
+
+[data-theme="dark"] .topic-card--advanced .topic-card__level {
+  background: rgba(124, 58, 237, 0.15);
+  color: #A78BFA;
+}
+
+/* --- Dark Mode: SectionNav chips --- */
+[data-theme="dark"] .section-nav__item {
+  background: #1F2937;
+  border-color: #374151;
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .section-nav__item:hover {
+  color: #F9FAFB;
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .section-nav__item--active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--primary-light);
+}
+
+/* --- Dark Mode: SubNav items --- */
+[data-theme="dark"] .sub-nav__item {
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .sub-nav__item:hover {
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .sub-nav__item--active {
+  color: var(--primary-light);
+  border-bottom-color: var(--primary-light);
+}

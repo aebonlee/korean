@@ -11,7 +11,7 @@ export const COMMON_LABELS = {
   example: { ko: '예문', en: 'Example' },
   meaning: { ko: '뜻', en: 'Meaning' },
   pronunciation: { ko: '발음', en: 'Pronunciation' },
-  tip: { ko: '💡 학습 팁', en: '💡 Study Tip' },
+  tip: { ko: '학습 팁', en: 'Study Tip' },
   vocabulary: { ko: '단어', en: 'Vocabulary' },
   grammar: { ko: '문법', en: 'Grammar' },
   conversation: { ko: '회화', en: 'Conversation' },

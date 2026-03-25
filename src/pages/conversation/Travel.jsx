@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 export default function Travel() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'transportation', ko: '교통수단', en: 'Transportation' },
+    { id: 'hotel', ko: '호텔 / 숙소', en: 'Hotel / Accommodation' },
+    { id: 'asking-directions', ko: '길 찾기 대화', en: 'Asking for Directions' },
+  ];
 
   return (
     <>
@@ -22,7 +29,8 @@ export default function Travel() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="transportation" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 교통수단', '1. Transportation')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -40,7 +48,7 @@ export default function Travel() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="hotel" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 호텔 / 숙소', '2. Hotel / Accommodation')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -57,7 +65,7 @@ export default function Travel() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="asking-directions" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 길 찾기 대화', '3. Asking for Directions')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -81,6 +89,7 @@ export default function Travel() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

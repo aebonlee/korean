@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
@@ -62,6 +63,13 @@ const DRAMA_DIALOGUES = [
   },
 ];
 
+const sections = [
+  { id: 'drama-expressions', ko: '드라마 필수 표현', en: 'Essential Drama Expressions' },
+  { id: 'cultural-vocab', ko: '드라마 문화 어휘', en: 'Drama Cultural Vocabulary' },
+  { id: 'dialogue-practice', ko: '드라마 대화 연습', en: 'Drama Dialogue Practice' },
+  { id: 'study-tips', ko: '학습 팁', en: 'Study Tips' },
+];
+
 export default function KDrama() {
   const { language, t } = useLanguage();
   useAOS();
@@ -94,99 +102,101 @@ export default function KDrama() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('1. 드라마 필수 표현', '1. Essential Drama Expressions')}</h2>
-          <p>{t('이 표현들은 거의 모든 한국 드라마에서 들을 수 있습니다.', 'These expressions can be heard in almost every Korean drama.')}</p>
-          <div className="expression-grid">
-            {DRAMA_PHRASES.map((phrase, index) => (
-              <div key={index} className="expression-card" data-aos="fade-up" data-aos-delay={(index % 6) * 50}>
-                <p className="expression-card__korean" style={{ fontSize: '1.3rem' }}>{phrase.ko}</p>
-                <p className="expression-card__romanization">{phrase.romanization}</p>
-                <p className="expression-card__english">{phrase.en}</p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-                  {language === 'ko' ? phrase.context : phrase.contextEn}
-                </p>
+      <PageLayout sections={sections} category="culture">
+        <section id="drama-expressions" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('1. 드라마 필수 표현', '1. Essential Drama Expressions')}</h2>
+            <p>{t('이 표현들은 거의 모든 한국 드라마에서 들을 수 있습니다.', 'These expressions can be heard in almost every Korean drama.')}</p>
+            <div className="expression-grid">
+              {DRAMA_PHRASES.map((phrase, index) => (
+                <div key={index} className="expression-card" data-aos="fade-up" data-aos-delay={(index % 6) * 50}>
+                  <p className="expression-card__korean" style={{ fontSize: '1.3rem' }}>{phrase.ko}</p>
+                  <p className="expression-card__romanization">{phrase.romanization}</p>
+                  <p className="expression-card__english">{phrase.en}</p>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+                    {language === 'ko' ? phrase.context : phrase.contextEn}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="cultural-vocab" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('2. 드라마 문화 어휘', '2. Drama Cultural Vocabulary')}</h2>
+            <p>{t('한국 드라마를 이해하기 위해 알아야 할 문화적 어휘입니다.', 'Cultural vocabulary you need to know to understand Korean dramas.')}</p>
+            <div className="example-box" data-aos="fade-up">
+              <table className="expression-table">
+                <thead>
+                  <tr>
+                    <th>{t('단어', 'Word')}</th>
+                    <th>{t('발음', 'Pronunciation')}</th>
+                    <th>{t('뜻', 'Meaning')}</th>
+                    <th>{t('설명', 'Description')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CULTURAL_VOCAB.map((item, i) => (
+                    <tr key={i}>
+                      <td><strong>{item.ko}</strong></td>
+                      <td>{item.romanization}</td>
+                      <td>{item.en}</td>
+                      <td>{language === 'ko' ? item.desc : item.descEn}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="dialogue-practice" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('3. 드라마 대화 연습', '3. Drama Dialogue Practice')}</h2>
+            <p>{t('드라마에서 자주 나오는 장면별 대화를 연습해 보세요.', 'Practice dialogues from common drama scenes.')}</p>
+            {DRAMA_DIALOGUES.map((dialogue, idx) => (
+              <div key={idx} className="dialogue-card" data-aos="fade-up" style={{ marginBottom: '1.5rem' }}>
+                <h3 className="dialogue-card__title">{language === 'ko' ? dialogue.titleKo : dialogue.titleEn}</h3>
+                <div className="dialogue-lines">
+                  {dialogue.lines.map((line, i) => (
+                    <div key={i} className={`dialogue-line dialogue-line--${line.speaker === 'A' ? 'a' : 'b'}`}>
+                      <span className="dialogue-line__speaker">{line.speaker}</span>
+                      <div className="dialogue-line__content">
+                        <p className="dialogue-line__korean">{line.ko}</p>
+                        <p className="dialogue-line__english">{line.en}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('2. 드라마 문화 어휘', '2. Drama Cultural Vocabulary')}</h2>
-          <p>{t('한국 드라마를 이해하기 위해 알아야 할 문화적 어휘입니다.', 'Cultural vocabulary you need to know to understand Korean dramas.')}</p>
-          <div className="example-box" data-aos="fade-up">
-            <table className="expression-table">
-              <thead>
-                <tr>
-                  <th>{t('단어', 'Word')}</th>
-                  <th>{t('발음', 'Pronunciation')}</th>
-                  <th>{t('뜻', 'Meaning')}</th>
-                  <th>{t('설명', 'Description')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CULTURAL_VOCAB.map((item, i) => (
-                  <tr key={i}>
-                    <td><strong>{item.ko}</strong></td>
-                    <td>{item.romanization}</td>
-                    <td>{item.en}</td>
-                    <td>{language === 'ko' ? item.desc : item.descEn}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('3. 드라마 대화 연습', '3. Drama Dialogue Practice')}</h2>
-          <p>{t('드라마에서 자주 나오는 장면별 대화를 연습해 보세요.', 'Practice dialogues from common drama scenes.')}</p>
-          {DRAMA_DIALOGUES.map((dialogue, idx) => (
-            <div key={idx} className="dialogue-card" data-aos="fade-up" style={{ marginBottom: '1.5rem' }}>
-              <h3 className="dialogue-card__title">{language === 'ko' ? dialogue.titleKo : dialogue.titleEn}</h3>
-              <div className="dialogue-lines">
-                {dialogue.lines.map((line, i) => (
-                  <div key={i} className={`dialogue-line dialogue-line--${line.speaker === 'A' ? 'a' : 'b'}`}>
-                    <span className="dialogue-line__speaker">{line.speaker}</span>
-                    <div className="dialogue-line__content">
-                      <p className="dialogue-line__korean">{line.ko}</p>
-                      <p className="dialogue-line__english">{line.en}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <section id="study-tips" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="tip-box">
+              <h4>{t(<><i className="fas fa-lightbulb"></i> K-Drama 학습 팁</>, <><i className="fas fa-lightbulb"></i> K-Drama Study Tips</>)}</h4>
+              <ul>
+                <li>{t('처음에는 한글 자막으로, 두 번째는 자막 없이 보세요.', 'Watch with Korean subtitles first, then without subtitles.')}</li>
+                <li>{t('좋아하는 대사를 따라 말하는 "쉐도잉" 연습을 해보세요.', 'Try "shadowing" practice by repeating your favorite lines.')}</li>
+                <li>{t('드라마에서 배운 표현을 실제 대화에서 사용해 보세요.', 'Try using expressions you learned from dramas in real conversations.')}</li>
+                <li>{t('같은 장면을 여러 번 반복해서 보면 듣기 능력이 향상됩니다.', 'Watching the same scene multiple times improves listening skills.')}</li>
+              </ul>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="tip-box">
-            <h4>{t('💡 K-Drama 학습 팁', '💡 K-Drama Study Tips')}</h4>
-            <ul>
-              <li>{t('처음에는 한글 자막으로, 두 번째는 자막 없이 보세요.', 'Watch with Korean subtitles first, then without subtitles.')}</li>
-              <li>{t('좋아하는 대사를 따라 말하는 "쉐도잉" 연습을 해보세요.', 'Try "shadowing" practice by repeating your favorite lines.')}</li>
-              <li>{t('드라마에서 배운 표현을 실제 대화에서 사용해 보세요.', 'Try using expressions you learned from dramas in real conversations.')}</li>
-              <li>{t('같은 장면을 여러 번 반복해서 보면 듣기 능력이 향상됩니다.', 'Watching the same scene multiple times improves listening skills.')}</li>
-            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="lesson-nav">
-            <Link to="/culture" className="btn btn-secondary">{t('← 문화 홈', '← Culture Home')}</Link>
-            <Link to="/culture/kpop" className="btn btn-primary">{t('다음: K-Pop →', 'Next: K-Pop →')}</Link>
+        <section className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="lesson-nav">
+              <Link to="/culture" className="btn btn-secondary">{t('← 문화 홈', '← Culture Home')}</Link>
+              <Link to="/culture/kpop" className="btn btn-primary">{t('다음: K-Pop →', 'Next: K-Pop →')}</Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </PageLayout>
     </>
   );
 }

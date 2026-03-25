@@ -141,7 +141,7 @@ export default function SpeechPage() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 발음 연습 팁', '💡 Pronunciation Practice Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 발음 연습 팁</>, <><i className="fas fa-lightbulb"></i> Pronunciation Practice Tips</>)}</h4>
             <ul>
               <li>{t('조용한 환경에서 연습하면 더 정확한 결과를 얻을 수 있습니다.', 'Practicing in a quiet environment gives more accurate results.')}</li>
               <li>{t('Chrome 브라우저에서 가장 잘 작동합니다.', 'Works best in Chrome browser.')}</li>

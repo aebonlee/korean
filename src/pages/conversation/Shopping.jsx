@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 export default function Shopping() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'basic-shopping', ko: '기본 쇼핑 표현', en: 'Basic Shopping Expressions' },
+    { id: 'shopping-dialogue', ko: '실전 대화', en: 'Dialogue' },
+  ];
 
   return (
     <>
@@ -22,7 +28,8 @@ export default function Shopping() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="basic-shopping" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 기본 쇼핑 표현', '1. Basic Shopping Expressions')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -43,7 +50,7 @@ export default function Shopping() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="shopping-dialogue" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 실전 대화 - 명동에서 쇼핑', '2. Dialogue - Shopping in Myeongdong')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -68,6 +75,7 @@ export default function Shopping() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

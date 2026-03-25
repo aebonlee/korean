@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 export default function Phone() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'basic-phone', ko: '전화 기본 표현', en: 'Basic Phone Expressions' },
+    { id: 'reservation-dialogue', ko: '실전 대화', en: 'Dialogue' },
+  ];
 
   return (
     <>
@@ -22,7 +28,8 @@ export default function Phone() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="basic-phone" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 전화 기본 표현', '1. Basic Phone Expressions')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -41,7 +48,7 @@ export default function Phone() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="reservation-dialogue" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 실전 대화 - 예약 전화', '2. Dialogue - Reservation Call')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -67,6 +74,7 @@ export default function Phone() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

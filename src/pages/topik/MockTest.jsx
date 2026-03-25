@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { TOPIK_LISTENING, TOPIK_READING } from '../../data/topikData';
 import useAOS from '../../hooks/useAOS';
@@ -11,6 +12,10 @@ const ALL_QUESTIONS = [
 ];
 
 const TOTAL_TIME_SECONDS = 30 * 60; // 30 minutes for the mock test
+
+const sections = [
+  { id: 'test-info', ko: '시험 정보', en: 'Test Information' },
+];
 
 export default function MockTest() {
   const { language, t } = useLanguage();
@@ -111,35 +116,37 @@ export default function MockTest() {
           </div>
         </section>
 
-        <section className="lesson-section" data-aos="fade-up">
-          <div className="container">
-            <div className="example-box" style={{ textAlign: 'center', padding: '3rem' }}>
-              <h2>{t('시험 정보', 'Test Information')}</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
-                <div>
-                  <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>{ALL_QUESTIONS.length}</p>
-                  <p>{t('문항 수', 'Questions')}</p>
+        <PageLayout sections={sections} category="topik">
+          <section id="test-info" className="lesson-section" data-aos="fade-up">
+            <div className="container">
+              <div className="example-box" style={{ textAlign: 'center', padding: '3rem' }}>
+                <h2>{t('시험 정보', 'Test Information')}</h2>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+                  <div>
+                    <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>{ALL_QUESTIONS.length}</p>
+                    <p>{t('문항 수', 'Questions')}</p>
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>30{t('분', 'min')}</p>
+                    <p>{t('제한 시간', 'Time Limit')}</p>
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>TOPIK I</p>
+                    <p>{t('난이도', 'Level')}</p>
+                  </div>
                 </div>
-                <div>
-                  <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>30{t('분', 'min')}</p>
-                  <p>{t('제한 시간', 'Time Limit')}</p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--primary)' }}>TOPIK I</p>
-                  <p>{t('난이도', 'Level')}</p>
-                </div>
+                <ul style={{ textAlign: 'left', maxWidth: '500px', margin: '0 auto 2rem' }}>
+                  <li>{t('듣기와 읽기 문제가 혼합되어 있습니다.', 'Listening and reading questions are mixed.')}</li>
+                  <li>{t('시간이 끝나면 자동으로 제출됩니다.', 'The test auto-submits when time runs out.')}</li>
+                  <li>{t('문제 번호를 클릭하여 이동할 수 있습니다.', 'Click question numbers to navigate.')}</li>
+                </ul>
+                <button className="btn btn-primary" onClick={startTest} style={{ fontSize: '1.2rem', padding: '0.75rem 2rem' }}>
+                  {t('시험 시작', 'Start Test')}
+                </button>
               </div>
-              <ul style={{ textAlign: 'left', maxWidth: '500px', margin: '0 auto 2rem' }}>
-                <li>{t('듣기와 읽기 문제가 혼합되어 있습니다.', 'Listening and reading questions are mixed.')}</li>
-                <li>{t('시간이 끝나면 자동으로 제출됩니다.', 'The test auto-submits when time runs out.')}</li>
-                <li>{t('문제 번호를 클릭하여 이동할 수 있습니다.', 'Click question numbers to navigate.')}</li>
-              </ul>
-              <button className="btn btn-primary" onClick={startTest} style={{ fontSize: '1.2rem', padding: '0.75rem 2rem' }}>
-                {t('시험 시작', 'Start Test')}
-              </button>
             </div>
-          </div>
-        </section>
+          </section>
+        </PageLayout>
       </>
     );
   }

@@ -3,11 +3,13 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
+const LEVEL_LABELS = { beginner: { ko: '초급', en: 'Beginner' }, intermediate: { ko: '중급', en: 'Intermediate' }, advanced: { ko: '고급', en: 'Advanced' } };
+
 const categories = [
-  { title: '기초 필수 200', titleEn: 'Basic 200', desc: '한국어 학습의 기본이 되는 필수 단어 200개.', descEn: '200 essential words for Korean basics.', path: '/vocabulary/basic', icon: 'fa-solid fa-seedling', color: '#4A90D9' },
-  { title: '일상 필수 200', titleEn: 'Daily 200', desc: '일상생활에서 매일 사용하는 실용적인 단어 200개.', descEn: '200 practical words for daily life.', path: '/vocabulary/daily', icon: 'fa-solid fa-house', color: '#27AE60' },
-  { title: '비즈니스 200', titleEn: 'Business 200', desc: '직장 생활과 비즈니스 환경의 전문 어휘 200개.', descEn: '200 professional words for the workplace.', path: '/vocabulary/business', icon: 'fa-solid fa-briefcase', color: '#E67E22' },
-  { title: 'TOPIK 200', titleEn: 'TOPIK 200', desc: 'TOPIK 시험에 자주 출제되는 핵심 어휘 200개.', descEn: '200 key words frequently tested on TOPIK.', path: '/vocabulary/topik', icon: 'fa-solid fa-graduation-cap', color: '#8E44AD' },
+  { title: '기초 필수 200', titleEn: 'Basic 200', desc: '한국어 학습의 기본이 되는 필수 단어 200개.', descEn: '200 essential words for Korean basics.', path: '/vocabulary/basic', icon: 'fa-solid fa-seedling', color: '#4A90D9', level: 'beginner' },
+  { title: '일상 필수 200', titleEn: 'Daily 200', desc: '일상생활에서 매일 사용하는 실용적인 단어 200개.', descEn: '200 practical words for daily life.', path: '/vocabulary/daily', icon: 'fa-solid fa-house', color: '#27AE60', level: 'intermediate' },
+  { title: '비즈니스 200', titleEn: 'Business 200', desc: '직장 생활과 비즈니스 환경의 전문 어휘 200개.', descEn: '200 professional words for the workplace.', path: '/vocabulary/business', icon: 'fa-solid fa-briefcase', color: '#E67E22', level: 'advanced' },
+  { title: 'TOPIK 200', titleEn: 'TOPIK 200', desc: 'TOPIK 시험에 자주 출제되는 핵심 어휘 200개.', descEn: '200 key words frequently tested on TOPIK.', path: '/vocabulary/topik', icon: 'fa-solid fa-graduation-cap', color: '#8E44AD', level: 'advanced' },
 ];
 
 export default function VocabHome() {
@@ -33,10 +35,13 @@ export default function VocabHome() {
         <div className="container">
           <div className="topic-grid">
             {categories.map((cat, index) => (
-              <Link to={cat.path} key={cat.path} className="topic-card card" data-aos="fade-up" data-aos-delay={index * 100}>
+              <Link to={cat.path} key={cat.path} className={`topic-card card topic-card--${cat.level}`} data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="topic-card__icon" style={{ color: cat.color }}><i className={cat.icon}></i></div>
                 <h3 className="topic-card__title">{t(cat.title, cat.titleEn)}</h3>
                 <p className="topic-card__desc">{t(cat.desc, cat.descEn)}</p>
+                <div className="topic-card__meta">
+                  <span className="topic-card__level"><i className="fas fa-signal"></i> {t(LEVEL_LABELS[cat.level].ko, LEVEL_LABELS[cat.level].en)}</span>
+                </div>
                 <span className="topic-card__cta">{t('학습 시작 →', 'Start Learning →')}</span>
               </Link>
             ))}
@@ -47,7 +52,7 @@ export default function VocabHome() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 어휘 학습 팁', '💡 Vocabulary Study Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 어휘 학습 팁</>, <><i className="fas fa-lightbulb"></i> Vocabulary Study Tips</>)}</h4>
             <ul>
               <li>{t('하루에 10-20개씩 꾸준히 외우세요.', 'Memorize 10-20 words consistently every day.')}</li>
               <li>{t('단어만 외우지 말고 예문과 함께 학습하세요.', 'Study words with example sentences, not just isolated words.')}</li>

@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import BASIC_WORDS from '../../data/vocabBasicData';
 
 const PER_PAGE = 30;
+
+const sections = [
+  { id: 'word-list', ko: '단어 목록', en: 'Word List' },
+];
 
 export default function VocabBasic() {
   const { t } = useLanguage();
@@ -40,55 +45,57 @@ export default function VocabBasic() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="vocab-pagination__info">
-            <span>{t(`총 ${BASIC_WORDS.length}개`, `Total ${BASIC_WORDS.length} words`)} &middot; {t(`페이지 ${page} / ${totalPages}`, `Page ${page} / ${totalPages}`)}</span>
-            <span>{t(`${start + 1} - ${Math.min(start + PER_PAGE, BASIC_WORDS.length)}번`, `#${start + 1} - ${Math.min(start + PER_PAGE, BASIC_WORDS.length)}`)}</span>
-          </div>
+      <PageLayout sections={sections} category="vocabulary">
+        <section id="word-list" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="vocab-pagination__info">
+              <span>{t(`총 ${BASIC_WORDS.length}개`, `Total ${BASIC_WORDS.length} words`)} &middot; {t(`페이지 ${page} / ${totalPages}`, `Page ${page} / ${totalPages}`)}</span>
+              <span>{t(`${start + 1} - ${Math.min(start + PER_PAGE, BASIC_WORDS.length)}번`, `#${start + 1} - ${Math.min(start + PER_PAGE, BASIC_WORDS.length)}`)}</span>
+            </div>
 
-          <div className="vocab-grid">
-            {currentWords.map((w, i) => (
-              <div key={start + i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 30, 200)}>
-                <div className="vocab-card__word" data-tts={w.ko}>{w.ko}</div>
-                <div className="vocab-card__romanization">{w.rom}</div>
-                <div className="vocab-card__meaning">{w.en}</div>
-                <div className="vocab-card__example">
-                  <span data-tts={w.ex}>{w.ex}</span>
-                  <div className="vocab-card__example-en">{w.exEn}</div>
+            <div className="vocab-grid">
+              {currentWords.map((w, i) => (
+                <div key={start + i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 30, 200)}>
+                  <div className="vocab-card__word" data-tts={w.ko}>{w.ko}</div>
+                  <div className="vocab-card__romanization">{w.rom}</div>
+                  <div className="vocab-card__meaning">{w.en}</div>
+                  <div className="vocab-card__example">
+                    <span data-tts={w.ex}>{w.ex}</span>
+                    <div className="vocab-card__example-en">{w.exEn}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="vocab-pagination">
-            <button className="vocab-pagination__btn" onClick={() => goTo(page - 1)} disabled={page === 1}>
-              <i className="fas fa-chevron-left"></i>
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-              <button
-                key={p}
-                className={`vocab-pagination__btn${p === page ? ' vocab-pagination__btn--active' : ''}`}
-                onClick={() => goTo(p)}
-              >
-                {p}
+            <div className="vocab-pagination">
+              <button className="vocab-pagination__btn" onClick={() => goTo(page - 1)} disabled={page === 1}>
+                <i className="fas fa-chevron-left"></i>
               </button>
-            ))}
-            <button className="vocab-pagination__btn" onClick={() => goTo(page + 1)} disabled={page === totalPages}>
-              <i className="fas fa-chevron-right"></i>
-            </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                <button
+                  key={p}
+                  className={`vocab-pagination__btn${p === page ? ' vocab-pagination__btn--active' : ''}`}
+                  onClick={() => goTo(p)}
+                >
+                  {p}
+                </button>
+              ))}
+              <button className="vocab-pagination__btn" onClick={() => goTo(page + 1)} disabled={page === totalPages}>
+                <i className="fas fa-chevron-right"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="lesson-nav">
-            <Link to="/vocabulary" className="btn btn-secondary">{t('← 목록으로', '← Back to List')}</Link>
-            <Link to="/vocabulary/daily" className="btn btn-primary">{t('다음: 일상 어휘 →', 'Next: Daily Vocabulary →')}</Link>
+        <section className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="lesson-nav">
+              <Link to="/vocabulary" className="btn btn-secondary">{t('← 목록으로', '← Back to List')}</Link>
+              <Link to="/vocabulary/daily" className="btn btn-primary">{t('다음: 일상 어휘 →', 'Next: Daily Vocabulary →')}</Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </PageLayout>
     </>
   );
 }

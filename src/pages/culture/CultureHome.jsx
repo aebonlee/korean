@@ -4,8 +4,8 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 const TOPICS = [
-  { path: '/culture/kdrama', icon: 'fa-solid fa-tv', title: 'K-드라마', titleEn: 'K-Drama', desc: '인기 한국 드라마에서 자주 나오는 표현, 문화 어휘, 대화 패턴을 배웁니다.', descEn: 'Learn popular expressions, cultural vocabulary, and dialogue patterns from K-Dramas.', lessons: 12 },
-  { path: '/culture/kpop', icon: 'fa-solid fa-music', title: 'K-POP', titleEn: 'K-Pop', desc: 'K-Pop 가사에 자주 나오는 단어, 팬 용어, 가사 패턴을 배웁니다.', descEn: 'Learn vocabulary from K-Pop lyrics, fan terminology, and common lyric patterns.', lessons: 12 },
+  { path: '/culture/kdrama', icon: 'fa-solid fa-tv', title: 'K-드라마', titleEn: 'K-Drama', desc: '인기 한국 드라마에서 자주 나오는 표현, 문화 어휘, 대화 패턴을 배웁니다.', descEn: 'Learn popular expressions, cultural vocabulary, and dialogue patterns from K-Dramas.', lessons: 12, level: 'intermediate' },
+  { path: '/culture/kpop', icon: 'fa-solid fa-music', title: 'K-POP', titleEn: 'K-Pop', desc: 'K-Pop 가사에 자주 나오는 단어, 팬 용어, 가사 패턴을 배웁니다.', descEn: 'Learn vocabulary from K-Pop lyrics, fan terminology, and common lyric patterns.', lessons: 12, level: 'intermediate' },
 ];
 
 export default function CultureHome() {
@@ -39,13 +39,14 @@ export default function CultureHome() {
         <div className="container">
           <div className="topic-grid">
             {TOPICS.map((topic, idx) => (
-              <Link to={topic.path} key={idx} className="topic-card card" data-aos="fade-up" data-aos-delay={idx * 100}>
+              <Link to={topic.path} key={idx} className={`topic-card card topic-card--${topic.level}`} data-aos="fade-up" data-aos-delay={idx * 100}>
                 <div className="topic-card__icon">
                   <i className={topic.icon}></i>
                 </div>
                 <h3 className="topic-card__title">{t(topic.title, topic.titleEn)}</h3>
                 <p className="topic-card__desc">{t(topic.desc, topic.descEn)}</p>
                 <div className="topic-card__meta">
+                  <span className="topic-card__level"><i className="fas fa-signal"></i> {t('중급', 'Intermediate')}</span>
                   <span className="badge">{topic.lessons} {t('표현', 'expressions')}</span>
                 </div>
                 <span className="topic-card__cta">{t('학습하기 →', 'Start Learning →')}</span>
@@ -72,7 +73,7 @@ export default function CultureHome() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 문화 학습 팁', '💡 Culture Learning Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 문화 학습 팁</>, <><i className="fas fa-lightbulb"></i> Culture Learning Tips</>)}</h4>
             <ul>
               <li>{t('처음에는 한국어 자막과 함께, 나중에는 자막 없이 드라마를 보세요.', 'Watch dramas with Korean subtitles first, then try without subtitles.')}</li>
               <li>{t('좋아하는 K-Pop 노래의 가사를 번역해 보세요.', 'Try translating the lyrics of your favorite K-Pop songs.')}</li>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
@@ -31,6 +32,11 @@ const DOUBLE_CONSONANTS = [
 export default function Consonants() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'basic-consonants', ko: '기본 자음', en: 'Basic Consonants' },
+    { id: 'double-consonants', ko: '쌍자음', en: 'Double Consonants' },
+  ];
 
   return (
     <>
@@ -71,125 +77,127 @@ export default function Consonants() {
         </div>
       </section>
 
-      {/* Basic Consonants */}
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('1. 기본 자음 (14개)', '1. Basic Consonants (14)')}</h2>
-          <p>
-            {t(
-              '기본 자음은 ㄱ, ㄴ, ㄷ, ㄹ, ㅁ 5개의 기본 글자에서 획을 추가하여 만들어졌습니다.',
-              'Basic consonants were created by adding strokes to the 5 base letters: ㄱ, ㄴ, ㄷ, ㄹ, ㅁ.'
-            )}
-          </p>
-
-          <div className="example-box" data-aos="fade-up">
-            <table className="expression-table">
-              <thead>
-                <tr>
-                  <th>{t('자음', 'Consonant')}</th>
-                  <th>{t('이름', 'Name')}</th>
-                  <th>{t('로마자', 'Romanization')}</th>
-                  <th>{t('예시 단어', 'Example Word')}</th>
-                  <th>{t('발음', 'Pronunciation')}</th>
-                  <th>{t('뜻', 'Meaning')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {BASIC_CONSONANTS.map((c) => (
-                  <tr key={c.char}>
-                    <td><strong style={{ fontSize: '1.5rem' }}>{c.char}</strong></td>
-                    <td>{c.name}</td>
-                    <td>{c.romanization}</td>
-                    <td><strong>{c.example}</strong></td>
-                    <td>{c.exampleRom}</td>
-                    <td>{c.meaning}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="tip-box" data-aos="fade-up">
-            <h4>{t('💡 자음 만드는 원리', '💡 How Consonants Were Created')}</h4>
-            <ul>
-              <li>{t('ㄱ - 혀뿌리가 목구멍을 막는 모양', 'ㄱ - Shape of the tongue root blocking the throat')}</li>
-              <li>{t('ㄴ - 혀끝이 윗잇몸에 닿는 모양', 'ㄴ - Shape of the tongue tip touching the upper gum')}</li>
-              <li>{t('ㅁ - 입의 모양', 'ㅁ - Shape of the mouth')}</li>
-              <li>{t('ㅅ - 이의 모양', 'ㅅ - Shape of the teeth')}</li>
-              <li>{t('ㅇ - 목구멍의 모양', 'ㅇ - Shape of the throat')}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Double Consonants */}
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('2. 쌍자음 (5개)', '2. Double Consonants (5)')}</h2>
-          <p>
-            {t(
-              '쌍자음은 기본 자음을 두 번 겹쳐 쓴 것으로, 더 강하고 긴장된 소리를 냅니다. "된소리"라고도 합니다.',
-              'Double consonants are written by doubling basic consonants. They produce stronger, tenser sounds, also called "fortis" consonants.'
-            )}
-          </p>
-
-          <div className="example-box" data-aos="fade-up">
-            <table className="expression-table">
-              <thead>
-                <tr>
-                  <th>{t('쌍자음', 'Double')}</th>
-                  <th>{t('이름', 'Name')}</th>
-                  <th>{t('로마자', 'Romanization')}</th>
-                  <th>{t('예시 단어', 'Example Word')}</th>
-                  <th>{t('발음', 'Pronunciation')}</th>
-                  <th>{t('뜻', 'Meaning')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {DOUBLE_CONSONANTS.map((c) => (
-                  <tr key={c.char}>
-                    <td><strong style={{ fontSize: '1.5rem' }}>{c.char}</strong></td>
-                    <td>{c.name}</td>
-                    <td>{c.romanization}</td>
-                    <td><strong>{c.example}</strong></td>
-                    <td>{c.exampleRom}</td>
-                    <td>{c.meaning}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="tip-box" data-aos="fade-up">
-            <h4>{t('💡 된소리 발음 팁', '💡 Tips for Pronouncing Double Consonants')}</h4>
+      <PageLayout sections={sections} category="hangul">
+        {/* Basic Consonants */}
+        <section className="lesson-section" id="basic-consonants" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('1. 기본 자음 (14개)', '1. Basic Consonants (14)')}</h2>
             <p>
               {t(
-                '쌍자음을 발음할 때는 성대를 긴장시키고 짧고 강하게 발음하세요.',
-                'When pronouncing double consonants, tense your vocal cords and make a short, strong sound.'
-              )}
-              <br />
-              {t(
-                '영어의 "sky"에서 s 뒤의 k 소리, "star"에서 s 뒤의 t 소리와 비슷합니다.',
-                'Similar to the "k" in "sky" or "t" in "star" after the "s" in English.'
+                '기본 자음은 ㄱ, ㄴ, ㄷ, ㄹ, ㅁ 5개의 기본 글자에서 획을 추가하여 만들어졌습니다.',
+                'Basic consonants were created by adding strokes to the 5 base letters: ㄱ, ㄴ, ㄷ, ㄹ, ㅁ.'
               )}
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Navigation */}
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="lesson-nav">
-            <Link to="/hangul" className="btn btn-secondary">
-              {t('← 목록으로', '← Back to List')}
-            </Link>
-            <Link to="/hangul/vowels" className="btn btn-primary">
-              {t('다음: 모음 →', 'Next: Vowels →')}
-            </Link>
+            <div className="example-box" data-aos="fade-up">
+              <table className="expression-table">
+                <thead>
+                  <tr>
+                    <th>{t('자음', 'Consonant')}</th>
+                    <th>{t('이름', 'Name')}</th>
+                    <th>{t('로마자', 'Romanization')}</th>
+                    <th>{t('예시 단어', 'Example Word')}</th>
+                    <th>{t('발음', 'Pronunciation')}</th>
+                    <th>{t('뜻', 'Meaning')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {BASIC_CONSONANTS.map((c) => (
+                    <tr key={c.char}>
+                      <td><strong style={{ fontSize: '1.5rem' }}>{c.char}</strong></td>
+                      <td>{c.name}</td>
+                      <td>{c.romanization}</td>
+                      <td><strong>{c.example}</strong></td>
+                      <td>{c.exampleRom}</td>
+                      <td>{c.meaning}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="tip-box" data-aos="fade-up">
+              <h4>{t(<><i className="fas fa-lightbulb"></i> 자음 만드는 원리</>, <><i className="fas fa-lightbulb"></i> How Consonants Were Created</>)}</h4>
+              <ul>
+                <li>{t('ㄱ - 혀뿌리가 목구멍을 막는 모양', 'ㄱ - Shape of the tongue root blocking the throat')}</li>
+                <li>{t('ㄴ - 혀끝이 윗잇몸에 닿는 모양', 'ㄴ - Shape of the tongue tip touching the upper gum')}</li>
+                <li>{t('ㅁ - 입의 모양', 'ㅁ - Shape of the mouth')}</li>
+                <li>{t('ㅅ - 이의 모양', 'ㅅ - Shape of the teeth')}</li>
+                <li>{t('ㅇ - 목구멍의 모양', 'ㅇ - Shape of the throat')}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Double Consonants */}
+        <section className="lesson-section" id="double-consonants" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('2. 쌍자음 (5개)', '2. Double Consonants (5)')}</h2>
+            <p>
+              {t(
+                '쌍자음은 기본 자음을 두 번 겹쳐 쓴 것으로, 더 강하고 긴장된 소리를 냅니다. "된소리"라고도 합니다.',
+                'Double consonants are written by doubling basic consonants. They produce stronger, tenser sounds, also called "fortis" consonants.'
+              )}
+            </p>
+
+            <div className="example-box" data-aos="fade-up">
+              <table className="expression-table">
+                <thead>
+                  <tr>
+                    <th>{t('쌍자음', 'Double')}</th>
+                    <th>{t('이름', 'Name')}</th>
+                    <th>{t('로마자', 'Romanization')}</th>
+                    <th>{t('예시 단어', 'Example Word')}</th>
+                    <th>{t('발음', 'Pronunciation')}</th>
+                    <th>{t('뜻', 'Meaning')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {DOUBLE_CONSONANTS.map((c) => (
+                    <tr key={c.char}>
+                      <td><strong style={{ fontSize: '1.5rem' }}>{c.char}</strong></td>
+                      <td>{c.name}</td>
+                      <td>{c.romanization}</td>
+                      <td><strong>{c.example}</strong></td>
+                      <td>{c.exampleRom}</td>
+                      <td>{c.meaning}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="tip-box" data-aos="fade-up">
+              <h4>{t(<><i className="fas fa-lightbulb"></i> 된소리 발음 팁</>, <><i className="fas fa-lightbulb"></i> Tips for Pronouncing Double Consonants</>)}</h4>
+              <p>
+                {t(
+                  '쌍자음을 발음할 때는 성대를 긴장시키고 짧고 강하게 발음하세요.',
+                  'When pronouncing double consonants, tense your vocal cords and make a short, strong sound.'
+                )}
+                <br />
+                {t(
+                  '영어의 "sky"에서 s 뒤의 k 소리, "star"에서 s 뒤의 t 소리와 비슷합니다.',
+                  'Similar to the "k" in "sky" or "t" in "star" after the "s" in English.'
+                )}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="lesson-nav">
+              <Link to="/hangul" className="btn btn-secondary">
+                {t('← 목록으로', '← Back to List')}
+              </Link>
+              <Link to="/hangul/vowels" className="btn btn-primary">
+                {t('다음: 모음 →', 'Next: Vowels →')}
+              </Link>
+            </div>
+          </div>
+        </section>
+      </PageLayout>
     </>
   );
 }

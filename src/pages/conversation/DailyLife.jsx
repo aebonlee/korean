@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 export default function DailyLife() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'morning-routine', ko: '아침 루틴', en: 'Morning Routine' },
+    { id: 'making-plans', ko: '약속 잡기', en: 'Making Plans' },
+    { id: 'key-expressions', ko: '핵심 표현', en: 'Key Expressions' },
+  ];
 
   return (
     <>
@@ -23,7 +30,8 @@ export default function DailyLife() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="morning-routine" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 아침 루틴', '1. Morning Routine')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -43,7 +51,7 @@ export default function DailyLife() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="making-plans" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 약속 잡기', '2. Making Plans')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -60,7 +68,7 @@ export default function DailyLife() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="key-expressions" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 핵심 표현', '3. Key Expressions')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -87,6 +95,7 @@ export default function DailyLife() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

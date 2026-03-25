@@ -108,7 +108,7 @@ export default function AiChatPage() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 AI 채팅 팁', '💡 AI Chat Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> AI 채팅 팁</>, <><i className="fas fa-lightbulb"></i> AI Chat Tips</>)}</h4>
             <ul>
               <li>{t('틀리는 것을 두려워하지 마세요! AI가 친절하게 교정해 줍니다.', "Don't be afraid of making mistakes! The AI will kindly correct you.")}</li>
               <li>{t('한국어와 영어를 섞어서 사용해도 괜찮습니다.', "It's okay to mix Korean and English.")}</li>

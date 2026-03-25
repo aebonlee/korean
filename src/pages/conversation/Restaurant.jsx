@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
 export default function Restaurant() {
   const { language, t } = useLanguage();
   useAOS();
+
+  const sections = [
+    { id: 'ordering', ko: '주문하기', en: 'Ordering' },
+    { id: 'restaurant-dialogue', ko: '실전 대화', en: 'Dialogue' },
+  ];
 
   return (
     <>
@@ -22,7 +28,8 @@ export default function Restaurant() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="ordering" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 주문하기', '1. Ordering')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -42,13 +49,13 @@ export default function Restaurant() {
             </table>
           </div>
           <div className="tip-box" data-aos="fade-up">
-            <h4>{t('💡 한국 식당 문화', '💡 Korean Restaurant Culture')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 한국 식당 문화</>, <><i className="fas fa-lightbulb"></i> Korean Restaurant Culture</>)}</h4>
             <p>{t('한국 식당에서는 반찬이 무료로 제공되며 리필도 가능합니다.', 'Korean restaurants serve free side dishes (banchan) with free refills.')}<br />{t('"반찬 더 주세요"라고 하면 됩니다.', 'Just say "반찬 더 주세요".')}<br />{t('팁 문화는 없습니다.', 'There is no tipping culture.')}</p>
           </div>
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="restaurant-dialogue" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 실전 대화', '2. Dialogue')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -74,6 +81,7 @@ export default function Restaurant() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

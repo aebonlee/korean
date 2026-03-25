@@ -12,6 +12,7 @@ const SECTION_CARDS = [
     descKo: 'TOPIK 듣기 영역 연습 문제입니다. 대화를 듣고 질문에 답하는 유형을 연습합니다.',
     descEn: 'TOPIK listening section practice. Practice answering questions based on dialogues and conversations.',
     path: '/topik/listening',
+    level: 'advanced',
   },
   {
     icon: 'fa-solid fa-book-open',
@@ -20,6 +21,7 @@ const SECTION_CARDS = [
     descKo: 'TOPIK 읽기 영역 연습 문제입니다. 지문을 읽고 내용을 파악하는 유형을 연습합니다.',
     descEn: 'TOPIK reading section practice. Practice comprehending passages and answering related questions.',
     path: '/topik/reading',
+    level: 'advanced',
   },
   {
     icon: 'fa-solid fa-clock',
@@ -28,6 +30,7 @@ const SECTION_CARDS = [
     descKo: '실전처럼 시간을 재며 듣기와 읽기 문제를 풀어보는 모의 시험입니다.',
     descEn: 'A timed mock test combining listening and reading questions, simulating the real exam.',
     path: '/topik/mock-test',
+    level: 'advanced',
   },
 ];
 
@@ -118,7 +121,7 @@ export default function TopikHome() {
               <Link
                 to={card.path}
                 key={card.path}
-                className="topic-card card"
+                className={`topic-card card topic-card--${card.level}`}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
@@ -131,6 +134,9 @@ export default function TopikHome() {
                 <p className="topic-card__desc">
                   {language === 'ko' ? card.descKo : card.descEn}
                 </p>
+                <div className="topic-card__meta">
+                  <span className="topic-card__level"><i className="fas fa-signal"></i> {t('고급', 'Advanced')}</span>
+                </div>
                 <span className="topic-card__cta">
                   {t('연습하기 →', 'Practice →')}
                 </span>
@@ -144,7 +150,7 @@ export default function TopikHome() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 TOPIK 시험 준비 팁', '💡 TOPIK Study Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> TOPIK 시험 준비 팁</>, <><i className="fas fa-lightbulb"></i> TOPIK Study Tips</>)}</h4>
             <ul>
               <li>{t('시험 2~3개월 전부터 체계적으로 준비하세요.', 'Start preparing systematically 2-3 months before the exam.')}</li>
               <li>{t('기출 문제를 반복적으로 풀어보세요. 유형을 파악하는 것이 중요합니다.', 'Solve past exam questions repeatedly. Understanding question types is important.')}</li>

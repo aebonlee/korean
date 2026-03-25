@@ -12,6 +12,7 @@ const TOPIC_CARDS = [
     descEn: 'Learn pronunciation and writing of 14 basic consonants and 5 double consonants.',
     lessons: 2,
     path: '/hangul/consonants',
+    level: 'beginner',
   },
   {
     icon: 'fa-solid fa-circle-dot',
@@ -21,6 +22,7 @@ const TOPIC_CARDS = [
     descEn: 'Master the sounds and shapes of 10 basic vowels and 11 compound vowels.',
     lessons: 2,
     path: '/hangul/vowels',
+    level: 'beginner',
   },
   {
     icon: 'fa-solid fa-puzzle-piece',
@@ -30,6 +32,7 @@ const TOPIC_CARDS = [
     descEn: 'Understand Hangul syllable composition with CV, CVC patterns and final consonant rules.',
     lessons: 3,
     path: '/hangul/syllables',
+    level: 'beginner',
   },
   {
     icon: 'fa-solid fa-volume-high',
@@ -39,6 +42,7 @@ const TOPIC_CARDS = [
     descEn: 'Learn key pronunciation rules: liaison, fortition, nasalization, palatalization, and more.',
     lessons: 4,
     path: '/hangul/pronunciation',
+    level: 'beginner',
   },
 ];
 
@@ -87,7 +91,7 @@ export default function HangulHome() {
               <Link
                 to={card.path}
                 key={card.path}
-                className="topic-card card"
+                className={`topic-card card topic-card--${card.level}`}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
@@ -101,6 +105,9 @@ export default function HangulHome() {
                   {language === 'ko' ? card.descKo : card.descEn}
                 </p>
                 <div className="topic-card__meta">
+                  <span className="topic-card__level">
+                    <i className="fas fa-signal"></i> {t('초급', 'Beginner')}
+                  </span>
                   <span className="badge">
                     {card.lessons} {t('레슨', 'Lessons')}
                   </span>
@@ -118,7 +125,7 @@ export default function HangulHome() {
       <section className="lesson-section" data-aos="fade-up">
         <div className="container">
           <div className="tip-box">
-            <h4>{t('💡 한글 학습 팁', '💡 Hangul Study Tips')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 한글 학습 팁</>, <><i className="fas fa-lightbulb"></i> Hangul Study Tips</>)}</h4>
             <ul>
               <li>
                 {t(

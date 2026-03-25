@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
@@ -8,6 +9,13 @@ export default function Greetings() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'basic-greetings', ko: '기본 인사', en: 'Basic Greetings' },
+    { id: 'self-introduction', ko: '자기소개', en: 'Self-Introduction' },
+    { id: 'real-conversation', ko: '실전 대화', en: 'Real Conversation' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -25,7 +33,8 @@ export default function Greetings() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <PageLayout sections={sections} category="conversation">
+      <section className="lesson-section" id="basic-greetings" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 기본 인사', '1. Basic Greetings')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -43,13 +52,13 @@ export default function Greetings() {
             </table>
           </div>
           <div className="tip-box" data-aos="fade-up">
-            <h4>{t('💡 문화 팁', '💡 Cultural Tip')}</h4>
+            <h4>{t(<><i className="fas fa-lightbulb"></i> 문화 팁</>, <><i className="fas fa-lightbulb"></i> Cultural Tip</>)}</h4>
             <p>{t('한국에서는 나이가 많거나 처음 만나는 사람에게 반드시 존댓말을 사용합니다.', 'In Korea, you must use formal speech with older people or strangers.')}<br />{t('인사할 때 가볍게 고개를 숙이는 것도 중요한 예절입니다.', 'Bowing slightly when greeting is also important etiquette.')}</p>
           </div>
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="self-introduction" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 자기소개', '2. Self-Introduction')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -67,7 +76,7 @@ export default function Greetings() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="real-conversation" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 실전 대화', '3. Real Conversation')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -85,7 +94,7 @@ export default function Greetings() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
+      <section className="lesson-section" id="practice" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 연습 문제', '4. Practice')}</h2>
           <div className="practice-questions" data-aos="fade-up">
@@ -116,6 +125,7 @@ export default function Greetings() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

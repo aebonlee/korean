@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 
@@ -50,6 +51,15 @@ const FAN_CHANTS = [
   { ko: '다시 한 번!', romanization: 'dasi han beon!', en: 'One more time!' },
 ];
 
+const sections = [
+  { id: 'lyrics-vocab', ko: '가사 단어', en: 'Lyrics Vocabulary' },
+  { id: 'fan-terms', ko: '팬 용어', en: 'Fan Terminology' },
+  { id: 'lyric-patterns', ko: '가사 패턴', en: 'Lyric Patterns' },
+  { id: 'fan-chants', ko: '응원 표현', en: 'Fan Chants' },
+  { id: 'lyric-analysis', ko: '가사 분석', en: 'Lyric Analysis' },
+  { id: 'study-tips', ko: '학습 팁', en: 'Study Tips' },
+];
+
 export default function KPop() {
   const { language, t } = useLanguage();
   useAOS();
@@ -82,134 +92,136 @@ export default function KPop() {
         </div>
       </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('1. 가사에 자주 나오는 단어', '1. Words Frequently Found in Lyrics')}</h2>
-          <p>{t('이 단어들은 K-Pop 가사에서 가장 자주 등장합니다.', 'These words appear most frequently in K-Pop lyrics.')}</p>
-          <div className="expression-grid">
-            {LYRICS_VOCAB.map((item, index) => (
-              <div key={index} className="expression-card" data-aos="fade-up" data-aos-delay={(index % 6) * 50}>
-                <p className="expression-card__korean" style={{ fontSize: '1.5rem' }}>{item.ko}</p>
-                <p className="expression-card__romanization">{item.romanization}</p>
-                <p className="expression-card__english">{item.en}</p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
-                  {language === 'ko' ? item.usage : item.usageEn}
-                </p>
-              </div>
-            ))}
+      <PageLayout sections={sections} category="culture">
+        <section id="lyrics-vocab" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('1. 가사에 자주 나오는 단어', '1. Words Frequently Found in Lyrics')}</h2>
+            <p>{t('이 단어들은 K-Pop 가사에서 가장 자주 등장합니다.', 'These words appear most frequently in K-Pop lyrics.')}</p>
+            <div className="expression-grid">
+              {LYRICS_VOCAB.map((item, index) => (
+                <div key={index} className="expression-card" data-aos="fade-up" data-aos-delay={(index % 6) * 50}>
+                  <p className="expression-card__korean" style={{ fontSize: '1.5rem' }}>{item.ko}</p>
+                  <p className="expression-card__romanization">{item.romanization}</p>
+                  <p className="expression-card__english">{item.en}</p>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
+                    {language === 'ko' ? item.usage : item.usageEn}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('2. K-Pop 팬 용어', '2. K-Pop Fan Terminology')}</h2>
-          <p>{t('K-Pop 팬이라면 반드시 알아야 할 필수 용어입니다.', 'Essential terms every K-Pop fan should know.')}</p>
-          <div className="example-box" data-aos="fade-up">
-            <table className="expression-table">
-              <thead>
-                <tr>
-                  <th>{t('용어', 'Term')}</th>
-                  <th>{t('발음', 'Pronunciation')}</th>
-                  <th>{t('영어', 'English')}</th>
-                  <th>{t('설명', 'Description')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {FAN_TERMS.map((term, i) => (
-                  <tr key={i}>
-                    <td><strong>{term.ko}</strong></td>
-                    <td>{term.romanization}</td>
-                    <td>{term.en}</td>
-                    <td>{language === 'ko' ? term.desc : term.descEn}</td>
+        <section id="fan-terms" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('2. K-Pop 팬 용어', '2. K-Pop Fan Terminology')}</h2>
+            <p>{t('K-Pop 팬이라면 반드시 알아야 할 필수 용어입니다.', 'Essential terms every K-Pop fan should know.')}</p>
+            <div className="example-box" data-aos="fade-up">
+              <table className="expression-table">
+                <thead>
+                  <tr>
+                    <th>{t('용어', 'Term')}</th>
+                    <th>{t('발음', 'Pronunciation')}</th>
+                    <th>{t('영어', 'English')}</th>
+                    <th>{t('설명', 'Description')}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {FAN_TERMS.map((term, i) => (
+                    <tr key={i}>
+                      <td><strong>{term.ko}</strong></td>
+                      <td>{term.romanization}</td>
+                      <td>{term.en}</td>
+                      <td>{language === 'ko' ? term.desc : term.descEn}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('3. 자주 나오는 가사 패턴', '3. Common Lyric Patterns')}</h2>
-          <div className="example-box" data-aos="fade-up">
-            <table className="expression-table">
-              <thead>
-                <tr>
-                  <th>{t('가사 패턴', 'Lyric Pattern')}</th>
-                  <th>{t('영어', 'English')}</th>
-                  <th>{t('설명', 'Description')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {LYRIC_PATTERNS.map((item, i) => (
-                  <tr key={i}>
-                    <td><strong>{item.pattern}</strong></td>
-                    <td>{item.en}</td>
-                    <td>{language === 'ko' ? item.desc : item.descEn}</td>
+        <section id="lyric-patterns" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('3. 자주 나오는 가사 패턴', '3. Common Lyric Patterns')}</h2>
+            <div className="example-box" data-aos="fade-up">
+              <table className="expression-table">
+                <thead>
+                  <tr>
+                    <th>{t('가사 패턴', 'Lyric Pattern')}</th>
+                    <th>{t('영어', 'English')}</th>
+                    <th>{t('설명', 'Description')}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {LYRIC_PATTERNS.map((item, i) => (
+                    <tr key={i}>
+                      <td><strong>{item.pattern}</strong></td>
+                      <td>{item.en}</td>
+                      <td>{language === 'ko' ? item.desc : item.descEn}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('4. 응원 표현 & 팬 챈트', '4. Fan Chants & Expressions')}</h2>
-          <div className="expression-grid">
-            {FAN_CHANTS.map((chant, idx) => (
-              <div key={idx} className="expression-card" data-aos="fade-up" data-aos-delay={idx * 50}>
-                <p className="expression-card__korean">{chant.ko}</p>
-                <p className="expression-card__romanization">{chant.romanization}</p>
-                <p className="expression-card__english">{chant.en}</p>
-              </div>
-            ))}
+        <section id="fan-chants" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('4. 응원 표현 & 팬 챈트', '4. Fan Chants & Expressions')}</h2>
+            <div className="expression-grid">
+              {FAN_CHANTS.map((chant, idx) => (
+                <div key={idx} className="expression-card" data-aos="fade-up" data-aos-delay={idx * 50}>
+                  <p className="expression-card__korean">{chant.ko}</p>
+                  <p className="expression-card__romanization">{chant.romanization}</p>
+                  <p className="expression-card__english">{chant.en}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <h2>{t('5. 학습 활동: 가사 분석', '5. Study Activity: Lyric Analysis')}</h2>
-          <div className="example-box" data-aos="fade-up">
-            <p>{t('아래 단계를 따라 좋아하는 K-Pop 노래로 한국어를 공부해 보세요:', 'Follow these steps to study Korean using your favorite K-Pop song:')}</p>
-            <ol>
-              <li>{t('좋아하는 K-Pop 노래 하나를 선택하세요.', 'Choose one of your favorite K-Pop songs.')}</li>
-              <li>{t('한국어 가사를 찾아서 적어보세요.', 'Find and write down the Korean lyrics.')}</li>
-              <li>{t('모르는 단어를 사전에서 찾아보세요.', 'Look up unknown words in a dictionary.')}</li>
-              <li>{t('가사를 문장 단위로 해석해 보세요.', 'Translate the lyrics sentence by sentence.')}</li>
-              <li>{t('노래를 들으며 가사를 따라 읽어보세요.', 'Read along with the lyrics while listening.')}</li>
-              <li>{t('노래를 따라 불러보세요!', 'Sing along with the song!')}</li>
-            </ol>
+        <section id="lyric-analysis" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('5. 학습 활동: 가사 분석', '5. Study Activity: Lyric Analysis')}</h2>
+            <div className="example-box" data-aos="fade-up">
+              <p>{t('아래 단계를 따라 좋아하는 K-Pop 노래로 한국어를 공부해 보세요:', 'Follow these steps to study Korean using your favorite K-Pop song:')}</p>
+              <ol>
+                <li>{t('좋아하는 K-Pop 노래 하나를 선택하세요.', 'Choose one of your favorite K-Pop songs.')}</li>
+                <li>{t('한국어 가사를 찾아서 적어보세요.', 'Find and write down the Korean lyrics.')}</li>
+                <li>{t('모르는 단어를 사전에서 찾아보세요.', 'Look up unknown words in a dictionary.')}</li>
+                <li>{t('가사를 문장 단위로 해석해 보세요.', 'Translate the lyrics sentence by sentence.')}</li>
+                <li>{t('노래를 들으며 가사를 따라 읽어보세요.', 'Read along with the lyrics while listening.')}</li>
+                <li>{t('노래를 따라 불러보세요!', 'Sing along with the song!')}</li>
+              </ol>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="tip-box">
-            <h4>{t('💡 K-Pop 학습 팁', '💡 K-Pop Study Tips')}</h4>
-            <ul>
-              <li>{t('발라드(느린 노래)부터 시작하세요. 가사가 더 명확하게 들립니다.', 'Start with ballads (slow songs). The lyrics are clearer to hear.')}</li>
-              <li>{t('뮤직비디오의 한국어 자막을 활용하세요.', 'Use Korean subtitles in music videos.')}</li>
-              <li>{t('K-Pop 가사 번역 사이트를 참고하되, 직접 번역도 시도해 보세요.', 'Reference lyric translation sites, but also try translating on your own.')}</li>
-              <li>{t('K-Pop 관련 한국어 콘텐츠(인터뷰, 예능)도 시청하세요.', 'Also watch Korean content related to K-Pop (interviews, variety shows).')}</li>
-            </ul>
+        <section id="study-tips" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="tip-box">
+              <h4>{t(<><i className="fas fa-lightbulb"></i> K-Pop 학습 팁</>, <><i className="fas fa-lightbulb"></i> K-Pop Study Tips</>)}</h4>
+              <ul>
+                <li>{t('발라드(느린 노래)부터 시작하세요. 가사가 더 명확하게 들립니다.', 'Start with ballads (slow songs). The lyrics are clearer to hear.')}</li>
+                <li>{t('뮤직비디오의 한국어 자막을 활용하세요.', 'Use Korean subtitles in music videos.')}</li>
+                <li>{t('K-Pop 가사 번역 사이트를 참고하되, 직접 번역도 시도해 보세요.', 'Reference lyric translation sites, but also try translating on your own.')}</li>
+                <li>{t('K-Pop 관련 한국어 콘텐츠(인터뷰, 예능)도 시청하세요.', 'Also watch Korean content related to K-Pop (interviews, variety shows).')}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section" data-aos="fade-up">
-        <div className="container">
-          <div className="lesson-nav">
-            <Link to="/culture/kdrama" className="btn btn-secondary">{t('← K-Drama', '← K-Drama')}</Link>
-            <Link to="/culture" className="btn btn-primary">{t('문화 홈으로 →', 'Culture Home →')}</Link>
+        <section className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <div className="lesson-nav">
+              <Link to="/culture/kdrama" className="btn btn-secondary">{t('← K-Drama', '← K-Drama')}</Link>
+              <Link to="/culture" className="btn btn-primary">{t('문화 홈으로 →', 'Culture Home →')}</Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </PageLayout>
     </>
   );
 }
