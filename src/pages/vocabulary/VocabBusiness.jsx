@@ -1,0 +1,68 @@
+import { Link } from 'react-router-dom';
+import SEOHead from '../../components/SEOHead';
+import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
+
+const WORDS = [
+  { ko: '회의', en: 'meeting', rom: 'hoeui', ex: '오후에 회의가 있어요.' },
+  { ko: '보고서', en: 'report', rom: 'bogoseo', ex: '보고서를 작성해 주세요.' },
+  { ko: '출장', en: 'business trip', rom: 'chuljang', ex: '다음 주에 출장을 가요.' },
+  { ko: '계약', en: 'contract', rom: 'gyeyak', ex: '계약서에 서명해 주세요.' },
+  { ko: '마감', en: 'deadline', rom: 'magam', ex: '마감이 내일이에요.' },
+  { ko: '급여', en: 'salary', rom: 'geupyeo', ex: '급여가 올랐어요.' },
+  { ko: '면접', en: 'interview', rom: 'myeonjeop', ex: '면접을 잘 봤어요.' },
+  { ko: '프로젝트', en: 'project', rom: 'peurojekteu', ex: '새 프로젝트를 시작했어요.' },
+  { ko: '거래처', en: 'client/business partner', rom: 'georaecheo', ex: '거래처와 미팅이 있어요.' },
+  { ko: '이메일', en: 'email', rom: 'imeil', ex: '이메일을 확인해 주세요.' },
+  { ko: '발표', en: 'presentation', rom: 'balpyo', ex: '발표 준비를 해야 해요.' },
+  { ko: '부서', en: 'department', rom: 'buseo', ex: '어느 부서에서 일해요?' },
+  { ko: '승진', en: 'promotion', rom: 'seungjin', ex: '승진을 축하합니다!' },
+  { ko: '야근', en: 'overtime', rom: 'yageun', ex: '오늘 야근해야 해요.' },
+  { ko: '퇴근', en: 'leaving work', rom: 'toegeun', ex: '몇 시에 퇴근해요?' },
+];
+
+export default function VocabBusiness() {
+  const { t } = useLanguage();
+  useAOS();
+
+  return (
+    <>
+      <SEOHead title={t('비즈니스 500 - Korean Pro', 'Business 500 - Korean Pro')} description={t('비즈니스 한국어 어휘 500개를 학습하세요.', 'Study 500 business Korean vocabulary words.')} />
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link><i className="fas fa-chevron-right"></i>
+            <Link to="/vocabulary">{t('어휘', 'Vocabulary')}</Link><i className="fas fa-chevron-right"></i>
+            <span>{t('비즈니스 500', 'Business 500')}</span>
+          </div>
+          <h1 className="page-header__title">{t('비즈니스 필수 단어 500', 'Business Essential 500')}</h1>
+          <p className="page-header__description">{t('직장 생활과 비즈니스 환경에서 필요한 전문 어휘를 학습하세요.', 'Study professional vocabulary for the workplace and business environment.')}</p>
+        </div>
+      </section>
+
+      <section className="lesson-section" data-aos="fade-up">
+        <div className="container">
+          <div className="example-box">
+            <table className="expression-table">
+              <thead><tr><th>#</th><th>{t('한국어', 'Korean')}</th><th>{t('발음', 'Rom.')}</th><th>{t('영어', 'English')}</th><th>{t('예문', 'Example')}</th></tr></thead>
+              <tbody>
+                {WORDS.map((w, i) => (
+                  <tr key={i}><td>{i + 1}</td><td><strong>{w.ko}</strong></td><td>{w.rom}</td><td>{w.en}</td><td>{w.ex}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="lesson-section" data-aos="fade-up">
+        <div className="container">
+          <div className="lesson-nav">
+            <Link to="/vocabulary/daily" className="btn btn-secondary">{t('← 이전: 일상 500', '← Previous: Daily 500')}</Link>
+            <Link to="/vocabulary/topik" className="btn btn-primary">{t('다음: TOPIK 800 →', 'Next: TOPIK 800 →')}</Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

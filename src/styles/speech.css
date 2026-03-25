@@ -1,0 +1,491 @@
+/* ============================================
+   SPEECH.CSS - Korean Pro Speech Practice
+   Mic button, waveform, results, accuracy
+   ============================================ */
+
+/* ============================================
+   Speech Practice Container
+   ============================================ */
+
+.speech-practice {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   Speech Target (text to read aloud)
+   ============================================ */
+
+.speech-target {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.speech-target__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+.speech-target__text {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.02em;
+}
+
+.speech-target__meaning {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Speech Controls
+   ============================================ */
+
+.speech-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+/* --- Microphone Button --- */
+.speech-mic-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 3px solid var(--border-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.speech-mic-btn:hover {
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.speech-mic-btn:active {
+  transform: scale(0.95);
+}
+
+/* Listening state */
+.speech-mic-btn.listening {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  animation: micPulse 1.5s ease-in-out infinite;
+}
+
+/* Listening ripple */
+.speech-mic-btn.listening::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--primary-rgb), 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.speech-mic-btn.listening::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  animation: pulse 2s ease-in-out infinite 0.5s;
+}
+
+/* --- Status Text --- */
+.speech-status {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================================
+   Waveform Display
+   ============================================ */
+
+.waveform-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 40px;
+  padding: var(--space-4) 0;
+}
+
+.waveform-bar {
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: height 0.1s ease;
+}
+
+.waveform-display.active .waveform-bar {
+  animation: waveform 0.8s ease-in-out infinite;
+}
+
+.waveform-display.active .waveform-bar:nth-child(1) { animation-delay: 0s; }
+.waveform-display.active .waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-display.active .waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-display.active .waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-display.active .waveform-bar:nth-child(5) { animation-delay: 0.4s; }
+.waveform-display.active .waveform-bar:nth-child(6) { animation-delay: 0.3s; }
+.waveform-display.active .waveform-bar:nth-child(7) { animation-delay: 0.2s; }
+.waveform-display.active .waveform-bar:nth-child(8) { animation-delay: 0.1s; }
+.waveform-display.active .waveform-bar:nth-child(9) { animation-delay: 0s; }
+
+/* ============================================
+   Speech Error
+   ============================================ */
+
+.speech-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--error);
+  margin-bottom: var(--space-5);
+  animation: fadeSlideDown 0.3s ease;
+}
+
+/* ============================================
+   Speech Result
+   ============================================ */
+
+.speech-result {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  animation: fadeSlideUp 0.4s ease;
+}
+
+.speech-result h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.speech-result__text {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+  line-height: 1.4;
+}
+
+/* ============================================
+   Speech Accuracy
+   ============================================ */
+
+.speech-accuracy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speech-accuracy__bar {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.speech-accuracy__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+  background: var(--primary);
+  position: relative;
+}
+
+/* Color variants based on accuracy */
+.speech-accuracy__fill[style*="width: 100%"],
+.speech-accuracy__fill[style*="width: 9"],
+.speech-accuracy__fill[style*="width: 8"] {
+  background: var(--success);
+}
+
+.speech-accuracy__fill[style*="width: 7"],
+.speech-accuracy__fill[style*="width: 6"],
+.speech-accuracy__fill[style*="width: 5"] {
+  background: var(--warning);
+}
+
+.speech-accuracy__value {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.speech-accuracy__value.text-success {
+  color: var(--success);
+}
+
+.speech-accuracy__value.text-warning {
+  color: var(--warning);
+}
+
+.speech-accuracy__value.text-error {
+  color: var(--error);
+}
+
+.speech-accuracy__message {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Speech Comparison
+   ============================================ */
+
+.speech-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.speech-comparison__item {
+  padding: var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.speech-comparison__label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.speech-comparison__text {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.speech-comparison__item--target .speech-comparison__text {
+  color: var(--primary);
+}
+
+.speech-comparison__item--spoken .speech-comparison__text {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Speech History
+   ============================================ */
+
+.speech-history {
+  margin-top: var(--space-8);
+}
+
+.speech-history__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.speech-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speech-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+}
+
+.speech-history-item__text {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.speech-history-item__score {
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  min-width: 48px;
+  text-align: right;
+}
+
+.speech-history-item__score.good {
+  color: var(--success);
+}
+
+.speech-history-item__score.okay {
+  color: var(--warning);
+}
+
+.speech-history-item__score.poor {
+  color: var(--error);
+}
+
+/* ============================================
+   Speech Tips
+   ============================================ */
+
+.speech-tips {
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  background: var(--primary-bg);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  border-radius: var(--radius-lg);
+}
+
+.speech-tips__title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-3);
+}
+
+.speech-tips__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.speech-tips__list li {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding-left: var(--space-5);
+  position: relative;
+  line-height: var(--line-height-relaxed);
+}
+
+.speech-tips__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* ============================================
+   Speech Page-level Layout
+   ============================================ */
+
+.speech-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.speech-page-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.speech-page-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ============================================
+   Speech Sentence List
+   ============================================ */
+
+.speech-sentence-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speech-sentence-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.speech-sentence-item:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
+  background: var(--primary-bg);
+}
+
+.speech-sentence-item.active {
+  border-color: var(--primary);
+  background: var(--primary-bg);
+  box-shadow: var(--shadow-primary);
+}
+
+.speech-sentence-item__korean {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.speech-sentence-item__english {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.speech-sentence-item__score {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}

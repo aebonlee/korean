@@ -1,0 +1,30 @@
+/* ============================================
+   INDEX.CSS - Korean Pro Master Stylesheet
+   Imports all component styles in correct order
+   ============================================ */
+
+/* Foundation */
+@import './styles/base.css';
+
+/* Animations (before components so they can use keyframes) */
+@import './styles/animations.css';
+
+/* Theme */
+@import './styles/dark-mode.css';
+
+/* Layout Components */
+@import './styles/navbar.css';
+@import './styles/hero.css';
+@import './styles/footer.css';
+
+/* Page Content */
+@import './styles/site.css';
+
+/* Feature Pages */
+@import './styles/auth.css';
+@import './styles/chatbot.css';
+@import './styles/vocabulary.css';
+@import './styles/speech.css';
+
+/* Responsive (last to override all breakpoints) */
+@import './styles/responsive.css';

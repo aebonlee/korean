@@ -1,0 +1,229 @@
+/* ============================================
+   FOOTER.CSS - Korean Pro Footer
+   Brand, links, contact, copyright
+   ============================================ */
+
+/* --- Footer Container --- */
+.footer {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-primary);
+  margin-top: auto;
+}
+
+/* --- Footer Inner --- */
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6) var(--space-8);
+}
+
+/* --- Footer Grid (3 columns) --- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-10);
+}
+
+/* --- Footer Brand Column --- */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+/* --- Footer Logo --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--primary);
+  color: #FFFFFF;
+  border-radius: var(--radius);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.footer-brand-text {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* --- Footer Description --- */
+.footer-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-5);
+  max-width: 360px;
+}
+
+/* --- Footer Family Sites --- */
+.footer-family {
+  margin-top: auto;
+}
+
+.footer-family select {
+  width: 100%;
+  max-width: 240px;
+  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 14px 10px;
+}
+
+.footer-family select:hover {
+  border-color: var(--primary);
+}
+
+.footer-family select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+/* --- Footer Column --- */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Footer Heading --- */
+.footer-heading {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-5);
+}
+
+/* --- Footer Links --- */
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  text-decoration: none;
+  padding: var(--space-1) 0;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+.footer-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width var(--transition-normal);
+}
+
+.footer-link:hover::before {
+  width: 100%;
+}
+
+/* --- Footer Contact --- */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+a.footer-contact-row:hover {
+  color: var(--primary);
+}
+
+.footer-contact-row svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+a.footer-contact-row:hover svg {
+  color: var(--primary);
+}
+
+/* --- Footer Copyright --- */
+.footer-copyright {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-primary);
+  padding: var(--space-5) var(--space-6);
+}
+
+.footer-copyright-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-copyright p {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-1);
+}
+
+.footer-copyright p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Footer Meta --- */
+.footer-meta {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.footer-divider {
+  display: inline-block;
+  margin: 0 var(--space-2);
+  color: var(--border-primary);
+  user-select: none;
+}

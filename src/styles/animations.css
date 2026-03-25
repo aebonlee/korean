@@ -1,0 +1,487 @@
+/* ============================================
+   ANIMATIONS.CSS - Korean Pro Keyframe Animations
+   Particles, Fades, Slides, AOS, Loader
+   ============================================ */
+
+/* --- Floating Particle --- */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-30px) translateX(15px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-60px) translateX(-10px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-30px) translateX(20px) rotate(270deg);
+    opacity: 0.7;
+  }
+}
+
+/* --- Shape Float --- */
+@keyframes shape-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
+/* --- Scroll Bounce --- */
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.4;
+  }
+}
+
+/* --- Fade Slide Up --- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Fade Slide Down --- */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Pulse --- */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* --- Gradient Shift --- */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --- Slide In Left --- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Slide In Right --- */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Fade In --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- Fade Out --- */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* --- Scale In --- */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Bounce --- */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --- Shimmer --- */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* --- Ripple --- */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* --- Wiggle --- */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+/* --- Spinner Rotate --- */
+@keyframes spinnerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Ring Pulse (for spinner) --- */
+@keyframes ringPulse {
+  0% {
+    transform: rotate(0deg);
+    border-top-color: var(--primary);
+  }
+  25% {
+    border-top-color: var(--primary-light);
+  }
+  50% {
+    transform: rotate(360deg);
+    border-top-color: var(--primary);
+  }
+  75% {
+    border-top-color: var(--primary-dark);
+  }
+  100% {
+    transform: rotate(720deg);
+    border-top-color: var(--primary);
+  }
+}
+
+/* --- Typing Dots --- */
+@keyframes typingDots {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+/* --- Waveform --- */
+@keyframes waveform {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+/* --- Mic Pulse --- */
+@keyframes micPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(var(--primary-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
+  }
+}
+
+/* --- Card Flip --- */
+@keyframes cardFlipIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cardFlipOut {
+  from {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   AOS (Animate On Scroll) Classes
+   ============================================ */
+
+/* Base AOS styles */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade Up */
+[data-aos="fade-up"] {
+  transform: translateY(30px);
+}
+
+/* Fade Down */
+[data-aos="fade-down"] {
+  transform: translateY(-30px);
+}
+
+/* Fade Left */
+[data-aos="fade-left"] {
+  transform: translateX(30px);
+}
+
+/* Fade Right */
+[data-aos="fade-right"] {
+  transform: translateX(-30px);
+}
+
+/* Fade In */
+[data-aos="fade-in"] {
+  transform: none;
+}
+
+/* Zoom In */
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+
+/* Zoom Out */
+[data-aos="zoom-out"] {
+  transform: scale(1.1);
+}
+
+/* Flip Up */
+[data-aos="flip-up"] {
+  transform: perspective(2500px) rotateX(45deg);
+}
+
+/* Flip Left */
+[data-aos="flip-left"] {
+  transform: perspective(2500px) rotateY(45deg);
+}
+
+/* Animated state - when element scrolls into view */
+.aos-animate[data-aos] {
+  opacity: 1;
+  transform: none;
+}
+
+/* AOS delay utilities */
+[data-aos][data-aos-delay="100"] {
+  transition-delay: 100ms;
+}
+
+[data-aos][data-aos-delay="200"] {
+  transition-delay: 200ms;
+}
+
+[data-aos][data-aos-delay="300"] {
+  transition-delay: 300ms;
+}
+
+[data-aos][data-aos-delay="400"] {
+  transition-delay: 400ms;
+}
+
+[data-aos][data-aos-delay="500"] {
+  transition-delay: 500ms;
+}
+
+[data-aos][data-aos-delay="600"] {
+  transition-delay: 600ms;
+}
+
+[data-aos][data-aos-delay="700"] {
+  transition-delay: 700ms;
+}
+
+[data-aos][data-aos-delay="800"] {
+  transition-delay: 800ms;
+}
+
+/* AOS duration utilities */
+[data-aos][data-aos-duration="300"] {
+  transition-duration: 300ms;
+}
+
+[data-aos][data-aos-duration="400"] {
+  transition-duration: 400ms;
+}
+
+[data-aos][data-aos-duration="500"] {
+  transition-duration: 500ms;
+}
+
+[data-aos][data-aos-duration="600"] {
+  transition-duration: 600ms;
+}
+
+[data-aos][data-aos-duration="800"] {
+  transition-duration: 800ms;
+}
+
+[data-aos][data-aos-duration="1000"] {
+  transition-duration: 1000ms;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* ============================================
+   Page Loader
+   ============================================ */
+
+.page-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: var(--space-4);
+}
+
+.page-loader-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-ring {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-primary);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: ringPulse 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.page-loader-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* --- Animation Utility Classes --- */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.animate-fadeSlideUp {
+  animation: fadeSlideUp 0.4s ease forwards;
+}
+
+.animate-fadeSlideDown {
+  animation: fadeSlideDown 0.4s ease forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.animate-bounce {
+  animation: bounce 1.5s ease infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-spin {
+  animation: spinnerRotate 1s linear infinite;
+}

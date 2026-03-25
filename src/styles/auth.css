@@ -1,0 +1,400 @@
+/* ============================================
+   AUTH.CSS - Korean Pro Authentication Pages
+   Login, Register, Social Login
+   ============================================ */
+
+/* ============================================
+   Login Page
+   ============================================ */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: var(--space-8) var(--space-6);
+  background: var(--bg-secondary);
+}
+
+/* --- Login Container --- */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-10);
+  animation: fadeSlideUp 0.4s ease;
+}
+
+/* --- Login Header --- */
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.login-header__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.login-header__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* ============================================
+   Login Tabs
+   ============================================ */
+
+.login-tabs {
+  display: flex;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius);
+  padding: 3px;
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--border-light);
+}
+
+.login-tabs__tab {
+  flex: 1;
+  padding: 0.625rem 1rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.login-tabs__tab:hover {
+  color: var(--text-primary);
+}
+
+.login-tabs__tab--active {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   Login Form
+   ============================================ */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.login-form__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.login-form__input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.login-form__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+.login-form__input::placeholder {
+  color: var(--text-muted);
+}
+
+.login-form__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--bg-tertiary);
+}
+
+/* --- Form Helper --- */
+.login-form__helper {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* --- Forgot Password --- */
+.login-form__forgot {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: var(--space-1);
+  align-self: flex-end;
+  transition: color var(--transition);
+}
+
+.login-form__forgot:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   Login Error
+   ============================================ */
+
+.login-error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  animation: fadeSlideDown 0.3s ease;
+}
+
+.login-error__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--error);
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.login-error__message {
+  font-size: var(--font-size-sm);
+  color: var(--error);
+  line-height: var(--line-height-normal);
+}
+
+/* ============================================
+   Login Divider
+   ============================================ */
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+  position: relative;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-primary);
+}
+
+.login-divider__text {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0 var(--space-2);
+  background: var(--bg-primary);
+  position: relative;
+}
+
+/* ============================================
+   Social Login Buttons
+   ============================================ */
+
+/* Google Button - inherits from base.css .btn--google */
+.login-form + .login-divider + .btn--google,
+.btn--google.btn--full {
+  margin-bottom: 0;
+}
+
+.btn--google .btn__icon,
+.btn--kakao .btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Kakao Button - bright yellow */
+.btn--kakao {
+  background-color: #FEE500;
+  color: #3C1E1E;
+  border: 1px solid #FEE500;
+  font-weight: 600;
+}
+
+.btn--kakao:hover {
+  background-color: #FADA0A;
+  border-color: #FADA0A;
+  box-shadow: 0 4px 14px rgba(254, 229, 0, 0.35);
+}
+
+.btn--kakao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   Login Extras
+   ============================================ */
+
+.login-footer {
+  text-align: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-light);
+}
+
+.login-footer__text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.login-footer__link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.login-footer__link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   Success State
+   ============================================ */
+
+.login-success {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.login-success__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--success-bg);
+  color: var(--success);
+  font-size: 2rem;
+  margin: 0 auto var(--space-5);
+}
+
+.login-success__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.login-success__message {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Password Strength Indicator
+   ============================================ */
+
+.password-strength {
+  margin-top: var(--space-2);
+}
+
+.password-strength__bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-primary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-1);
+}
+
+.password-strength__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+.password-strength__fill--weak {
+  width: 25%;
+  background: var(--error);
+}
+
+.password-strength__fill--fair {
+  width: 50%;
+  background: var(--warning);
+}
+
+.password-strength__fill--good {
+  width: 75%;
+  background: #22D3EE;
+}
+
+.password-strength__fill--strong {
+  width: 100%;
+  background: var(--success);
+}
+
+.password-strength__text {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Terms & Privacy Links
+   ============================================ */
+
+.login-terms {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+  margin-top: var(--space-5);
+}
+
+.login-terms a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-terms a:hover {
+  text-decoration: underline;
+}

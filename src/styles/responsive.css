@@ -1,0 +1,919 @@
+/* ============================================
+   RESPONSIVE.CSS - Korean Pro Breakpoints
+   1024px, 768px, 640px, 480px
+   ============================================ */
+
+/* ============================================
+   Tablet (max-width: 1024px)
+   ============================================ */
+
+@media (max-width: 1024px) {
+  /* Hide desktop nav, show hamburger */
+  .navbar-desktop {
+    display: none;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  /* Adjust curriculum grid to 2 columns */
+  .curriculum-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Features grid to 2 columns */
+  .features-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer grid stack */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+
+  /* Dashboard grid */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Speech page single column */
+  .speech-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vocabulary grid */
+  .vocab-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Lesson grid */
+  .lesson-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Hangul grid */
+  .hangul-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  /* Reduce section padding */
+  .curriculum-section {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  .features-section {
+    padding: var(--space-12) var(--space-6) var(--space-16);
+  }
+
+  /* Page content padding */
+  .page-content__inner {
+    padding: var(--space-6) var(--space-4) var(--space-12);
+  }
+
+  /* Lesson section padding */
+  .lesson-section {
+    padding: var(--space-6);
+  }
+
+  /* Speech comparison side by side still */
+  .speech-comparison {
+    gap: var(--space-3);
+  }
+}
+
+/* ============================================
+   Tablet Portrait / Phablet (max-width: 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Hide login button on small screens */
+  .navbar-login-btn {
+    display: none;
+  }
+
+  /* Reduce navbar padding */
+  .navbar-inner {
+    padding: 0 var(--space-4);
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: 500px;
+    padding: var(--space-16) var(--space-4) var(--space-12);
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 350px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Curriculum to single column */
+  .curriculum-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Features to single column */
+  .features-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Footer stack to 1 column */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-inner {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  /* Footer copyright */
+  .footer-copyright {
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    align-items: center;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  /* Page header */
+  .page-header {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  .page-header__title {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+
+  /* Reduce font sizes */
+  .curriculum-section__title,
+  .features-section__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .curriculum-section__subtitle,
+  .features-section__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  /* Vocabulary grid to 1 column on small tablets */
+  .vocab-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  /* Login container padding */
+  .login-container {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* Chatbot height */
+  .chatbot-container {
+    height: calc(100vh - var(--navbar-height) - 160px);
+    min-height: 400px;
+  }
+
+  /* Dashboard grid single column */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section nav horizontal scroll */
+  .section-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .section-nav__list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--space-1);
+  }
+
+  .section-nav__link {
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Lesson sections */
+  .lesson-section {
+    padding: var(--space-5);
+  }
+
+  .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Lesson table font size */
+  .lesson-table {
+    font-size: var(--font-size-xs);
+  }
+
+  .lesson-table th,
+  .lesson-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Speech comparison stack */
+  .speech-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  /* Dialogue section */
+  .dialogue-line {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .dialogue-speaker {
+    min-width: auto;
+  }
+
+  /* Practice section */
+  .practice-section {
+    padding: var(--space-5);
+  }
+
+  /* Vocab toolbar stack */
+  .vocab-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vocab-search {
+    min-width: 100%;
+  }
+
+  /* Settings row */
+  .settings-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  /* Flashcard */
+  .flashcard {
+    min-height: 250px;
+    padding: var(--space-8);
+  }
+
+  .flashcard__word {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================
+   Mobile (max-width: 640px)
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Hide color picker on small screens */
+  .color-picker-wrapper {
+    display: none;
+  }
+
+  /* Full-width mobile adjustments */
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  /* Navbar compact */
+  .navbar-brand-text {
+    font-size: var(--font-size-base);
+  }
+
+  .navbar-logo {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+
+  /* Footer logo */
+  .footer-logo {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+
+  /* Hero further reduce */
+  .hero {
+    min-height: 450px;
+    padding: var(--space-12) var(--space-4) var(--space-10);
+  }
+
+  .hero__stat {
+    padding: var(--space-3) var(--space-1);
+  }
+
+  .hero__stat-value {
+    font-size: var(--font-size-xl);
+  }
+
+  .hero__stat-label {
+    font-size: 0.625rem;
+  }
+
+  /* Curriculum & features padding */
+  .curriculum-section {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .features-section {
+    padding: var(--space-8) var(--space-4) var(--space-12);
+  }
+
+  .curriculum-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .feature-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  /* Login */
+  .login-page {
+    padding: var(--space-4);
+  }
+
+  .login-container {
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-xl);
+  }
+
+  .login-header__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Chat adjustments */
+  .chat-messages {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .chat-message {
+    max-width: 90%;
+  }
+
+  .chat-input-area {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Speech */
+  .speech-practice {
+    padding: var(--space-5);
+  }
+
+  .speech-mic-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .speech-target__text {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+
+  /* Hangul grid smaller */
+  .hangul-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .hangul-card {
+    padding: var(--space-3) var(--space-2);
+    min-height: 90px;
+  }
+
+  .hangul-card__character {
+    font-size: 2rem;
+  }
+
+  /* Vocab grid single column */
+  .vocab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vocab list item stack */
+  .vocab-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .vocab-list-item__korean {
+    min-width: auto;
+  }
+
+  .vocab-list-item__roman {
+    min-width: auto;
+  }
+
+  /* Flashcard controls */
+  .flashcard-controls {
+    flex-wrap: wrap;
+  }
+
+  /* Grammar example */
+  .grammar-example {
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .grammar-example__korean {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Tip box */
+  .tip-box {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  /* Dashboard section */
+  .dashboard-section {
+    padding: var(--space-5);
+  }
+
+  /* Settings section */
+  .settings-section {
+    padding: var(--space-5);
+  }
+
+  /* Not found page */
+  .not-found-page__code {
+    font-size: 5rem;
+  }
+
+  .not-found-page__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .not-found-page__actions .btn {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   Small Mobile (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+  /* Minimum sizes */
+  html {
+    font-size: 15px;
+  }
+
+  /* Navbar even more compact */
+  .navbar-inner {
+    padding: 0 var(--space-3);
+  }
+
+  .navbar-brand {
+    gap: var(--space-2);
+  }
+
+  .navbar-actions {
+    gap: var(--space-1);
+  }
+
+  .navbar-icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navbar-lang-btn {
+    height: 32px;
+    padding: 0 0.5rem;
+    font-size: 0.625rem;
+  }
+
+  /* Hero minimum */
+  .hero {
+    min-height: 400px;
+    padding: var(--space-10) var(--space-3) var(--space-8);
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .hero__actions .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: var(--font-size-sm);
+  }
+
+  /* Vertical buttons everywhere */
+  .hero__actions {
+    gap: var(--space-2);
+  }
+
+  /* Stats grid 2 cols on tiny */
+  .hero__stats {
+    gap: var(--space-2);
+  }
+
+  /* Curriculum */
+  .curriculum-section {
+    padding: var(--space-10) var(--space-3);
+  }
+
+  .curriculum-section__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .curriculum-section__subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .curriculum-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .curriculum-card__title {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Features */
+  .features-section {
+    padding: var(--space-8) var(--space-3) var(--space-10);
+  }
+
+  .features-section__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .feature-card__icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.25rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    padding: var(--space-6) var(--space-3) var(--space-4);
+  }
+
+  .footer-copyright {
+    padding: var(--space-3);
+  }
+
+  .footer-copyright p {
+    font-size: 0.625rem;
+  }
+
+  /* Page header */
+  .page-header {
+    padding: var(--space-6) var(--space-3) var(--space-5);
+  }
+
+  .page-header__title {
+    font-size: 1.375rem;
+  }
+
+  .page-header__description {
+    font-size: var(--font-size-sm);
+  }
+
+  .page-header__breadcrumb {
+    font-size: var(--font-size-xs);
+  }
+
+  /* Page content */
+  .page-content__inner {
+    padding: var(--space-4) var(--space-3) var(--space-8);
+  }
+
+  /* Login */
+  .login-container {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .login-header__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .login-tabs__tab {
+    font-size: var(--font-size-xs);
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Chatbot */
+  .chatbot-container {
+    min-height: 350px;
+    border-radius: var(--radius-lg);
+  }
+
+  .chat-message__bubble {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .chat-message--assistant .chat-message__avatar,
+  .chat-message--user .chat-message__avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.875rem;
+  }
+
+  /* Speech */
+  .speech-practice {
+    padding: var(--space-4);
+  }
+
+  .speech-mic-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .speech-mic-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .speech-result {
+    padding: var(--space-4);
+  }
+
+  .speech-result__text {
+    font-size: var(--font-size-xl);
+  }
+
+  .speech-accuracy__value {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Vocab */
+  .vocab-card {
+    padding: var(--space-4);
+    min-height: 160px;
+  }
+
+  .vocab-word {
+    font-size: var(--font-size-2xl);
+  }
+
+  .flashcard {
+    min-height: 200px;
+    padding: var(--space-6);
+  }
+
+  .flashcard__word {
+    font-size: 2rem;
+  }
+
+  /* Lesson */
+  .lesson-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Settings */
+  .settings-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Dashboard */
+  .dashboard-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .dashboard-card {
+    padding: var(--space-4);
+  }
+
+  .dashboard-card__value {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Sub nav */
+  .sub-nav {
+    padding: 0 var(--space-3);
+  }
+
+  .sub-nav__link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+
+  /* Mobile menu width */
+  .mobile-menu {
+    width: 280px;
+  }
+
+  .mobile-menu-header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .mobile-menu-nav {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .mobile-menu-footer {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .mobile-menu-link {
+    padding: 0.625rem 0.75rem;
+    font-size: var(--font-size-xs);
+  }
+
+  /* API key setup */
+  .api-key-setup {
+    padding: var(--space-4);
+  }
+
+  .api-key-setup__form {
+    flex-direction: column;
+  }
+
+  .api-key-setup__form .btn {
+    width: 100%;
+  }
+
+  /* Grammar & tips */
+  .grammar-example {
+    padding: var(--space-3);
+  }
+
+  .grammar-example__korean {
+    font-size: var(--font-size-base);
+  }
+
+  .tip-box {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Practice */
+  .practice-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .practice-item {
+    padding: var(--space-3);
+  }
+
+  .practice-option {
+    padding: 0.5rem 0.75rem;
+    font-size: var(--font-size-xs);
+  }
+
+  /* Dialogue */
+  .dialogue-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* ============================================
+   Landscape phone adjustments
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+
+  .login-page {
+    padding: var(--space-4);
+  }
+
+  .login-container {
+    max-width: 500px;
+  }
+}
+
+/* ============================================
+   Print styles
+   ============================================ */
+
+@media print {
+  .navbar,
+  .navbar-hamburger,
+  .mobile-overlay,
+  .mobile-menu,
+  .footer,
+  .hero__actions,
+  .speech-controls,
+  .chat-input-area,
+  .flashcard-controls,
+  .btn {
+    display: none !important;
+  }
+
+  .main-content {
+    padding-top: 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--space-4);
+    background: none;
+    color: #000;
+  }
+
+  .hero__title,
+  .hero__subtitle {
+    color: #000;
+  }
+
+  .page-header {
+    background: none;
+    color: #000;
+    padding: var(--space-4) 0;
+  }
+
+  .page-header__title,
+  .page-header__description,
+  .page-header__breadcrumb a {
+    color: #000;
+  }
+
+  body {
+    background: #FFF;
+  }
+
+  .card,
+  .lesson-section,
+  .practice-section,
+  .dialogue-section {
+    box-shadow: none;
+    border: 1px solid #CCC;
+  }
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+
+  .speech-mic-btn.listening {
+    animation: none;
+  }
+
+  .waveform-display.active .waveform-bar {
+    animation: none;
+  }
+}
