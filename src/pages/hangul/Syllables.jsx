@@ -77,8 +77,23 @@ export default function Syllables() {
             <h4>{t('💡 ㅇ(이응)의 역할', '💡 Role of ㅇ (ieung)')}</h4>
             <p>
               {t(
-                '초성 위치의 ㅇ은 소리가 없습니다. 모음으로 시작하는 음절에서 자리 채움 역할을 합니다. 예: 아(a), 어(eo), 우(u). 하지만 종성(받침)에서의 ㅇ은 "ng" 소리를 냅니다.',
-                'ㅇ in the initial position is silent. It acts as a placeholder when a syllable starts with a vowel. Example: 아(a), 어(eo), 우(u). However, ㅇ in the final position makes the "ng" sound.'
+                '초성 위치의 ㅇ은 소리가 없습니다.',
+                'ㅇ in the initial position is silent.'
+              )}
+              <br />
+              {t(
+                '모음으로 시작하는 음절에서 자리 채움 역할을 합니다.',
+                'It acts as a placeholder when a syllable starts with a vowel.'
+              )}
+              <br />
+              {t(
+                '예: 아(a), 어(eo), 우(u).',
+                'Example: 아(a), 어(eo), 우(u).'
+              )}
+              <br />
+              {t(
+                '하지만 종성(받침)에서의 ㅇ은 "ng" 소리를 냅니다.',
+                'However, ㅇ in the final position makes the "ng" sound.'
               )}
             </p>
           </div>
@@ -155,8 +170,13 @@ export default function Syllables() {
             <h4>{t('💡 겹받침', '💡 Double Batchim')}</h4>
             <p>
               {t(
-                '겹받침은 두 개의 자음이 받침에 오는 것입니다 (예: ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄ). 홀로 발음할 때는 하나만 발음하고, 뒤에 모음이 오면 나머지 자음이 다음 음절의 초성이 됩니다.',
-                'Double batchim has two consonants in the final position (e.g., ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, etc.). When alone, only one is pronounced. When followed by a vowel, the other consonant moves to the next syllable.'
+                '겹받침은 두 개의 자음이 받침에 오는 것입니다 (예: ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄ).',
+                'Double batchim has two consonants in the final position (e.g., ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, etc.).'
+              )}
+              <br />
+              {t(
+                '홀로 발음할 때는 하나만 발음하고, 뒤에 모음이 오면 나머지 자음이 다음 음절의 초성이 됩니다.',
+                'When alone, only one is pronounced. When followed by a vowel, the other consonant moves to the next syllable.'
               )}
             </p>
           </div>

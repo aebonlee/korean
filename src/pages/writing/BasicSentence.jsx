@@ -74,7 +74,7 @@ export default function BasicSentence() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 팁', '💡 Tip')}</h4>
-            <p>{t('한국어 의문문은 영어처럼 어순이 바뀌지 않습니다. 문장 끝을 올려서 발음하면 됩니다.', 'Korean questions do not change word order like English. Just raise the intonation at the end.')}</p>
+            <p>{t('한국어 의문문은 영어처럼 어순이 바뀌지 않습니다.', 'Korean questions do not change word order like English.')}<br />{t('문장 끝을 올려서 발음하면 됩니다.', 'Just raise the intonation at the end.')}</p>
           </div>
         </div>
       </section>

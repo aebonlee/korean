@@ -48,10 +48,9 @@ export default function AiChatPage() {
           </div>
           <h1 className="page-header__title">{t('AI 한국어 튜터', 'AI Korean Tutor')}</h1>
           <p className="page-header__description">
-            {t(
-              'AI 튜터와 한국어로 대화하며 실시간으로 피드백을 받으세요. 문법 교정, 어휘 제안, 발음 도움 등을 받을 수 있습니다.',
-              'Chat with an AI tutor in Korean and get real-time feedback. Get grammar corrections, vocabulary suggestions, and pronunciation help.'
-            )}
+            {t('AI 튜터와 한국어로 대화하며 실시간으로 피드백을 받으세요.', 'Chat with an AI tutor in Korean and get real-time feedback.')}
+            <br />
+            {t('문법 교정, 어휘 제안, 발음 도움 등을 받을 수 있습니다.', 'Get grammar corrections, vocabulary suggestions, and pronunciation help.')}
           </p>
         </div>
       </section>

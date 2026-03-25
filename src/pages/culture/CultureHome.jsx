@@ -28,10 +28,9 @@ export default function CultureHome() {
           </div>
           <h1 className="page-header__title">{t('한국 문화', 'Korean Culture')}</h1>
           <p className="page-header__description">
-            {t(
-              '언어는 문화와 함께 배울 때 가장 효과적입니다. K-Drama와 K-Pop을 통해 생생한 한국어 표현과 한국 문화를 동시에 배워보세요.',
-              'Language learning is most effective when combined with culture. Learn vivid Korean expressions and Korean culture simultaneously through K-Drama and K-Pop.'
-            )}
+            {t('언어는 문화와 함께 배울 때 가장 효과적입니다.', 'Language learning is most effective when combined with culture.')}
+            <br />
+            {t('K-Drama와 K-Pop을 통해 생생한 한국어 표현과 한국 문화를 동시에 배워보세요.', 'Learn vivid Korean expressions and Korean culture simultaneously through K-Drama and K-Pop.')}
           </p>
         </div>
       </section>

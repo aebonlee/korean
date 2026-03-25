@@ -43,7 +43,7 @@ export default function Restaurant() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 한국 식당 문화', '💡 Korean Restaurant Culture')}</h4>
-            <p>{t('한국 식당에서는 반찬이 무료로 제공되며 리필도 가능합니다. "반찬 더 주세요"라고 하면 됩니다. 팁 문화는 없습니다.', 'Korean restaurants serve free side dishes (banchan) with free refills. Just say "반찬 더 주세요". There is no tipping culture.')}</p>
+            <p>{t('한국 식당에서는 반찬이 무료로 제공되며 리필도 가능합니다.', 'Korean restaurants serve free side dishes (banchan) with free refills.')}<br />{t('"반찬 더 주세요"라고 하면 됩니다.', 'Just say "반찬 더 주세요".')}<br />{t('팁 문화는 없습니다.', 'There is no tipping culture.')}</p>
           </div>
         </div>
       </section>

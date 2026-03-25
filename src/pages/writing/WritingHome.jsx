@@ -45,7 +45,7 @@ export default function WritingHome() {
         <section className="content-section" data-aos="fade-up">
           <div className="tip-box">
             <h4>{t('💡 작문 핵심', '💡 Writing Keys')}</h4>
-            <p>{t('한국어는 SOV(주어-목적어-동사) 어순입니다. 영어와 어순이 다르므로 주의하세요. 예: "나는 한국어를 공부해요" (I Korean study)', 'Korean uses SOV (Subject-Object-Verb) word order. Be careful as it differs from English. Example: "나는 한국어를 공부해요" (I Korean study)')}</p>
+            <p>{t('한국어는 SOV(주어-목적어-동사) 어순입니다.', 'Korean uses SOV (Subject-Object-Verb) word order.')}<br />{t('영어와 어순이 다르므로 주의하세요.', 'Be careful as it differs from English.')}<br />{t('예: "나는 한국어를 공부해요" (I Korean study)', 'Example: "나는 한국어를 공부해요" (I Korean study)')}</p>
           </div>
         </section>
       </div>

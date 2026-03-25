@@ -1515,17 +1515,18 @@
 }
 
 .expression-table td:first-child::after,
-.expression-card__korean::after {
-  content: '🔊';
-  font-size: 0.65em;
+.expression-card__korean::after,
+.vocab-card__word::after {
+  content: ' 🔊';
+  font-size: 0.5em;
   opacity: 0;
-  margin-left: var(--space-1);
   transition: opacity var(--transition);
   vertical-align: middle;
 }
 
 .expression-table td:first-child:hover::after,
-.expression-card__korean:hover::after {
+.expression-card__korean:hover::after,
+.vocab-card__word:hover::after {
   opacity: 0.5;
 }
 

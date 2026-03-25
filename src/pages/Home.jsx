@@ -130,10 +130,9 @@ function Home() {
               {t('AI 챗봇', 'AI Chatbot')}
             </h3>
             <p className="feature-card__description">
-              {t(
-                'OpenAI 기반 AI 챗봇과 실시간 한국어 대화 연습. 상황별 맞춤 피드백을 받으세요.',
-                'Practice real-time Korean conversation with an OpenAI-powered AI chatbot. Get contextual feedback.'
-              )}
+              {t('OpenAI 기반 AI 챗봇과 실시간 한국어 대화 연습.', 'Practice real-time Korean conversation with an OpenAI-powered AI chatbot.')}
+              <br />
+              {t('상황별 맞춤 피드백을 받으세요.', 'Get contextual feedback.')}
             </p>
           </div>
           <div className="feature-card" data-aos="fade-up" data-aos-delay="100">
@@ -144,10 +143,9 @@ function Home() {
               {t('음성 인식', 'Speech Recognition')}
             </h3>
             <p className="feature-card__description">
-              {t(
-                'Web Speech API를 활용한 한국어 발음 연습. 실시간으로 발음을 분석하고 교정받으세요.',
-                'Practice Korean pronunciation with Web Speech API. Get real-time pronunciation analysis and correction.'
-              )}
+              {t('Web Speech API를 활용한 한국어 발음 연습.', 'Practice Korean pronunciation with Web Speech API.')}
+              <br />
+              {t('실시간으로 발음을 분석하고 교정받으세요.', 'Get real-time pronunciation analysis and correction.')}
             </p>
           </div>
           <div className="feature-card" data-aos="fade-up" data-aos-delay="200">

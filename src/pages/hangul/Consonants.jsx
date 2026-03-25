@@ -59,8 +59,13 @@ export default function Consonants() {
           </h1>
           <p className="page-header__description">
             {t(
-              '한글에는 14개의 기본 자음(ㄱ~ㅎ)과 5개의 쌍자음(ㄲ,ㄸ,ㅃ,ㅆ,ㅉ)이 있습니다. 각 자음은 발음 기관의 모양을 본떠 만들어졌습니다.',
-              'Hangul has 14 basic consonants (ㄱ~ㅎ) and 5 double consonants (ㄲ,ㄸ,ㅃ,ㅆ,ㅉ). Each consonant was designed after the shape of the speech organs.'
+              '한글에는 14개의 기본 자음(ㄱ~ㅎ)과 5개의 쌍자음(ㄲ,ㄸ,ㅃ,ㅆ,ㅉ)이 있습니다.',
+              'Hangul has 14 basic consonants (ㄱ~ㅎ) and 5 double consonants (ㄲ,ㄸ,ㅃ,ㅆ,ㅉ).'
+            )}
+            <br />
+            {t(
+              '각 자음은 발음 기관의 모양을 본떠 만들어졌습니다.',
+              'Each consonant was designed after the shape of the speech organs.'
             )}
           </p>
         </div>
@@ -159,8 +164,13 @@ export default function Consonants() {
             <h4>{t('💡 된소리 발음 팁', '💡 Tips for Pronouncing Double Consonants')}</h4>
             <p>
               {t(
-                '쌍자음을 발음할 때는 성대를 긴장시키고 짧고 강하게 발음하세요. 영어의 "sky"에서 s 뒤의 k 소리, "star"에서 s 뒤의 t 소리와 비슷합니다.',
-                'When pronouncing double consonants, tense your vocal cords and make a short, strong sound. Similar to the "k" in "sky" or "t" in "star" after the "s" in English.'
+                '쌍자음을 발음할 때는 성대를 긴장시키고 짧고 강하게 발음하세요.',
+                'When pronouncing double consonants, tense your vocal cords and make a short, strong sound.'
+              )}
+              <br />
+              {t(
+                '영어의 "sky"에서 s 뒤의 k 소리, "star"에서 s 뒤의 t 소리와 비슷합니다.',
+                'Similar to the "k" in "sky" or "t" in "star" after the "s" in English.'
               )}
             </p>
           </div>

@@ -197,8 +197,18 @@ export default function PronunciationRules() {
             <h4>{t('💡 발음 연습 팁', '💡 Pronunciation Practice Tips')}</h4>
             <p>
               {t(
-                '발음 규칙이 많아 처음에는 복잡하게 느껴질 수 있습니다. 규칙을 외우기보다 많은 한국어를 듣고 따라 말하면서 자연스럽게 체득하는 것이 좋습니다. 발음 연습 페이지에서 음성 인식 기능을 활용해 보세요.',
-                'The many pronunciation rules may seem complex at first. Rather than memorizing rules, it is better to listen to a lot of Korean and repeat it to naturally acquire proper pronunciation. Try the speech recognition feature on the Speech Practice page.'
+                '발음 규칙이 많아 처음에는 복잡하게 느껴질 수 있습니다.',
+                'The many pronunciation rules may seem complex at first.'
+              )}
+              <br />
+              {t(
+                '규칙을 외우기보다 많은 한국어를 듣고 따라 말하면서 자연스럽게 체득하는 것이 좋습니다.',
+                'Rather than memorizing rules, it is better to listen to a lot of Korean and repeat it to naturally acquire proper pronunciation.'
+              )}
+              <br />
+              {t(
+                '발음 연습 페이지에서 음성 인식 기능을 활용해 보세요.',
+                'Try the speech recognition feature on the Speech Practice page.'
               )}
             </p>
           </div>

@@ -59,8 +59,13 @@ export default function Vowels() {
           </h1>
           <p className="page-header__description">
             {t(
-              '한글 모음은 하늘(·), 땅(ㅡ), 사람(ㅣ)을 기본 요소로 조합하여 만들어졌습니다. 10개의 기본 모음과 11개의 복합 모음이 있습니다.',
-              'Hangul vowels were created from three base elements: heaven (·), earth (ㅡ), and human (ㅣ). There are 10 basic vowels and 11 compound vowels.'
+              '한글 모음은 하늘(·), 땅(ㅡ), 사람(ㅣ)을 기본 요소로 조합하여 만들어졌습니다.',
+              'Hangul vowels were created from three base elements: heaven (·), earth (ㅡ), and human (ㅣ).'
+            )}
+            <br />
+            {t(
+              '10개의 기본 모음과 11개의 복합 모음이 있습니다.',
+              'There are 10 basic vowels and 11 compound vowels.'
             )}
           </p>
         </div>
@@ -153,8 +158,18 @@ export default function Vowels() {
             <h4>{t('💡 ㅐ vs ㅔ 차이점', '💡 Difference between ㅐ and ㅔ')}</h4>
             <p>
               {t(
-                '현대 한국어에서 ㅐ(ae)와 ㅔ(e)는 거의 같은 소리로 발음됩니다. 원래 ㅐ는 더 넓게, ㅔ는 더 좁게 발음하지만 대부분의 한국 사람들도 구분하지 않습니다. 맞춤법으로 구분하세요.',
-                'In modern Korean, ㅐ (ae) and ㅔ (e) are pronounced almost identically. Originally ㅐ had a wider mouth opening and ㅔ narrower, but most Koreans do not distinguish them. Differentiate them through spelling.'
+                '현대 한국어에서 ㅐ(ae)와 ㅔ(e)는 거의 같은 소리로 발음됩니다.',
+                'In modern Korean, ㅐ (ae) and ㅔ (e) are pronounced almost identically.'
+              )}
+              <br />
+              {t(
+                '원래 ㅐ는 더 넓게, ㅔ는 더 좁게 발음하지만 대부분의 한국 사람들도 구분하지 않습니다.',
+                'Originally ㅐ had a wider mouth opening and ㅔ narrower, but most Koreans do not distinguish them.'
+              )}
+              <br />
+              {t(
+                '맞춤법으로 구분하세요.',
+                'Differentiate them through spelling.'
               )}
             </p>
           </div>

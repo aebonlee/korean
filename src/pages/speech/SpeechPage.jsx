@@ -145,7 +145,7 @@ export default function SpeechPage() {
             <ul>
               <li>{t('조용한 환경에서 연습하면 더 정확한 결과를 얻을 수 있습니다.', 'Practicing in a quiet environment gives more accurate results.')}</li>
               <li>{t('Chrome 브라우저에서 가장 잘 작동합니다.', 'Works best in Chrome browser.')}</li>
-              <li>{t('천천히, 또렷하게 발음하세요. 속도보다 정확성이 중요합니다.', 'Speak slowly and clearly. Accuracy is more important than speed.')}</li>
+              <li>{t('천천히, 또렷하게 발음하세요.', 'Speak slowly and clearly.')}<br />{t('속도보다 정확성이 중요합니다.', 'Accuracy is more important than speed.')}</li>
               <li>{t('같은 문장을 여러 번 반복하면 발음이 자연스러워집니다.', 'Repeating the same sentence multiple times makes pronunciation more natural.')}</li>
               <li>{t('80% 이상의 정확도가 나올 때까지 연습하세요.', 'Practice until you achieve 80% or higher accuracy.')}</li>
             </ul>

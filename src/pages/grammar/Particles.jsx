@@ -18,7 +18,7 @@ export default function Particles() {
             <span>{t('조사', 'Particles')}</span>
           </div>
           <h1 className="page-header__title">{language === 'ko' ? <>조사 <span className="page-header__en">(Particles)</span></> : 'Korean Particles'}</h1>
-          <p className="page-header__description">{t('한국어 조사는 명사 뒤에 붙어 문장에서의 역할을 나타냅니다. 영어에는 없는 개념이므로 잘 익혀야 합니다.', 'Korean particles attach to nouns to indicate their role in a sentence. This concept does not exist in English, so it requires focused study.')}</p>
+          <p className="page-header__description">{t('한국어 조사는 명사 뒤에 붙어 문장에서의 역할을 나타냅니다.', 'Korean particles attach to nouns to indicate their role in a sentence.')}<br />{t('영어에는 없는 개념이므로 잘 익혀야 합니다.', 'This concept does not exist in English, so it requires focused study.')}</p>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function Particles() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 이/가 vs 은/는 차이', '💡 이/가 vs 은/는 Difference')}</h4>
-            <p>{t('이/가는 새로운 정보(주어)를 소개할 때, 은/는은 이미 알려진 화제에 대해 말할 때 사용합니다. "누가 왔어요?" → "민수가 왔어요." / "민수는 학생이에요."', '이/가 introduces new information (subject), while 은/는 is used for known/contrasting topics. "누가 왔어요?" (Who came?) → "민수가 왔어요." (Minsu came.) / "민수는 학생이에요." (As for Minsu, he is a student.)')}</p>
+            <p>{t('이/가는 새로운 정보(주어)를 소개할 때, 은/는은 이미 알려진 화제에 대해 말할 때 사용합니다.', '이/가 introduces new information (subject), while 은/는 is used for known/contrasting topics.')}<br />{t('"누가 왔어요?" → "민수가 왔어요." / "민수는 학생이에요."', '"누가 왔어요?" (Who came?) → "민수가 왔어요." (Minsu came.) / "민수는 학생이에요." (As for Minsu, he is a student.)')}</p>
           </div>
         </div>
       </section>

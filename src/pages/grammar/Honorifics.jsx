@@ -18,7 +18,7 @@ export default function Honorifics() {
             <span>{t('존댓말', 'Honorifics')}</span>
           </div>
           <h1 className="page-header__title">{language === 'ko' ? <>존댓말 <span className="page-header__en">(Honorifics)</span></> : 'Korean Honorifics'}</h1>
-          <p className="page-header__description">{t('한국어에는 상대방과의 관계에 따라 다양한 말씨(speech levels)가 있습니다. 존댓말은 한국 문화에서 매우 중요합니다.', 'Korean has various speech levels depending on your relationship with the listener. Honorifics are very important in Korean culture.')}</p>
+          <p className="page-header__description">{t('한국어에는 상대방과의 관계에 따라 다양한 말씨(speech levels)가 있습니다.', 'Korean has various speech levels depending on your relationship with the listener.')}<br />{t('존댓말은 한국 문화에서 매우 중요합니다.', 'Honorifics are very important in Korean culture.')}</p>
         </div>
       </section>
 
@@ -57,7 +57,7 @@ export default function Honorifics() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 존댓말 사용 팁', '💡 Honorific Tips')}</h4>
-            <p>{t('처음 만나는 사람, 나이가 많은 사람, 직장 상사에게는 반드시 존댓말을 사용하세요. 확실하지 않으면 존댓말을 쓰는 것이 안전합니다.', 'Always use honorifics with strangers, older people, and workplace superiors. When in doubt, using honorifics is the safe choice.')}</p>
+            <p>{t('처음 만나는 사람, 나이가 많은 사람, 직장 상사에게는 반드시 존댓말을 사용하세요.', 'Always use honorifics with strangers, older people, and workplace superiors.')}<br />{t('확실하지 않으면 존댓말을 쓰는 것이 안전합니다.', 'When in doubt, using honorifics is the safe choice.')}</p>
           </div>
         </div>
       </section>

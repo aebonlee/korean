@@ -21,7 +21,7 @@ export default function Greetings() {
             <span>{t('인사 & 소개', 'Greetings')}</span>
           </div>
           <h1 className="page-header__title">{language === 'ko' ? <>인사 & 소개 <span className="page-header__en">(Greetings & Introductions)</span></> : 'Greetings & Introductions'}</h1>
-          <p className="page-header__description">{t('한국어에서 인사는 관계와 상황에 따라 달라집니다. 존댓말과 반말의 차이, 상황별 인사법을 배워보세요.', 'Korean greetings vary based on relationships and situations. Learn the differences between formal and informal speech.')}</p>
+          <p className="page-header__description">{t('한국어에서 인사는 관계와 상황에 따라 달라집니다.', 'Korean greetings vary based on relationships and situations.')}<br />{t('존댓말과 반말의 차이, 상황별 인사법을 배워보세요.', 'Learn the differences between formal and informal speech.')}</p>
         </div>
       </section>
 
@@ -44,7 +44,7 @@ export default function Greetings() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 문화 팁', '💡 Cultural Tip')}</h4>
-            <p>{t('한국에서는 나이가 많거나 처음 만나는 사람에게 반드시 존댓말을 사용합니다. 인사할 때 가볍게 고개를 숙이는 것도 중요한 예절입니다.', 'In Korea, you must use formal speech with older people or strangers. Bowing slightly when greeting is also important etiquette.')}</p>
+            <p>{t('한국에서는 나이가 많거나 처음 만나는 사람에게 반드시 존댓말을 사용합니다.', 'In Korea, you must use formal speech with older people or strangers.')}<br />{t('인사할 때 가볍게 고개를 숙이는 것도 중요한 예절입니다.', 'Bowing slightly when greeting is also important etiquette.')}</p>
           </div>
         </div>
       </section>

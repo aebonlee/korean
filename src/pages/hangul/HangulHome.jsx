@@ -67,8 +67,13 @@ export default function HangulHome() {
           <h1 className="page-header__title">{t('한글 기초', 'Hangul Basics')}</h1>
           <p className="page-header__description">
             {t(
-              '한글은 세종대왕이 1443년에 창제한 과학적인 문자입니다. 자음과 모음의 조합으로 모든 소리를 표현할 수 있으며, 세계에서 가장 체계적인 문자로 인정받고 있습니다.',
-              'Hangul is a scientific writing system created by King Sejong in 1443. It can represent all sounds through combinations of consonants and vowels, and is recognized as one of the most systematic writing systems in the world.'
+              '한글은 세종대왕이 1443년에 창제한 과학적인 문자입니다.',
+              'Hangul is a scientific writing system created by King Sejong in 1443.'
+            )}
+            <br />
+            {t(
+              '자음과 모음의 조합으로 모든 소리를 표현할 수 있으며, 세계에서 가장 체계적인 문자로 인정받고 있습니다.',
+              'It can represent all sounds through combinations of consonants and vowels, and is recognized as one of the most systematic writing systems in the world.'
             )}
           </p>
         </div>
@@ -117,14 +122,24 @@ export default function HangulHome() {
             <ul>
               <li>
                 {t(
-                  '자음과 모음을 먼저 외운 후 음절 조합 연습을 하세요. 소리를 내면서 쓰기 연습을 하면 더 빨리 익힐 수 있습니다.',
-                  'Memorize consonants and vowels first, then practice syllable combinations. Writing while speaking aloud helps you learn faster.'
+                  '자음과 모음을 먼저 외운 후 음절 조합 연습을 하세요.',
+                  'Memorize consonants and vowels first, then practice syllable combinations.'
+                )}
+                <br />
+                {t(
+                  '소리를 내면서 쓰기 연습을 하면 더 빨리 익힐 수 있습니다.',
+                  'Writing while speaking aloud helps you learn faster.'
                 )}
               </li>
               <li>
                 {t(
-                  '한글 자음은 입, 혀, 목의 모양을 본떠 만들어졌습니다. 발음 원리를 이해하면 기억하기 쉽습니다.',
-                  'Hangul consonants are modeled after the shapes of mouth, tongue, and throat. Understanding the pronunciation principles makes memorization easier.'
+                  '한글 자음은 입, 혀, 목의 모양을 본떠 만들어졌습니다.',
+                  'Hangul consonants are modeled after the shapes of mouth, tongue, and throat.'
+                )}
+                <br />
+                {t(
+                  '발음 원리를 이해하면 기억하기 쉽습니다.',
+                  'Understanding the pronunciation principles makes memorization easier.'
                 )}
               </li>
               <li>

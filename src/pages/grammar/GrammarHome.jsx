@@ -26,7 +26,7 @@ export default function GrammarHome() {
               <span>{t('문법', 'Grammar')}</span>
             </div>
             <h1 className="page-header__title">{t('한국어 문법', 'Korean Grammar')}</h1>
-            <p className="page-header__description">{t('한국어의 핵심 문법을 체계적으로 학습하세요. 조사, 동사 활용, 존댓말, 문장 패턴을 단계별로 배울 수 있습니다.', 'Study Korean grammar systematically. Learn particles, verb conjugation, honorifics, and sentence patterns step by step.')}</p>
+            <p className="page-header__description">{t('한국어의 핵심 문법을 체계적으로 학습하세요.', 'Study Korean grammar systematically.')}<br />{t('조사, 동사 활용, 존댓말, 문장 패턴을 단계별로 배울 수 있습니다.', 'Learn particles, verb conjugation, honorifics, and sentence patterns step by step.')}</p>
           </div>
         </section>
 
@@ -47,7 +47,7 @@ export default function GrammarHome() {
         <section className="content-section" data-aos="fade-up">
           <div className="tip-box">
             <h4>{t('💡 문법 학습 팁', '💡 Grammar Study Tips')}</h4>
-            <p>{t('문법 규칙만 외우지 말고, 반드시 예문과 함께 학습하세요. 직접 문장을 만들어 보는 연습이 가장 효과적입니다.', 'Do not just memorize grammar rules. Always study with example sentences. Making your own sentences is the most effective practice.')}</p>
+            <p>{t('문법 규칙만 외우지 말고, 반드시 예문과 함께 학습하세요.', 'Do not just memorize grammar rules. Always study with example sentences.')}<br />{t('직접 문장을 만들어 보는 연습이 가장 효과적입니다.', 'Making your own sentences is the most effective practice.')}</p>
           </div>
         </section>
       </div>

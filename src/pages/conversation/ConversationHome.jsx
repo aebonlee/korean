@@ -32,7 +32,9 @@ export default function ConversationHome() {
           </div>
           <h1 className="page-header__title">{t('일상 한국어 회화', 'Daily Korean Conversation')}</h1>
           <p className="page-header__description">
-            {t('실생활에서 바로 활용할 수 있는 한국어 회화를 상황별로 배워보세요. 인사부터 여행, 쇼핑, 전화까지 다양한 상황에서 자신 있게 한국어로 대화할 수 있도록 도와드립니다.', 'Learn practical Korean conversation organized by real-life situations. From greetings to travel, shopping, and phone calls, build confidence in speaking Korean for every occasion.')}
+            {t('실생활에서 바로 활용할 수 있는 한국어 회화를 상황별로 배워보세요.', 'Learn practical Korean conversation organized by real-life situations.')}
+            <br />
+            {t('인사부터 여행, 쇼핑, 전화까지 다양한 상황에서 자신 있게 한국어로 대화할 수 있도록 도와드립니다.', 'From greetings to travel, shopping, and phone calls, build confidence in speaking Korean for every occasion.')}
           </p>
         </div>
       </section>
@@ -57,7 +59,7 @@ export default function ConversationHome() {
         <div className="container">
           <div className="tip-box">
             <h4>{t('💡 회화 학습 팁', '💡 Conversation Study Tips')}</h4>
-            <p>{t('각 주제별로 핵심 표현을 먼저 익힌 후, 실전 대화 예시를 소리 내어 읽어보세요. 반복 연습이 자연스러운 한국어 대화의 비결입니다!', 'First learn the key expressions for each topic, then read the example dialogues aloud. Repeated practice is the secret to natural Korean conversation!')}</p>
+            <p>{t('각 주제별로 핵심 표현을 먼저 익힌 후, 실전 대화 예시를 소리 내어 읽어보세요.', 'First learn the key expressions for each topic, then read the example dialogues aloud.')}<br />{t('반복 연습이 자연스러운 한국어 대화의 비결입니다!', 'Repeated practice is the secret to natural Korean conversation!')}</p>
           </div>
         </div>
       </section>

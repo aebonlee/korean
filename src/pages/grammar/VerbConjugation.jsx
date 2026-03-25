@@ -75,7 +75,7 @@ export default function VerbConjugation() {
           </div>
           <div className="tip-box" data-aos="fade-up">
             <h4>{t('💡 활용 규칙', '💡 Conjugation Rule')}</h4>
-            <p>{t('어간의 마지막 모음이 ㅏ/ㅗ이면 아요, 그 외에는 어요를 붙입니다. 하다 동사는 항상 해요가 됩니다.', 'If the last vowel of the stem is ㅏ/ㅗ, add 아요. Otherwise add 어요. 하다 verbs always become 해요.')}</p>
+            <p>{t('어간의 마지막 모음이 ㅏ/ㅗ이면 아요, 그 외에는 어요를 붙입니다.', 'If the last vowel of the stem is ㅏ/ㅗ, add 아요. Otherwise add 어요.')}<br />{t('하다 동사는 항상 해요가 됩니다.', '하다 verbs always become 해요.')}</p>
           </div>
         </div>
       </section>
