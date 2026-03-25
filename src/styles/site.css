@@ -869,3 +869,725 @@
 .toggle-switch input:checked + .toggle-switch__slider::before {
   transform: translateX(20px);
 }
+
+/* ============================================
+   Container
+   ============================================ */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ============================================
+   Expression Table
+   ============================================ */
+
+.example-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.expression-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.expression-table thead th {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-tertiary, var(--bg-secondary));
+  border-bottom: 2px solid var(--border-primary);
+  text-align: left;
+  white-space: nowrap;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.expression-table tbody td {
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-light, var(--border-primary));
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+.expression-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.expression-table tbody tr:hover td {
+  background: var(--primary-bg);
+}
+
+.expression-table tbody td strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   Expression Grid & Cards
+   ============================================ */
+
+.expression-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.expression-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-5);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.expression-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.expression-card__korean {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.expression-card__romanization {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted, var(--text-tertiary));
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.expression-card__english {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  padding-top: var(--space-1);
+  border-top: 1px solid var(--border-light, var(--border-primary));
+}
+
+/* ============================================
+   Dialogue Card
+   ============================================ */
+
+.dialogue-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.dialogue-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-light, var(--border-primary));
+}
+
+.dialogue-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialogue-line {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-light, rgba(0,0,0,0.06));
+}
+
+.dialogue-line:last-child {
+  border-bottom: none;
+}
+
+.dialogue-line--a {
+  background: transparent;
+}
+
+.dialogue-line--b {
+  background: var(--bg-secondary, rgba(0,0,0,0.02));
+  margin: 0 calc(var(--space-3) * -1);
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  border-radius: var(--radius);
+}
+
+.dialogue-line__speaker {
+  flex-shrink: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 50px;
+  padding-top: 2px;
+}
+
+.dialogue-line__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dialogue-line__korean {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dialogue-line__english {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Dialogue Vocab
+   ============================================ */
+
+.dialogue-vocab {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-primary);
+}
+
+.dialogue-vocab h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.vocab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.vocab-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--primary-bg);
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  border-radius: var(--radius-full, 999px);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.vocab-chip strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   Dialogue (inline style used in some pages)
+   ============================================ */
+
+.dialogue {
+  margin-bottom: var(--space-4);
+}
+
+.dialogue p {
+  padding: var(--space-2) 0;
+  line-height: 1.7;
+  font-size: var(--font-size-base);
+  border-bottom: 1px solid var(--border-light, rgba(0,0,0,0.06));
+}
+
+.dialogue p:last-child {
+  border-bottom: none;
+}
+
+.speaker {
+  font-weight: 700;
+  margin-right: var(--space-2);
+}
+
+.speaker.a {
+  color: var(--primary);
+}
+
+.speaker.b {
+  color: var(--success, #059669);
+}
+
+.dialogue-translation {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: 1.7;
+  white-space: pre-line;
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  margin-top: var(--space-3);
+}
+
+.translation {
+  font-style: italic;
+}
+
+/* ============================================
+   Topic Grid (Hub pages)
+   ============================================ */
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--primary-rgb), 0.3);
+}
+
+.topic-card:hover::before {
+  transform: scaleX(1);
+}
+
+.topic-card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+}
+
+.topic-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.topic-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: var(--space-3);
+}
+
+.topic-card__count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ============================================
+   Lesson Navigation
+   ============================================ */
+
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   Practice (questions variant)
+   ============================================ */
+
+.practice-questions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.practice-question {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+}
+
+.practice-answer {
+  font-size: var(--font-size-sm);
+  color: var(--primary);
+  line-height: 1.6;
+  padding: var(--space-3) var(--space-4);
+  background: var(--primary-bg);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary);
+}
+
+/* ============================================
+   Page Header extras
+   ============================================ */
+
+.page-header__en {
+  font-size: 0.65em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.page-header__breadcrumb i {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 var(--space-2);
+}
+
+/* ============================================
+   TTS Button
+   ============================================ */
+
+.tts-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  vertical-align: middle;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full, 999px);
+  background: var(--bg-primary);
+  color: var(--primary);
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.tts-btn:hover {
+  background: var(--primary-bg);
+  border-color: var(--primary);
+  transform: scale(1.1);
+}
+
+.tts-btn--active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  animation: pulse 1s infinite;
+}
+
+.tts-btn--slow {
+  width: auto;
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.tts-btn__label {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.tts-buttons--md .tts-btn {
+  width: 36px;
+  height: 36px;
+}
+
+/* ============================================
+   Tip Box (direct children variant)
+   ============================================ */
+
+.tip-box h3,
+.tip-box h4 {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-3);
+}
+
+.tip-box p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-2);
+}
+
+.tip-box p:last-child {
+  margin-bottom: 0;
+}
+
+.tip-box ul,
+.tip-box ol {
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.tip-box li {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-2);
+}
+
+.tip-box li:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Lesson Section direct h2/p
+   ============================================ */
+
+.lesson-section h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1.4;
+}
+
+.lesson-section h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.4;
+}
+
+.lesson-section > .container > p,
+.lesson-section p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+/* ============================================
+   Utility classes used in pages
+   ============================================ */
+
+.mt-lg {
+  margin-top: var(--space-6);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.625rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.btn-primary,
+.btn.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.625rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: #FFFFFF;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Global Line Height Fixes
+   ============================================ */
+
+.page-content p,
+.lesson-section p {
+  line-height: 1.7;
+}
+
+.page-content li,
+.lesson-section li {
+  line-height: 1.7;
+}
+
+/* Multilingual text alignment */
+.expression-table td,
+.expression-card__english,
+.dialogue-line__english,
+.dialogue-english,
+.grammar-example__english,
+.practice-answer {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   Global TTS Click Indicator
+   ============================================ */
+
+/* Korean text that can be clicked for TTS */
+.expression-table td:first-child,
+.expression-card__korean,
+.dialogue-line__korean,
+.hangul-card__character,
+.grammar-example__korean,
+.speech-target__text,
+[data-tts] {
+  cursor: pointer;
+  position: relative;
+}
+
+.expression-table td:first-child::after,
+.expression-card__korean::after {
+  content: '🔊';
+  font-size: 0.65em;
+  opacity: 0;
+  margin-left: var(--space-1);
+  transition: opacity var(--transition);
+  vertical-align: middle;
+}
+
+.expression-table td:first-child:hover::after,
+.expression-card__korean:hover::after {
+  opacity: 0.5;
+}
+
+/* Speaking animation */
+.tts-speaking {
+  color: var(--primary) !important;
+  transition: color 0.2s;
+}
+
+.tts-speaking::after {
+  opacity: 1 !important;
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+/* ============================================
+   Vocab Card (in page content)
+   ============================================ */
+
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.vocab-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.vocab-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.vocab-card__word {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.vocab-card__romanization {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted, var(--text-tertiary));
+  font-style: italic;
+}
+
+.vocab-card__meaning {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.vocab-card__example {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-light, var(--border-primary));
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.vocab-card__example-en {
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-top: var(--space-1);
+}

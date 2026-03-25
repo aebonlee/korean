@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import GlobalTTS from '../components/GlobalTTS';
 
 // Lazy-loaded pages
 const Home = React.lazy(() => import('../pages/Home'));
@@ -103,6 +104,7 @@ export default function PublicLayout() {
 
   return (
     <div className="public-layout">
+      <GlobalTTS />
       <Navbar />
       <main className="main-content" id="main-content">
         <Suspense fallback={<PageLoader />}>

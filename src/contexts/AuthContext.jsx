@@ -6,8 +6,61 @@ const AuthContext = createContext(undefined);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [session, setSession] = useState(null);
+  const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [accountBlock, setAccountBlock] = useState(null);
+
+  const clearAccountBlock = () => setAccountBlock(null);
+
+  async function loadProfile(userId) {
+    try {
+      const { data: profileData } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('id', userId)
+        .single();
+      if (profileData) {
+        setProfile(profileData);
+
+        // signup_domain / visited_sites 자동 처리
+        const currentDomain = window.location.hostname;
+        const updates = {};
+        if (!profileData.signup_domain) updates.signup_domain = currentDomain;
+        const sites = Array.isArray(profileData.visited_sites) ? profileData.visited_sites : [];
+        if (!sites.includes(currentDomain)) {
+          updates.visited_sites = [...sites, currentDomain];
+        }
+        if (Object.keys(updates).length > 0) {
+          supabase.from('user_profiles').update(updates).eq('id', userId).then(() => {});
+        }
+
+        // 계정 상태 체크
+        try {
+          const { data: statusData } = await supabase.rpc('check_user_status', {
+            target_user_id: userId,
+            current_domain: currentDomain,
+          });
+          if (statusData && statusData.status && statusData.status !== 'active') {
+            setAccountBlock({
+              status: statusData.status,
+              reason: statusData.reason || '',
+              suspended_until: statusData.suspended_until || null,
+            });
+            await supabase.auth.signOut();
+            setUser(null);
+            setSession(null);
+            setProfile(null);
+            return;
+          }
+        } catch {
+          // check_user_status 함수 미존재 시 무시
+        }
+      }
+    } catch {
+      setProfile(null);
+    }
+  }
 
   useEffect(() => {
     if (!supabase) {
@@ -22,13 +75,28 @@ export function AuthProvider({ children }) {
       }
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
+      if (currentSession?.user) {
+        loadProfile(currentSession.user.id);
+      }
       setLoading(false);
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, newSession) => {
+      (event, newSession) => {
         setSession(newSession);
-        setUser(newSession?.user ?? null);
+        const u = newSession?.user ?? null;
+        setUser(u);
+        if (u) {
+          loadProfile(u.id);
+          if (event === 'SIGNED_IN') {
+            supabase.from('user_profiles')
+              .update({ last_sign_in_at: new Date().toISOString() })
+              .eq('id', u.id)
+              .then(() => {});
+          }
+        } else {
+          setProfile(null);
+        }
         setLoading(false);
         setError(null);
       }
@@ -182,8 +250,11 @@ export function AuthProvider({ children }) {
   const value = useMemo(() => ({
     user,
     session,
+    profile,
     loading,
     error,
+    accountBlock,
+    clearAccountBlock,
     isAuthenticated: !!user,
     isSupabaseConfigured: !!supabase,
     login,
@@ -192,7 +263,7 @@ export function AuthProvider({ children }) {
     loginWithKakao,
     logout,
     resetPassword
-  }), [user, session, loading, error, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
+  }), [user, session, profile, loading, error, accountBlock, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
 
   return (
     <AuthContext.Provider value={value}>
