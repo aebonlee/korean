@@ -27,6 +27,11 @@
     display: block;
   }
 
+  /* Speech page: show mobile nav, hide sidebar */
+  .speech-mobile-nav {
+    display: block;
+  }
+
   .content-layout {
     grid-template-columns: 1fr;
   }

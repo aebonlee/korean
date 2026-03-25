@@ -1170,3 +1170,84 @@
   color: var(--primary-light);
   border-bottom-color: var(--primary-light);
 }
+
+/* --- Dark Mode: Speech Page Sidebar & Mobile Nav --- */
+[data-theme="dark"] .speech-mobile-nav {
+  background: #1F2937;
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .speech-mobile-nav__cat {
+  color: #9CA3AF;
+  background: #374151;
+  border-color: #4B5563;
+}
+
+[data-theme="dark"] .speech-mobile-nav__cat:hover {
+  color: #F9FAFB;
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .speech-mobile-nav__cat--active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .speech-mobile-nav__sentence {
+  color: #9CA3AF;
+  border-color: #4B5563;
+}
+
+[data-theme="dark"] .speech-mobile-nav__sentence:hover {
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .speech-mobile-nav__sentence--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+[data-theme="dark"] .speech-sidebar__cat {
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .speech-sidebar__cat:hover {
+  background: #374151;
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .speech-sidebar__cat--active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+}
+
+[data-theme="dark"] .speech-sidebar__count {
+  background: #374151;
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .speech-sidebar__cat--active .speech-sidebar__count {
+  background: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-light);
+}
+
+[data-theme="dark"] .speech-sidebar__sentences {
+  border-left-color: #374151;
+}
+
+[data-theme="dark"] .speech-sidebar__sentence {
+  color: #6B7280;
+}
+
+[data-theme="dark"] .speech-sidebar__sentence:hover {
+  color: #F9FAFB;
+  background: #374151;
+}
+
+[data-theme="dark"] .speech-sidebar__sentence--active {
+  color: var(--primary-light);
+  background: rgba(var(--primary-rgb), 0.15);
+  border-left-color: var(--primary-light);
+}

@@ -2531,3 +2531,188 @@
 .tip-box {
   border-left: 4px solid rgba(var(--primary-rgb), 0.4);
 }
+
+/* ============================================
+   Speech Page — Sidebar & Mobile Nav
+   ============================================ */
+
+/* --- Mobile nav (hidden on desktop) --- */
+.speech-mobile-nav {
+  display: none;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+  position: sticky;
+  top: var(--navbar-height, 64px);
+  z-index: 90;
+}
+
+.speech-mobile-nav__cats {
+  display: flex;
+  gap: 0.375rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.625rem 0;
+  scrollbar-width: none;
+}
+
+.speech-mobile-nav__cats::-webkit-scrollbar {
+  display: none;
+}
+
+.speech-mobile-nav__cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full, 999px);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.speech-mobile-nav__cat:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+}
+
+.speech-mobile-nav__cat--active {
+  background: var(--primary-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.speech-mobile-nav__sentences {
+  display: flex;
+  gap: 0.375rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0 0.625rem;
+  scrollbar-width: none;
+}
+
+.speech-mobile-nav__sentences::-webkit-scrollbar {
+  display: none;
+}
+
+.speech-mobile-nav__sentence {
+  white-space: nowrap;
+  padding: 0.3rem 0.75rem;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.speech-mobile-nav__sentence:hover {
+  border-color: var(--primary);
+}
+
+.speech-mobile-nav__sentence--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- Desktop sidebar sentence selector --- */
+.speech-sidebar {
+  margin-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.speech-sidebar__group {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.speech-sidebar__cat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+.speech-sidebar__cat:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.speech-sidebar__cat--active {
+  color: var(--primary);
+  background: var(--primary-bg);
+  font-weight: 600;
+}
+
+.speech-sidebar__cat i {
+  font-size: 0.8rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.speech-sidebar__count {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  background: var(--bg-secondary);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-full, 999px);
+  font-weight: 600;
+}
+
+.speech-sidebar__cat--active .speech-sidebar__count {
+  background: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary);
+}
+
+.speech-sidebar__sentences {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.5rem;
+  border-left: 2px solid var(--border-primary);
+  margin-left: 1.375rem;
+}
+
+.speech-sidebar__sentence {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: all var(--transition);
+  line-height: 1.5;
+}
+
+.speech-sidebar__sentence:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.speech-sidebar__sentence--active {
+  color: var(--primary);
+  background: var(--primary-bg);
+  font-weight: 600;
+  border-left: 2px solid var(--primary);
+  margin-left: -2px;
+}
