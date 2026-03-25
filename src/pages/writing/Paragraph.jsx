@@ -153,7 +153,7 @@ export default function Paragraph() {
               <span className="badge" style={{ backgroundColor: '#4CAF50', color: 'white' }}>
                 {t('주제문', 'Topic Sentence')}
               </span>
-              <p style={{ marginTop: '0.5rem', fontWeight: '600' }}>
+              <p style={{ marginTop: '0.5rem', fontWeight: '600' }} data-tts={SAMPLE_PARAGRAPH.topicKo}>
                 {language === 'ko' ? SAMPLE_PARAGRAPH.topicKo : SAMPLE_PARAGRAPH.topicEn}
               </p>
             </div>
@@ -163,7 +163,7 @@ export default function Paragraph() {
                 {t('뒷받침 문장', 'Supporting Sentences')}
               </span>
               {(language === 'ko' ? SAMPLE_PARAGRAPH.supportKo : SAMPLE_PARAGRAPH.supportEn).map((s, i) => (
-                <p key={i} style={{ marginTop: '0.5rem' }}>{s}</p>
+                <p key={i} style={{ marginTop: '0.5rem' }} data-tts={SAMPLE_PARAGRAPH.supportKo[i]}>{s}</p>
               ))}
             </div>
 
@@ -171,7 +171,7 @@ export default function Paragraph() {
               <span className="badge" style={{ backgroundColor: '#FF9800', color: 'white' }}>
                 {t('마무리 문장', 'Concluding Sentence')}
               </span>
-              <p style={{ marginTop: '0.5rem', fontWeight: '600' }}>
+              <p style={{ marginTop: '0.5rem', fontWeight: '600' }} data-tts={SAMPLE_PARAGRAPH.conclusionKo}>
                 {language === 'ko' ? SAMPLE_PARAGRAPH.conclusionKo : SAMPLE_PARAGRAPH.conclusionEn}
               </p>
             </div>

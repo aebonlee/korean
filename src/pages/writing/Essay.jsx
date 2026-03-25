@@ -131,7 +131,7 @@ export default function Essay() {
             <h4 style={{ color: '#4CAF50' }}>{t('서론용', 'For Introduction')}</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {(language === 'ko' ? ESSAY_CONNECTORS.introKo : ESSAY_CONNECTORS.introEn).map((c, i) => (
-                <span key={i} className="badge">{c}</span>
+                <span key={i} className="badge" data-tts={ESSAY_CONNECTORS.introKo[i]}>{c}</span>
               ))}
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Essay() {
             <h4 style={{ color: '#2196F3' }}>{t('본론용', 'For Body')}</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {(language === 'ko' ? ESSAY_CONNECTORS.bodyKo : ESSAY_CONNECTORS.bodyEn).map((c, i) => (
-                <span key={i} className="badge">{c}</span>
+                <span key={i} className="badge" data-tts={ESSAY_CONNECTORS.bodyKo[i]}>{c}</span>
               ))}
             </div>
           </div>
@@ -149,7 +149,7 @@ export default function Essay() {
             <h4 style={{ color: '#FF9800' }}>{t('결론용', 'For Conclusion')}</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {(language === 'ko' ? ESSAY_CONNECTORS.conclusionKo : ESSAY_CONNECTORS.conclusionEn).map((c, i) => (
-                <span key={i} className="badge">{c}</span>
+                <span key={i} className="badge" data-tts={ESSAY_CONNECTORS.conclusionKo[i]}>{c}</span>
               ))}
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function Essay() {
               <span className="badge" style={{ backgroundColor: '#4CAF50', color: 'white', marginBottom: '0.5rem', display: 'inline-block' }}>
                 {t('서론', 'Introduction')}
               </span>
-              <p>
+              <p data-tts="세계화 시대에 외국어 교육의 중요성에 대해 다양한 의견이 있습니다. 저는 외국어 교육이 매우 중요하다고 생각합니다. 외국어를 배우면 더 넓은 세계와 소통할 수 있기 때문입니다.">
                 {t(
                   '세계화 시대에 외국어 교육의 중요성에 대해 다양한 의견이 있습니다. 저는 외국어 교육이 매우 중요하다고 생각합니다. 외국어를 배우면 더 넓은 세계와 소통할 수 있기 때문입니다.',
                   'In the era of globalization, there are various opinions about the importance of foreign language education. I believe foreign language education is very important because learning foreign languages enables us to communicate with the wider world.'
@@ -179,7 +179,7 @@ export default function Essay() {
               <span className="badge" style={{ backgroundColor: '#2196F3', color: 'white', marginBottom: '0.5rem', display: 'inline-block' }}>
                 {t('본론', 'Body')}
               </span>
-              <p>
+              <p data-tts="첫째, 외국어를 배우면 취업 기회가 넓어집니다. 글로벌 기업에서는 외국어 능력을 갖춘 인재를 선호합니다. 둘째, 외국어를 통해 다른 나라의 문화를 깊이 이해할 수 있습니다. 예를 들어, 한국어를 배우면 한국의 문화와 역사를 더 잘 이해할 수 있습니다. 셋째, 외국어 학습은 두뇌 발달에도 도움이 됩니다. 연구에 따르면 이중 언어 사용자는 인지 능력이 더 높다고 합니다.">
                 {t(
                   '첫째, 외국어를 배우면 취업 기회가 넓어집니다. 글로벌 기업에서는 외국어 능력을 갖춘 인재를 선호합니다. 둘째, 외국어를 통해 다른 나라의 문화를 깊이 이해할 수 있습니다. 예를 들어, 한국어를 배우면 한국의 문화와 역사를 더 잘 이해할 수 있습니다. 셋째, 외국어 학습은 두뇌 발달에도 도움이 됩니다. 연구에 따르면 이중 언어 사용자는 인지 능력이 더 높다고 합니다.',
                   'First, learning a foreign language broadens employment opportunities. Global companies prefer talented individuals with foreign language skills. Second, through foreign languages, we can deeply understand other countries\' cultures. For example, learning Korean helps you better understand Korean culture and history. Third, foreign language learning also helps brain development. Research shows that bilingual speakers have higher cognitive abilities.'
@@ -191,7 +191,7 @@ export default function Essay() {
               <span className="badge" style={{ backgroundColor: '#FF9800', color: 'white', marginBottom: '0.5rem', display: 'inline-block' }}>
                 {t('결론', 'Conclusion')}
               </span>
-              <p>
+              <p data-tts="결론적으로, 외국어 교육은 개인의 발전과 사회의 발전을 위해 반드시 필요합니다. 따라서 어린 시절부터 체계적인 외국어 교육이 이루어져야 한다고 생각합니다.">
                 {t(
                   '결론적으로, 외국어 교육은 개인의 발전과 사회의 발전을 위해 반드시 필요합니다. 따라서 어린 시절부터 체계적인 외국어 교육이 이루어져야 한다고 생각합니다.',
                   'In conclusion, foreign language education is essential for both personal and social development. Therefore, I believe systematic foreign language education should begin from an early age.'

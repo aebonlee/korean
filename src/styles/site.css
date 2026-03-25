@@ -1503,9 +1503,10 @@
    ============================================ */
 
 /* Korean text that can be clicked for TTS */
-.expression-table td:first-child,
+.expression-table td,
 .expression-card__korean,
 .dialogue-line__korean,
+.dialogue p,
 .hangul-card__character,
 .grammar-example__korean,
 .speech-target__text,
@@ -1516,6 +1517,7 @@
 
 .expression-table td:first-child::after,
 .expression-card__korean::after,
+.dialogue-line__korean::after,
 .vocab-card__word::after {
   content: ' 🔊';
   font-size: 0.5em;
@@ -1526,6 +1528,7 @@
 
 .expression-table td:first-child:hover::after,
 .expression-card__korean:hover::after,
+.dialogue-line__korean:hover::after,
 .vocab-card__word:hover::after {
   opacity: 0.5;
 }
