@@ -20,9 +20,9 @@ const LYRICS_VOCAB = [
 ];
 
 const FAN_TERMS = [
-  { ko: '아이돌', romanization: 'aidol', en: 'Idol', desc: 'K-Pop 가수/그룹', descEn: 'K-Pop singer/group' },
+  { ko: '아이돌', romanization: 'aidol', en: 'Idol', desc: 'K-Pop 가수, 그룹', descEn: 'K-Pop singer/group' },
   { ko: '팬덤', romanization: 'paendeom', en: 'Fandom', desc: '팬 집단', descEn: 'Fan community' },
-  { ko: '컴백', romanization: 'keombaek', en: 'Comeback', desc: '새 앨범/노래 발표', descEn: 'New album/song release' },
+  { ko: '컴백', romanization: 'keombaek', en: 'Comeback', desc: '새 앨범, 노래 발표', descEn: 'New album/song release' },
   { ko: '음원', romanization: 'eumwon', en: 'Digital music', desc: '디지털 음악 발매', descEn: 'Digital music release' },
   { ko: '총공', romanization: 'chonggong', en: 'Mass streaming', desc: '팬들이 함께 스트리밍', descEn: 'Fans streaming together' },
   { ko: '덕질', romanization: 'deokjil', en: 'Fangirling/Fanboying', desc: '팬 활동', descEn: 'Doing fan activities' },
@@ -47,7 +47,7 @@ const FAN_CHANTS = [
   { ko: '우리 ___는 최고!', romanization: 'uri ___neun choego!', en: 'Our ___ is the best!' },
   { ko: '앙코르! 앙코르!', romanization: 'angkoreu! angkoreu!', en: 'Encore! Encore!' },
   { ko: '사랑해요!', romanization: 'saranghaeyo!', en: 'We love you!' },
-  { ko: '오빠/언니 멋있어!', romanization: 'oppa/eonni meossisseo!', en: "Oppa/Eonni, you're cool!" },
+  { ko: '오빠, 언니 멋있어!', romanization: 'oppa, eonni meossisseo!', en: "Oppa/Eonni, you're cool!" },
   { ko: '다시 한 번!', romanization: 'dasi han beon!', en: 'One more time!' },
 ];
 
@@ -57,6 +57,7 @@ const FOLK_SONGS = [
     titleEn: 'Arirang',
     origin: 'Korean national folk song, UNESCO Intangible Cultural Heritage',
     originKo: '대한민국 대표 민요, 유네스코 인류무형문화유산',
+    youtube: 'https://www.youtube.com/watch?v=Yrz49xxOC24',
     lyrics: '아리랑 아리랑 아라리요\n아리랑 고개로 넘어간다\n나를 버리고 가시는 님은\n십 리도 못 가서 발병 난다',
     romanization: 'Arirang arirang arariyo\nArirang gogaero neomeoganda\nNareul beorigo gasineun nimeun\nSip rido mot gaseo balbyeong nanda',
     translation: 'Arirang, Arirang, Arariyo\nCrossing over Arirang Pass\nThe one who abandons me and leaves\nWill get sore feet before going ten ri',
@@ -73,6 +74,7 @@ const FOLK_SONGS = [
     titleEn: 'Doraji Taryeong (Bellflower Song)',
     origin: 'Traditional Korean folk song about picking bellflower roots',
     originKo: '도라지 캐기를 노래한 전통 민요',
+    youtube: 'https://www.youtube.com/watch?v=ujEVGiGxlyg',
     lyrics: '도라지 도라지 도라지\n심심산천에 백도라지\n한 두 뿌리만 캐어도\n대바구니 반 시르르 담는다\n에헤요 에헤요 에헤야\n에헤야 난다 지화자 좋다\n네가 내 간장 스리살살 녹인다',
     romanization: 'Doraji doraji doraji\nSimsimsancheone baekdoraji\nHan du ppuriman kaeeodo\nDaebaguni ban sireureul damneunda\nEheyo eheyo eheya\nEheya nanda jihwaja jota\nNega nae ganjang seurisalsal noginda',
     translation: 'Bellflower, bellflower, bellflower\nWhite bellflower in the deep mountains\nEven digging just one or two roots\nFills half a large basket\nEheyo, eheyo, eheya\nEheya, how joyful, jihwaja, how good\nYou melt my heart so softly',
@@ -89,6 +91,7 @@ const FOLK_SONGS = [
     titleEn: 'Miryang Arirang',
     origin: 'Regional Arirang variant from Miryang, Gyeongsang Province',
     originKo: '경상도 밀양 지역의 아리랑 변형',
+    youtube: 'https://www.youtube.com/watch?v=XDIFWqIx9nc',
     lyrics: '날 좀 보소 날 좀 보소 날 좀 보소\n동지섣달 꽃 본 듯이 날 좀 보소\n아리 아리랑 쓰리 쓰리랑 아라리가 났네\n아리랑 고개로 날 넘겨주소',
     romanization: 'Nal jom boso nal jom boso nal jom boso\nDongjiseotdal kkot bon deusi nal jom boso\nAri arirang sseuri sseurirang arariga nassne\nArirang gogaero nal neomgyeojuso',
     translation: 'Look at me, look at me, look at me\nLook at me as if seeing a flower in midwinter\nAri arirang, sseuri sseurirang, arari has come\nPlease let me cross over Arirang Pass',
@@ -104,6 +107,7 @@ const FOLK_SONGS = [
     titleEn: 'Ganggangsullae',
     origin: 'Traditional circle dance song, UNESCO Intangible Cultural Heritage',
     originKo: '전통 강강술래 놀이 노래, 유네스코 인류무형문화유산',
+    youtube: 'https://www.youtube.com/watch?v=6D73WBzzEG4',
     lyrics: '강강술래 강강술래\n뛰어보자 강강술래\n손을 잡고 강강술래\n둥글게 둥글게 강강술래',
     romanization: 'Ganggangsullae ganggangsullae\nTtwieoboja ganggangsullae\nSoneul japgo ganggangsullae\nDunggeulge dunggeulge ganggangsullae',
     translation: 'Ganggangsullae, ganggangsullae\nLet us jump, ganggangsullae\nHolding hands, ganggangsullae\nIn a circle, in a circle, ganggangsullae',
@@ -119,6 +123,7 @@ const FOLK_SONGS = [
     titleEn: 'Ongheya',
     origin: 'Traditional Korean folk song celebrating the arrival of spring',
     originKo: '봄의 도래를 노래한 전통 민요',
+    youtube: 'https://www.youtube.com/results?search_query=%EC%98%B9%ED%97%A4%EC%95%BC+%EC%A0%84%ED%86%B5+%EB%AF%BC%EC%9A%94',
     lyrics: '옹헤야 옹헤야\n이산 저산 꽃이 피니\n분명코 봄이로구나\n옹헤야 옹헤야',
     romanization: 'Ongheya ongheya\nIsan jeosan kkochi pini\nBunmyeongko bomirogun\nOngheya ongheya',
     translation: 'Ongheya, ongheya\nFlowers bloom on this mountain and that\nIt is surely spring\nOngheya, ongheya',
@@ -135,6 +140,7 @@ const FOLK_SONGS = [
     titleEn: 'Nilriliya',
     origin: 'Traditional Korean folk song about love',
     originKo: '사랑을 노래한 전통 민요',
+    youtube: 'https://www.youtube.com/results?search_query=%EB%8B%90%EB%A6%AC%EB%A6%AC%EC%95%BC+%EA%B2%BD%EA%B8%B0%EB%AF%BC%EC%9A%94',
     lyrics: '닐리리야 닐리리야\n니나노 닐리리야\n사랑 사랑 내 사랑아\n니나노 닐리리야',
     romanization: 'Nilriliya nilriliya\nNinano nilriliya\nSarang sarang nae saranga\nNinano nilriliya',
     translation: 'Nilriliya, nilriliya\nNinano, nilriliya\nLove, love, my love\nNinano, nilriliya',
@@ -290,9 +296,30 @@ export default function KPop() {
                   <i className="fas fa-music" style={{ color: 'var(--primary)', marginRight: '0.5rem' }}></i>
                   {song.title} ({song.titleEn})
                 </h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
                   {language === 'ko' ? song.originKo : song.origin}
                 </p>
+                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                  <a href={song.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }}>
+                    <i className="fab fa-youtube" style={{ marginRight: '0.4rem' }}></i>
+                    {t('노래 듣기', 'Listen on YouTube')}
+                  </a>
+                  <button type="button" className="btn btn-secondary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }} onClick={() => {
+                    const synth = window.speechSynthesis;
+                    if (!synth) return;
+                    synth.cancel();
+                    const utterance = new SpeechSynthesisUtterance(song.lyrics.replace(/\n/g, '. '));
+                    utterance.lang = 'ko-KR';
+                    utterance.rate = 0.8;
+                    const voices = synth.getVoices();
+                    const koVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+                    if (koVoice) utterance.voice = koVoice;
+                    synth.speak(utterance);
+                  }}>
+                    <i className="fas fa-volume-up" style={{ marginRight: '0.4rem' }}></i>
+                    {t('가사 듣기 (TTS)', 'Listen to Lyrics (TTS)')}
+                  </button>
+                </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
                   <div>
                     <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{t('가사', 'Lyrics')}</h4>

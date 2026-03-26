@@ -55,7 +55,7 @@ export default function VocabBasic() {
 
             <div className="vocab-grid">
               {currentWords.map((w, i) => (
-                <div key={start + i} className="vocab-card" data-aos="fade-up" data-aos-delay={Math.min(i * 30, 200)}>
+                <div key={start + i} className="vocab-card">
                   <div className="vocab-card__word" data-tts={w.ko}>{w.ko}</div>
                   <div className="vocab-card__romanization">{w.rom}</div>
                   <div className="vocab-card__meaning">{w.en}</div>

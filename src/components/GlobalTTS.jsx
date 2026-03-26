@@ -33,8 +33,10 @@ export default function GlobalTTS() {
     if (!synth || !text) return;
     synth.cancel();
 
-    // Clean up the text (remove emoji, extra spaces)
+    // Clean up the text (remove emoji, extra spaces, fix slashes)
     text = text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+    // Replace slash between Korean characters with comma for natural TTS
+    text = text.replace(/([\u3131-\u3163\uac00-\ud7a3])\/([\u3131-\u3163\uac00-\ud7a3])/g, '$1, $2');
     if (!text) return;
 
     const utterance = new SpeechSynthesisUtterance(text);
@@ -127,7 +129,17 @@ export default function GlobalTTS() {
 
     // Delay to let React finish rendering
     const timer = setTimeout(injectButtons, 150);
-    return () => clearTimeout(timer);
+
+    // Watch for DOM changes (pagination, dynamic content) and re-inject
+    const observer = new MutationObserver(() => {
+      setTimeout(injectButtons, 100);
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [location.pathname]);
 
   // Cleanup on unmount

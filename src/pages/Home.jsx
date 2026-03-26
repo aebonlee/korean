@@ -3,6 +3,12 @@ import SEOHead from '../components/SEOHead';
 import { useLanguage } from '../contexts/LanguageContext';
 import useAOS from '../hooks/useAOS';
 import { CURRICULUM_CARDS } from '../config/site';
+import BASIC_WORDS from '../data/vocabBasicData';
+import DAILY_WORDS from '../data/vocabDailyData';
+import BUSINESS_WORDS from '../data/vocabBusinessData';
+import TOPIK_WORDS from '../data/vocabTopikData';
+
+const TOTAL_WORDS = BASIC_WORDS.length + DAILY_WORDS.length + BUSINESS_WORDS.length + TOPIK_WORDS.length;
 
 function Home() {
   const { lang, t } = useLanguage();
@@ -52,7 +58,7 @@ function Home() {
           </div>
           <div className="hero__stats">
             <div className="hero__stat">
-              <span className="hero__stat-value">2,300+</span>
+              <span className="hero__stat-value">{TOTAL_WORDS.toLocaleString()}+</span>
               <span className="hero__stat-label">{t('단어', 'Words')}</span>
             </div>
             <div className="hero__stat">
