@@ -51,11 +51,106 @@ const FAN_CHANTS = [
   { ko: '다시 한 번!', romanization: 'dasi han beon!', en: 'One more time!' },
 ];
 
+const FOLK_SONGS = [
+  {
+    title: '아리랑',
+    titleEn: 'Arirang',
+    origin: 'Korean national folk song, UNESCO Intangible Cultural Heritage',
+    originKo: '대한민국 대표 민요, 유네스코 인류무형문화유산',
+    lyrics: '아리랑 아리랑 아라리요\n아리랑 고개로 넘어간다\n나를 버리고 가시는 님은\n십 리도 못 가서 발병 난다',
+    romanization: 'Arirang arirang arariyo\nArirang gogaero neomeoganda\nNareul beorigo gasineun nimeun\nSip rido mot gaseo balbyeong nanda',
+    translation: 'Arirang, Arirang, Arariyo\nCrossing over Arirang Pass\nThe one who abandons me and leaves\nWill get sore feet before going ten ri',
+    vocab: [
+      { ko: '고개', en: 'mountain pass', rom: 'gogae' },
+      { ko: '넘어가다', en: 'to cross over', rom: 'neomeogada' },
+      { ko: '버리다', en: 'to abandon', rom: 'beorida' },
+      { ko: '님', en: 'beloved (poetic)', rom: 'nim' },
+      { ko: '발병', en: 'foot disease', rom: 'balbyeong' },
+    ]
+  },
+  {
+    title: '도라지 타령',
+    titleEn: 'Doraji Taryeong (Bellflower Song)',
+    origin: 'Traditional Korean folk song about picking bellflower roots',
+    originKo: '도라지 캐기를 노래한 전통 민요',
+    lyrics: '도라지 도라지 도라지\n심심산천에 백도라지\n한 두 뿌리만 캐어도\n대바구니 반 시르르 담는다\n에헤요 에헤요 에헤야\n에헤야 난다 지화자 좋다\n네가 내 간장 스리살살 녹인다',
+    romanization: 'Doraji doraji doraji\nSimsimsancheone baekdoraji\nHan du ppuriman kaeeodo\nDaebaguni ban sireureul damneunda\nEheyo eheyo eheya\nEheya nanda jihwaja jota\nNega nae ganjang seurisalsal noginda',
+    translation: 'Bellflower, bellflower, bellflower\nWhite bellflower in the deep mountains\nEven digging just one or two roots\nFills half a large basket\nEheyo, eheyo, eheya\nEheya, how joyful, jihwaja, how good\nYou melt my heart so softly',
+    vocab: [
+      { ko: '도라지', en: 'bellflower root', rom: 'doraji' },
+      { ko: '산천', en: 'mountains and streams', rom: 'sancheon' },
+      { ko: '뿌리', en: 'root', rom: 'ppuri' },
+      { ko: '캐다', en: 'to dig up', rom: 'kaeda' },
+      { ko: '간장', en: 'heart (figurative)', rom: 'ganjang' },
+    ]
+  },
+  {
+    title: '밀양 아리랑',
+    titleEn: 'Miryang Arirang',
+    origin: 'Regional Arirang variant from Miryang, Gyeongsang Province',
+    originKo: '경상도 밀양 지역의 아리랑 변형',
+    lyrics: '날 좀 보소 날 좀 보소 날 좀 보소\n동지섣달 꽃 본 듯이 날 좀 보소\n아리 아리랑 쓰리 쓰리랑 아라리가 났네\n아리랑 고개로 날 넘겨주소',
+    romanization: 'Nal jom boso nal jom boso nal jom boso\nDongjiseotdal kkot bon deusi nal jom boso\nAri arirang sseuri sseurirang arariga nassne\nArirang gogaero nal neomgyeojuso',
+    translation: 'Look at me, look at me, look at me\nLook at me as if seeing a flower in midwinter\nAri arirang, sseuri sseurirang, arari has come\nPlease let me cross over Arirang Pass',
+    vocab: [
+      { ko: '동지섣달', en: 'midwinter months', rom: 'dongjiseotdal' },
+      { ko: '꽃', en: 'flower', rom: 'kkot' },
+      { ko: '넘기다', en: 'to let pass over', rom: 'neomgida' },
+      { ko: '보다', en: 'to look / to see', rom: 'boda' },
+    ]
+  },
+  {
+    title: '강강술래',
+    titleEn: 'Ganggangsullae',
+    origin: 'Traditional circle dance song, UNESCO Intangible Cultural Heritage',
+    originKo: '전통 강강술래 놀이 노래, 유네스코 인류무형문화유산',
+    lyrics: '강강술래 강강술래\n뛰어보자 강강술래\n손을 잡고 강강술래\n둥글게 둥글게 강강술래',
+    romanization: 'Ganggangsullae ganggangsullae\nTtwieoboja ganggangsullae\nSoneul japgo ganggangsullae\nDunggeulge dunggeulge ganggangsullae',
+    translation: 'Ganggangsullae, ganggangsullae\nLet us jump, ganggangsullae\nHolding hands, ganggangsullae\nIn a circle, in a circle, ganggangsullae',
+    vocab: [
+      { ko: '뛰다', en: 'to jump / to run', rom: 'ttwida' },
+      { ko: '손', en: 'hand', rom: 'son' },
+      { ko: '잡다', en: 'to hold / to grab', rom: 'japda' },
+      { ko: '둥글다', en: 'to be round', rom: 'dunggeulda' },
+    ]
+  },
+  {
+    title: '옹헤야',
+    titleEn: 'Ongheya',
+    origin: 'Traditional Korean folk song celebrating the arrival of spring',
+    originKo: '봄의 도래를 노래한 전통 민요',
+    lyrics: '옹헤야 옹헤야\n이산 저산 꽃이 피니\n분명코 봄이로구나\n옹헤야 옹헤야',
+    romanization: 'Ongheya ongheya\nIsan jeosan kkochi pini\nBunmyeongko bomirogun\nOngheya ongheya',
+    translation: 'Ongheya, ongheya\nFlowers bloom on this mountain and that\nIt is surely spring\nOngheya, ongheya',
+    vocab: [
+      { ko: '산', en: 'mountain', rom: 'san' },
+      { ko: '꽃', en: 'flower', rom: 'kkot' },
+      { ko: '피다', en: 'to bloom', rom: 'pida' },
+      { ko: '봄', en: 'spring', rom: 'bom' },
+      { ko: '분명히', en: 'surely / clearly', rom: 'bunmyeonghi' },
+    ]
+  },
+  {
+    title: '닐리리야',
+    titleEn: 'Nilriliya',
+    origin: 'Traditional Korean folk song about love',
+    originKo: '사랑을 노래한 전통 민요',
+    lyrics: '닐리리야 닐리리야\n니나노 닐리리야\n사랑 사랑 내 사랑아\n니나노 닐리리야',
+    romanization: 'Nilriliya nilriliya\nNinano nilriliya\nSarang sarang nae saranga\nNinano nilriliya',
+    translation: 'Nilriliya, nilriliya\nNinano, nilriliya\nLove, love, my love\nNinano, nilriliya',
+    vocab: [
+      { ko: '사랑', en: 'love', rom: 'sarang' },
+      { ko: '내', en: 'my', rom: 'nae' },
+    ]
+  },
+];
+
 const sections = [
   { id: 'lyrics-vocab', ko: '가사 단어', en: 'Lyrics Vocabulary' },
   { id: 'fan-terms', ko: '팬 용어', en: 'Fan Terminology' },
   { id: 'lyric-patterns', ko: '가사 패턴', en: 'Lyric Patterns' },
   { id: 'fan-chants', ko: '응원 표현', en: 'Fan Chants' },
+  { id: 'folk-songs', ko: '전통 민요', en: 'Traditional Folk Songs' },
   { id: 'lyric-analysis', ko: '가사 분석', en: 'Lyric Analysis' },
   { id: 'study-tips', ko: '학습 팁', en: 'Study Tips' },
 ];
@@ -179,6 +274,49 @@ export default function KPop() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="folk-songs" className="lesson-section" data-aos="fade-up">
+          <div className="container">
+            <h2>{t('전통 민요로 배우는 한국어', 'Learn Korean through Traditional Folk Songs')}</h2>
+            <p>{t(
+              '저작권 걱정 없이 따라 부를 수 있는 한국 전통 민요입니다. 아름다운 가사를 통해 한국어를 배워보세요.',
+              'These are traditional Korean folk songs you can sing along without copyright concerns. Learn Korean through beautiful lyrics.'
+            )}</p>
+            {FOLK_SONGS.map((song, idx) => (
+              <div key={idx} className="example-box" data-aos="fade-up" data-aos-delay={idx * 100} style={{ marginBottom: '2rem' }}>
+                <h3 style={{ marginBottom: '0.5rem' }}>
+                  <i className="fas fa-music" style={{ color: 'var(--primary)', marginRight: '0.5rem' }}></i>
+                  {song.title} ({song.titleEn})
+                </h3>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+                  {language === 'ko' ? song.originKo : song.origin}
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+                  <div>
+                    <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{t('가사', 'Lyrics')}</h4>
+                    <p style={{ whiteSpace: 'pre-line', lineHeight: 1.8, fontWeight: 500 }}>{song.lyrics}</p>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{t('발음', 'Romanization')}</h4>
+                    <p style={{ whiteSpace: 'pre-line', lineHeight: 1.8, fontStyle: 'italic' }}>{song.romanization}</p>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{t('번역', 'Translation')}</h4>
+                    <p style={{ whiteSpace: 'pre-line', lineHeight: 1.8 }}>{song.translation}</p>
+                  </div>
+                </div>
+                <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{t('핵심 어휘', 'Key Vocabulary')}</h4>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {song.vocab.map((v, vi) => (
+                    <span key={vi} className="badge" style={{ padding: '0.35rem 0.75rem', fontSize: '0.85rem' }}>
+                      {v.ko} ({v.rom}) — {v.en}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

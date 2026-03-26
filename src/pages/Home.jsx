@@ -52,7 +52,7 @@ function Home() {
           </div>
           <div className="hero__stats">
             <div className="hero__stat">
-              <span className="hero__stat-value">800+</span>
+              <span className="hero__stat-value">2,300+</span>
               <span className="hero__stat-label">{t('단어', 'Words')}</span>
             </div>
             <div className="hero__stat">
