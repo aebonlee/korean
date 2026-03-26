@@ -37,3 +37,7 @@ yarn-error.log*
 
 # Claude
 .claude/
+
+# Windows
+NUL
+nul
