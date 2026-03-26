@@ -2,7 +2,7 @@
 
 > **사이트**: https://korean.dreamitbiz.com
 > **저장소**: https://github.com/aebonlee/korean
-> **버전**: 1.7.0
+> **버전**: 1.8.0
 > **최종 업데이트**: 2026-03-26
 
 ---
@@ -260,6 +260,32 @@ const { language, t } = useLanguage();
 ---
 
 ## 변경 이력
+
+### v1.8.0 (2026-03-26) — 어휘 페이지 버그 수정 + TTS 개선 + 민요 팝업 플레이어
+
+**어휘 페이지 수정:**
+- 4개 vocab 페이지(Basic, Daily, Business, TOPIK)에서 2페이지 이후 빈화면 버그 수정
+- 원인: 개별 카드의 `data-aos="fade-up"` → AOS가 페이지네이션 후 새 요소 미감지 → opacity: 0 유지
+- 해결: 개별 카드에서 `data-aos` 제거 (부모 섹션에 이미 적용됨)
+
+**TTS 개선:**
+- GlobalTTS: 한국어 사이 슬래시를 쉼표로 자동 변환 (오빠/언니 → 오빠, 언니)
+- GlobalTTS: MutationObserver 추가 — 페이지네이션 등 DOM 변경 시 TTS 버튼 자동 재삽입
+- KPop.jsx: 슬래시 텍스트 직접 수정 (가수/그룹 → 가수, 그룹 등)
+
+**민요 노래 듣기:**
+- YouTube 링크 추가: 아리랑(UNESCO), 도라지 타령, 밀양 아리랑, 강강술래(UNESCO)
+- 옹헤야, 닐리리야: YouTube 검색 링크 (공식 영상 미확인)
+- 모든 곡에 TTS 가사 듣기 버튼 추가
+- 노래 듣기를 새창 → **팝업 레이어(모달)** 로 변경: YouTube 임베드 플레이어 인라인 재생
+- `getYoutubeId()` 유틸 함수로 비디오 ID 추출, 없으면 검색 링크로 폴백
+
+**메인 페이지:**
+- Home.jsx: 하드코딩 단어 수 → 실제 데이터에서 동적 계산 (`TOTAL_WORDS.toLocaleString()`)
+
+**변경 파일 수: 7개**
+- 컴포넌트: GlobalTTS.jsx
+- 페이지: VocabBasic.jsx, VocabDaily.jsx, VocabBusiness.jsx, VocabTopik.jsx, KPop.jsx, Home.jsx
 
 ### v1.7.0 (2026-03-26) — 어휘 2,300단어 확장 + 전통 민요 추가
 
