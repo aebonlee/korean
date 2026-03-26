@@ -49,10 +49,10 @@ export const NAV_MENU = [
     labelEn: 'Vocabulary',
     path: '/vocabulary',
     children: [
-      { label: '기초 필수 500', labelEn: 'Basic 500', path: '/vocabulary/basic' },
-      { label: '일상 500', labelEn: 'Daily 500', path: '/vocabulary/daily' },
-      { label: '비즈니스 500', labelEn: 'Business 500', path: '/vocabulary/business' },
-      { label: 'TOPIK 800', labelEn: 'TOPIK 800', path: '/vocabulary/topik' }
+      { label: '기초 필수 200', labelEn: 'Basic 200', path: '/vocabulary/basic' },
+      { label: '일상 200', labelEn: 'Daily 200', path: '/vocabulary/daily' },
+      { label: '비즈니스 200', labelEn: 'Business 200', path: '/vocabulary/business' },
+      { label: 'TOPIK 200', labelEn: 'TOPIK 200', path: '/vocabulary/topik' }
     ]
   },
   {
@@ -92,7 +92,7 @@ export const CURRICULUM_CARDS = [
   { title: '한글 기초', titleEn: 'Hangul Basics', desc: '자음, 모음, 음절 구조와 발음 규칙 마스터', path: '/hangul', color: '#2C5282', icon: 'fa-solid fa-language' },
   { title: '일상 회화', titleEn: 'Daily Conversation', desc: '인사, 쇼핑, 여행 등 실생활 필수 한국어 표현', path: '/conversation', color: '#2B6CB0', icon: 'fa-solid fa-comments' },
   { title: '한국어 문법', titleEn: 'Korean Grammar', desc: '조사, 동사 활용, 존댓말 등 핵심 문법 학습', path: '/grammar', color: '#22C55E', icon: 'fa-solid fa-spell-check' },
-  { title: '필수 어휘', titleEn: 'Vocabulary', desc: '기초·일상·비즈니스·TOPIK 필수 2,300+ 단어', path: '/vocabulary', color: '#F59E0B', icon: 'fa-solid fa-book' },
+  { title: '필수 어휘', titleEn: 'Vocabulary', desc: '기초·일상·비즈니스·TOPIK 필수 800 단어', path: '/vocabulary', color: '#F59E0B', icon: 'fa-solid fa-book' },
   { title: '한국어 작문', titleEn: 'Korean Writing', desc: '문장 구조부터 에세이까지 체계적 작문 연습', path: '/writing', color: '#A855F7', icon: 'fa-solid fa-pen-nib' },
   { title: 'TOPIK 대비', titleEn: 'TOPIK Prep', desc: '듣기·읽기 파트별 전략과 모의 테스트', path: '/topik', color: '#EF4444', icon: 'fa-solid fa-graduation-cap' },
   { title: '한국 문화', titleEn: 'Korean Culture', desc: 'K-드라마, K-팝으로 재미있게 배우는 한국어', path: '/culture', color: '#EC4899', icon: 'fa-solid fa-masks-theater' },
