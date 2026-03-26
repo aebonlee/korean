@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import PageLayout from '../../components/PageLayout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+
+function getYoutubeId(url) {
+  const m = url.match(/[?&]v=([^&]+)/);
+  return m ? m[1] : null;
+}
 
 const LYRICS_VOCAB = [
   { ko: '사랑', romanization: 'sarang', en: 'Love', usage: '가장 많이 등장하는 단어', usageEn: 'Most frequently appearing word' },
@@ -164,9 +170,30 @@ const sections = [
 export default function KPop() {
   const { language, t } = useLanguage();
   useAOS();
+  const [videoModal, setVideoModal] = useState(null);
 
   return (
     <>
+      {videoModal && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.8)' }} onClick={() => setVideoModal(null)}>
+          <div style={{ position: 'relative', width: '90%', maxWidth: '800px', aspectRatio: '16/9' }} onClick={e => e.stopPropagation()}>
+            <iframe
+              src={`https://www.youtube.com/embed/${videoModal}?autoplay=1`}
+              title="YouTube"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{ width: '100%', height: '100%', border: 'none', borderRadius: '12px' }}
+            />
+            <button
+              onClick={() => setVideoModal(null)}
+              style={{ position: 'absolute', top: '-40px', right: '0', background: 'none', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer', padding: '0.25rem 0.5rem' }}
+              aria-label="Close"
+            >
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      )}
       <SEOHead
         title={t('K-Pop 한국어 - Korean Pro', 'Learn Korean through K-Pop - Korean Pro')}
         description={t('K-Pop 가사에 나오는 한국어 단어와 팬 용어를 배우세요.', 'Learn Korean words from K-Pop lyrics and fan terminology.')}
@@ -300,10 +327,17 @@ export default function KPop() {
                   {language === 'ko' ? song.originKo : song.origin}
                 </p>
                 <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
-                  <a href={song.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }}>
-                    <i className="fab fa-youtube" style={{ marginRight: '0.4rem' }}></i>
-                    {t('노래 듣기', 'Listen on YouTube')}
-                  </a>
+                  {getYoutubeId(song.youtube) ? (
+                    <button type="button" className="btn btn-primary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }} onClick={() => setVideoModal(getYoutubeId(song.youtube))}>
+                      <i className="fab fa-youtube" style={{ marginRight: '0.4rem' }}></i>
+                      {t('노래 듣기', 'Listen')}
+                    </button>
+                  ) : (
+                    <a href={song.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }}>
+                      <i className="fas fa-search" style={{ marginRight: '0.4rem' }}></i>
+                      {t('노래 검색', 'Search on YouTube')}
+                    </a>
+                  )}
                   <button type="button" className="btn btn-secondary" style={{ fontSize: '0.85rem', padding: '0.4rem 1rem' }} onClick={() => {
                     const synth = window.speechSynthesis;
                     if (!synth) return;
