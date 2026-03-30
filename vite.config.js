@@ -8,8 +8,13 @@ const postBuildPlugin = () => ({
   closeBundle() {
     const distDir = resolve(__dirname, 'dist')
     try {
-      copyFileSync(resolve(distDir, 'index.html'), resolve(distDir, '404.html'))
-      console.log('✅ 404.html copied from index.html')
+      const dest404 = resolve(distDir, '404.html')
+      if (!existsSync(dest404)) {
+        copyFileSync(resolve(distDir, 'index.html'), dest404)
+        console.log('✅ 404.html copied from index.html')
+      } else {
+        console.log('✅ 404.html already exists (from public/), skipping copy')
+      }
     } catch (e) {
       console.warn('⚠️ Could not copy 404.html:', e.message)
     }
