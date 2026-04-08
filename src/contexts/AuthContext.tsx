@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
 
 import type { User, Session } from "@supabase/supabase-js";
 
@@ -107,7 +107,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    supabase!.auth.getSession().then(({ data: { session: currentSession }, error: sessionError }: any) => {
+    supabase!.auth.getSession().then(async ({ data: { session: currentSession }, error: sessionError }: any) => {
       if (sessionError) {
         console.error('Error getting session:', sessionError.message);
         setError(sessionError.message);
@@ -115,13 +115,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
       if (currentSession?.user) {
+        if (currentSession.refresh_token) setSharedSession(currentSession.refresh_token);
         loadProfile(currentSession.user.id);
+      } else {
+        const rt = getSharedSession();
+        if (rt) {
+          try {
+            const { data } = await supabase!.auth.refreshSession({ refresh_token: rt });
+            if (!data.session) clearSharedSession();
+          } catch { clearSharedSession(); }
+        }
       }
       setLoading(false);
     });
 
     const { data: { subscription } } = supabase!.auth.onAuthStateChange(
       (event: string, newSession: Session | null) => {
+        if (newSession?.refresh_token) setSharedSession(newSession.refresh_token);
+        if (event === 'SIGNED_OUT') clearSharedSession();
+
         setSession(newSession);
         const u = newSession?.user ?? null;
         setUser(u);
