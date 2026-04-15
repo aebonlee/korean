@@ -26,5 +26,8 @@
 @import './styles/vocabulary.css';
 @import './styles/speech.css';
 
+/* Admin */
+@import './styles/admin.css';
+
 /* Responsive (last to override all breakpoints) */
 @import './styles/responsive.css';

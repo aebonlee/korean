@@ -1,6 +1,7 @@
 import React from "react";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
+import { ADMIN_EMAILS } from '../config/admin';
 
 import type { User, Session } from "@supabase/supabase-js";
 
@@ -31,6 +32,7 @@ interface AuthContextType {
   accountBlock: AccountBlock | null;
   clearAccountBlock: () => void;
   isAuthenticated: boolean;
+  isAdmin: boolean;
   isSupabaseConfigured: boolean;
   login: (email: string, password: string) => Promise<AuthResult>;
   signup: (email: string, password: string) => Promise<AuthResult>;
@@ -298,6 +300,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return { data };
   }, []);
 
+  const allEmails = [
+    user?.email,
+    (user as any)?.user_metadata?.email,
+    (user as any)?.identities?.[0]?.identity_data?.email,
+  ].filter(Boolean).map((e: any) => e.toLowerCase());
+  const isAdmin = allEmails.some((e: string) => ADMIN_EMAILS.includes(e));
+
   const value = useMemo(() => ({
     user,
     session,
@@ -307,6 +316,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     accountBlock,
     clearAccountBlock,
     isAuthenticated: !!user,
+    isAdmin,
     isSupabaseConfigured: !!supabase!,
     login,
     signup,
@@ -314,7 +324,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     loginWithKakao,
     logout,
     resetPassword
-  }), [user, session, profile, loading, error, accountBlock, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
+  }), [user, session, profile, loading, error, isAdmin, accountBlock, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
 
   return (
     <AuthContext.Provider value={value}>

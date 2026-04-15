@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import AdminGuard from '../components/AdminGuard';
 import GlobalTTS from '../components/GlobalTTS';
 
 // Lazy-loaded pages
@@ -61,6 +62,7 @@ const KPop = React.lazy(() => import('../pages/culture/KPop'));
 // AI & Speech
 const AiChatPage = React.lazy(() => import('../pages/ai-chat/AiChatPage'));
 const SpeechPage = React.lazy(() => import('../pages/speech/SpeechPage'));
+const AdminDashboard = React.lazy(() => import('../pages/admin/AdminDashboard'));
 
 // AOS scroll animation
 function useAOS() {
@@ -166,6 +168,9 @@ export default function PublicLayout() {
             <Route path="login" element={<Login />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="settings" element={<Settings />} />
+
+            {/* Admin */}
+            <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
