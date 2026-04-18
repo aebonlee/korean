@@ -4,6 +4,7 @@ import { supabase, setSharedSession, getSharedSession, clearSharedSession } from
 import { ADMIN_EMAILS } from '../config/admin';
 
 import type { User, Session } from "@supabase/supabase-js";
+import { useIdleTimeout } from '../hooks/useIdleTimeout';
 
 interface UserProfile {
   id: string;
@@ -154,6 +155,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setError(null);
       }
     );
+
+
+  // 10분 무동작 세션 타임아웃
+  useIdleTimeout({
+    enabled: !!user,
+    onTimeout: () => {
+      supabase.auth.signOut();
+      clearSharedSession();
+    },
+  });
 
     return () => {
       subscription.unsubscribe();
