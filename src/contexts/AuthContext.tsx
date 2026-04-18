@@ -5,6 +5,7 @@ import { ADMIN_EMAILS } from '../config/admin';
 
 import type { User, Session } from "@supabase/supabase-js";
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
 interface UserProfile {
   id: string;
@@ -332,14 +333,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useIdleTimeout({
   enabled: !!user,
   onTimeout: () => {
-  supabase.auth.signOut();
+  supabase?.auth.signOut();
   clearSharedSession();
   },
   });
+  const refreshProfile = useCallback(async () => { if (user) await loadProfile(user.id); }, [user, loadProfile]);
+  const needsProfileCompletion = !!user && !!profile && (!profile.name || !profile.phone);
+
 
   return (
     <AuthContext.Provider value={value}>
       {children}
+      {needsProfileCompletion && user && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
     </AuthContext.Provider>
   );
 }
