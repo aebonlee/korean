@@ -338,7 +338,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   },
   });
   const refreshProfile = useCallback(async () => { if (user) await loadProfile(user.id); }, [user, loadProfile]);
-  const needsProfileCompletion = !!user && !!profile && (!profile.name || !profile.phone);
+  const needsProfileCompletion = !!user && !!profile && !profile.name;
 
 
   return (
