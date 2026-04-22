@@ -7,6 +7,7 @@ import type { User, Session } from "@supabase/supabase-js";
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
 import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
+import PaymentNudgePopup from '../components/PaymentNudgePopup';
 interface UserProfile {
   id: string;
   signup_domain?: string;
@@ -347,6 +348,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       {needsProfileCompletion && user && (
         <ProfileCompleteModal user={user} onComplete={refreshProfile} />
       )}
+    {!!user && !needsProfileCompletion && (
+      <PaymentNudgePopup user={user} siteSlug="korean" />
+    )}
     </AuthContext.Provider>
   );
 }
