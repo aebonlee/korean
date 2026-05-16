@@ -155,6 +155,11 @@
    ============================================ */
 
 @media (max-width: 768px) {
+  /* Touch target minimum size */
+  .btn, .nav-login-btn, button:not(.mobile-toggle) {
+      min-height: 44px;
+  }
+
   /* Hide login button on small screens */
   .navbar-login-btn {
     display: none;
