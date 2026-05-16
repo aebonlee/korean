@@ -63,6 +63,7 @@ const KPop = React.lazy(() => import('../pages/culture/KPop'));
 const AiChatPage = React.lazy(() => import('../pages/ai-chat/AiChatPage'));
 const SpeechPage = React.lazy(() => import('../pages/speech/SpeechPage'));
 const AdminDashboard = React.lazy(() => import('../pages/admin/AdminDashboard'));
+const About = React.lazy(() => import('../pages/About'));
 
 // AOS scroll animation
 function useAOS() {
@@ -171,6 +172,8 @@ export default function PublicLayout() {
 
             {/* Admin */}
             <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
+            <Route path="/about" element={<About />} />
+
 
             <Route path="*" element={<NotFound />} />
           </Routes>

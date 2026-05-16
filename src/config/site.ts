@@ -24,6 +24,7 @@ interface NavItem {
 }
 
 export const NAV_MENU: NavItem[] = [
+  { label: '소개', labelEn: 'About', path: '/about' },
   {
     label: '한글 기초',
     labelEn: 'Hangul',
